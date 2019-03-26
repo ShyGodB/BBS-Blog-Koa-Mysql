@@ -17,32 +17,32 @@ router.post('/postTopic', async(ctx) => {
 	const article = ctx.request.body.article;
 	const data = [title, topic_type, article];
 	await db.addTopicToDatabase(data);
-	ctx.redirect('/showTopics')
+	ctx.redirect('/')
 });
 router.post('/showTopic', async(ctx) => {
 	const article = ctx.request.body.article;
 	console.log(article);
 });
-router.post('/create_child_board', async (ctx) => {
+router.post('/createChildBoard', async (ctx) => {
 	const child_bbs = ctx.request.body.child_bbs;
-	const list_child_bbs_promise = db.listChild_BBS();
-	const list_child_bbs = await list_child_bbs_promise; //得到的是所有类别子论坛
+	const listChildBBSPromise = db.listChildBBS();
+	const listChildBBS = await listChildBBSPromise; //得到的是所有类别子论坛
 	let existBBSArray = [];
-	list_child_bbs.forEach(async (bbs) => {
+	listChildBBS.forEach(async (bbs) => {
 		existBBSArray.push(bbs.child_bbs);
 	});
 	if(existBBSArray.length === 0) {
 		await db.addChildBBS(child_bbs);
 		console.log('创建子论坛成功');
-		ctx.redirect('/admin/board_management/manage_child_boards');
+		ctx.redirect('/admin/boardManagement/manageChildBoards');
 	} else { 
 		if(existBBSArray.indexOf(child_bbs) !== -1) {
 			console.log('创建失败，该子论坛已存在，请重新创建!');
-			ctx.redirect('/admin/board_management/create_child_board');
+			ctx.redirect('/admin/boardManagement/createChildBoard');
 		} else {
 			db.addChildBBS(child_bbs);
 			console.log('创建成功');
-			ctx.redirect('/admin/board_management/manage_child_boards');
+			ctx.redirect('/admin/boardManagement/manageChildBoards');
 		}
 	}
 });

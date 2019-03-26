@@ -4,7 +4,7 @@
 			<li class="nav-item">
 				<a class="nav-link active" href="/showTopics/all">全部</a>
 			</li>
-			<% child_BBS.forEach(bbs => { %>
+			<% childBBS.forEach(bbs => { %>
 			<li class="nav-item">
 				<a class="nav-link" href="/showTopics/<%=bbs.child_bbs%>"> <%= bbs.child_bbs %> </a>
 			</li>
@@ -13,7 +13,7 @@
 
 
 		<div class="box">
-			<% if(topic_type === 'all') { %>
+			<% if(topicType === 'all') { %>
 				<ul class="list-group">
 					<% allTopic.forEach(topic => { %>
 					<li class="list-group-item">
@@ -25,7 +25,7 @@
 					</li>
 					<% })%>
 				</ul>
-			<% } else if(topic_type === 'star') { %>
+			<% } else if(topicType === 'star') { %>
 				<ul class="list-group">
 					<% listStarTopic.forEach(topic => { %>
 						<li class="list-group-item">
@@ -38,7 +38,7 @@
 					<% })%>
 				</ul>
 			<% } else { %>
-				<% if(listTopic_byTopic_type.length === 0) { %>
+				<% if(listTopicByTopicType.length === 0) { %>
 					<div class="my-3 p-2 bg-warning">
 						<h2 class="text-danger font-weight-bold m-2"> 此论坛还没帖子，请发表或者联系管理员 </h2>
 						<div class="mt-4 mb-2 ml-2">
@@ -47,7 +47,7 @@
 					</div>
 				<% } else {%>
 					<ul class="list-group">
-						<% listTopic_byTopic_type.forEach(topic => { %>
+						<% listTopicByTopicType.forEach(topic => { %>
 						<li class="list-group-item">
 							<h3>
 								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>

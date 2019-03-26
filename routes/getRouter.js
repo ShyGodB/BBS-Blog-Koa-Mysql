@@ -8,7 +8,7 @@ router.get("/", async (ctx) => { //路由
     const person = await personPromise;
     const allTopicPromise = db.listAllTopicFromBBS();
     const allTopic = await allTopicPromise;
-    const child_BBSPromise = db.listChild_BBS();
+    const child_BBSPromise = db.listChildBBS();
     const child_BBS = await child_BBSPromise;
     await ctx.render('index', {
         user: ctx.session.user,
@@ -19,12 +19,7 @@ router.get("/", async (ctx) => { //路由
 });
 
 //  用户主页
-router.get("/user_home", async (ctx) => { //路由
-    await ctx.render('/user_home', {
-        layout: "layout_user_settings",
-        user: ctx.session.user
-    });
-});
+
 
 
 //  用户设置
@@ -58,7 +53,7 @@ router.get("/settings/advanced", async (ctx) => { //路由
 //  管理员用户登录
 router.get("/admin", async (ctx) => {  //路由 
     const path = ctx.params.path;   
-    const list_child_bbs_promise = db._listChild_BBS();
+    const list_child_bbs_promise = db.listChildBBSAll();
     const list_child_bbs = await list_child_bbs_promise;     
     await ctx.render("/admin", {
         layout: 'layouts/layout_admin',
@@ -66,47 +61,42 @@ router.get("/admin", async (ctx) => {  //路由
         list_child_bbs: list_child_bbs
     });
 });
-router.get("/admin/board_management/show_child_boards", async (ctx) => {  //路由
-    const list_child_bbs_promise = db._listChild_BBS();
-    const list_child_bbs = await list_child_bbs_promise;
-    await ctx.render("/show_child_boards", {
+router.get("/admin/boardManagement/showChildBoards", async (ctx) => {  //路由
+    const listChildBBSPromise = db.listChildBBSAll();
+    const listChildBBS = await listChildBBSPromise;
+    await ctx.render("/showChildBoards", {
         layout: 'layouts/layout_admin',
-        list_child_bbs: list_child_bbs
+        listChildBBS: listChildBBS
     });
 });
-router.get("/admin/board_management/create_child_board", async (ctx) => {  //路由
-    const path = ctx.params.path;
-    const list_child_bbs_promise = db._listChild_BBS();
-    const list_child_bbs = await list_child_bbs_promise;
-    await ctx.render("/create_child_board", {
-        layout: 'layouts/layout_admin',
-        path: path,
-        list_child_bbs: list_child_bbs
+router.get("/admin/boardManagement/createChildBoard", async (ctx) => {  //路由
+    await ctx.render("/createChildBoard", {
+        layout: 'layouts/layout_admin'
     });
 });
-router.get("/admin/board_management/manage_child_boards", async (ctx) => {  //路由
+router.get("/admin/boardManagement/manageChildBoards", async (ctx) => {  //路由
     const path = ctx.params.path;
-    const list_child_bbs_promise = db._listChild_BBS();
-    const list_child_bbs = await list_child_bbs_promise;
-    await ctx.render("/manage_child_boards", {
+    const listChildBBSPromise = db.listChildBBSAll();
+    const listChildBBS = await listChildBBSPromise;
+    await ctx.render("/manageChildBoards", {
         layout: 'layouts/layout_admin',
         path: path,
-        list_child_bbs: list_child_bbs
+        listChildBBS: listChildBBS
     });
 });
 
 // 删除子论坛--管理员
-router.get("/admin/board_management/manage_child_boards/:id", async (ctx) => {
+router.get("/admin/boardManagement/manageChildBoards/:id", async (ctx) => {
     const id = ctx.params.id;
-    const deletePromise = db.delete_child_bbs_by_id(id);
+    const deletePromise = db.deleteChildBoardById(id);
     await deletePromise;
-    ctx.redirect("/admin/board_management/show_child_boards");
+    ctx.redirect("/admin/boardManagement/showChildBoards");
 });
 
 //  删除帖子
 router.get("/admin/allTopicManagement/manageTopics/all/:id", async (ctx) => {
     const id = ctx.params.id;
-    const deleteTopicPromise = db.delete_topic_by_id(id);
+    const deleteTopicPromise = db.deleteTopicById(id);
     await deleteTopicPromise;
     ctx.redirect("/admin/allTopicManagement/manageTopics/all");
 });
@@ -135,26 +125,26 @@ router.get("/postTopic", async (ctx) => {  //路由
 });
 
 //   展示话题
-router.get("/showTopics/:topic_type", async (ctx) => {  //路由
-    const topic_type = ctx.params.topic_type;
+router.get("/showTopics/:topicType", async (ctx) => {  //路由
+    const topicType = ctx.params.topicType;
     const personPromise = db.getUserById(1);
     const person = await personPromise;
     const allTopicPromise = db.listAllTopicFromBBS();
     const allTopic = await allTopicPromise;
-    const child_BBSPromise = db.listChild_BBS();
-    const child_BBS = await child_BBSPromise;
+    const childBBSPromise = db.listChildBBS();
+    const childBBS = await childBBSPromise;
     const listStarTopicPromise = db.listStarTopic();
     const listStarTopic = await listStarTopicPromise;
-    const listTopic_byTopic_type_promise = db.listTopicByTopic_type(topic_type);
-    const listTopic_byTopic_type = await listTopic_byTopic_type_promise;
+    const listTopicByTopicTypePromise = db.listTopicByTopicType(topicType);
+    const listTopicByTopicType = await listTopicByTopicTypePromise;
     await ctx.render('/showTopics', {
         person: person,
         allTopic: allTopic,
-        child_BBS: child_BBS,
+        childBBS: childBBS,
         user: ctx.session.user,
-        topic_type: topic_type,
+        topicType: topicType,
         listStarTopic: listStarTopic,
-        listTopic_byTopic_type: listTopic_byTopic_type
+        listTopicByTopicType: listTopicByTopicType
     });  
 });
 
@@ -170,25 +160,22 @@ router.get('/showTopics/all/:id', async (ctx) => {
 
 //帖子管理--管理员
 router.get("/admin/allTopicManagement/manageTopics/:topicType", async (ctx) => {  //路由
-    const list_child_bbs_promise = db._listChild_BBS();
-    const list_child_bbs = await list_child_bbs_promise;
-    const child_BBSPromise = db.listChild_BBS();
-    const child_BBS = await child_BBSPromise;
+    const childBBSPromise = db.listChildBBS();
+    const childBBS = await childBBSPromise;
     const allTopicPromise = db.listAllTopicFromBBS();
     const allTopic = await allTopicPromise;
     const listStarTopicPromise = db.listStarTopic();
     const listStarTopic = await listStarTopicPromise;
     const topicType = ctx.params.topicType;
-    const listTopic_byTopic_type_promise = db.listTopicByTopic_type(topicType);
-    const listTopic_byTopic_type = await listTopic_byTopic_type_promise;
+    const listTopicByTopicTypePromise = db.listTopicByTopicType(topicType);
+    const listTopicByTopicType = await listTopicByTopicTypePromise;
     await ctx.render("/manageTopics", {
         layout: 'layouts/layout_admin',
         topicType: topicType,
-        child_BBS: child_BBS,
+        childBBS: childBBS,
         allTopic: allTopic,
         listStarTopic: listStarTopic,
-        listTopic_byTopic_type: listTopic_byTopic_type,
-        list_child_bbs: list_child_bbs
+        listTopicByTopicType: listTopicByTopicType,
     });
 });
 

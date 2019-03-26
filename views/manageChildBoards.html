@@ -10,11 +10,11 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% list_child_bbs.forEach(bbs => { %>
+			<% listChildBBS.forEach(bbs => { %>
 			<tr>
 				<th scope="row"> <%= bbs.id %> </th>
 				<td> <%= bbs.child_bbs %> </td>
-				<td> <a class="text-primary" href="/admin/board_management/manage_child_boards/<%= bbs.id %>">Delete</a> </td>
+				<td> <a class="text-primary" href="/admin/boardManagement/manageChildBoards/<%= bbs.id %>">Delete</a> </td>
 			</tr>
 			<% }) %>
 		</tbody>

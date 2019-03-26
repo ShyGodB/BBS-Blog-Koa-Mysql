@@ -10,7 +10,7 @@ router.post('/signUp', async(ctx) => {
 	const data = [username, email, password];
 	db.getUserByUsername(data);
 	ctx.session.user = user;
-	ctx.redirect('/signUp');
+	ctx.redirect('/');
 });
 
 router.get("/signUp", async(ctx) => {  //路由
