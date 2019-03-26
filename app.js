@@ -5,10 +5,10 @@ const render = require('koa-ejs');
 const bodyParser = require('koa-bodyparser');
 const app = new Koa();
 
-const getRouter = require('./routes/getRouter');
-const postRouter = require('./routes/postRouter');
-const signUpRouter = require('./routes/signUpRouter');
-const signInRouter = require('./routes/signInRouter');
+const indexRouter = require('./routes/index');
+const userRouter = require('./routes/user');
+const adminRouter = require('./routes/admin');
+const topicRouter = require('./routes/topic');
 const session = require('koa-session');
 
 
@@ -39,10 +39,10 @@ const CONFIG = {
 app.use(session(CONFIG, app));
 
  //配置路由模块
-app.use(getRouter.routes()).use(getRouter.allowedMethods());
-app.use(postRouter.routes()).use(postRouter.allowedMethods());
-app.use(signUpRouter.routes()).use(signUpRouter.allowedMethods());
-app.use(signInRouter.routes()).use(signInRouter.allowedMethods());
+app.use(indexRouter.routes()).use(indexRouter.allowedMethods());
+app.use(userRouter.routes()).use(userRouter.allowedMethods());
+app.use(adminRouter.routes()).use(adminRouter.allowedMethods());
+app.use(topicRouter.routes()).use(topicRouter.allowedMethods());
 
 //监听端口
 app.listen(3000, async() => {
