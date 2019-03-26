@@ -1,0 +1,35 @@
+<div>
+	<ul class="list-group">
+	  	<li class="list-group-item">
+	  		<h1> 
+	  			话题：<%= topic[0].title %>
+	  		</h1> 
+	  		<h3>
+	  			标签：<%= topic[0].topic_type %>
+	  		</h3>
+	  		<div class="thinPlaceholderLine"></div>
+	  		<p>---------------------------------------------------------------------------------------------------------------------------------------------------</p>
+	  		<p>正文：<%= topic[0].article %></p>
+		</li>
+		<li class="list-group-comments"></li>
+	</ul>
+
+</div>
+
+<div class="comments">
+	<div>
+		<div>
+			<h2>留言</h2>
+		</div>
+	</div>
+
+	<form action="/showTopic" method="post">
+		<div class="my-2">
+			<textarea class="form-control overflow-auto" style="min-height: 20rem" name="article" contenteditable="true"></textarea>
+		</div>
+		<div class="my-2">
+			<button class="btn btn-primary" type="submit">Submit</button>
+		</div>
+	</form>
+</div>
+

@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    
+    <div>
+    <!-- 按钮：用于打开模态框 -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+            Admin
+        </button>
+        <!-- 模态框 -->
+        <div class="modal fade" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">管理员登录</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/" accept-charset="UTF-8" method="post">
+                            <div id='signUpBox'>
+                                <div class="auth-form-body mt-3">
+                                    <label for="login_field"> 用户名 </label>
+                                    <input type="text" name="adminName" id="login_email" class="form-control input-block" tabindex="1"
+                                        autocapitalize="off" autocorrect="off" autofocus="autofocus" />
+                                    <label for="password"> 密码 </label>
+                                    <input type="password" name="adminPassword" id="login_password"
+                                        class="form-control form-control input-block" tabindex="2" />
+                                    <div class="thinPlaceholderLine"></div>
+                                    <input type="submit" name="commit" value="Sign in" tabindex="3" class="btn btn-primary btn-block"
+                                        data-disable-with="Signing in…" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">关闭</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            
+        </ul>
+    </div>
+</nav>

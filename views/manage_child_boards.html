@@ -1,0 +1,26 @@
+
+<div class="m-2 p-2 bg-light">
+	<h2 class="form-group-prepend mb-4"> 子论坛列表：</h2>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col"> id </th>
+				<th scope="col"> name </th>
+				<th scope="col"> edit </th>
+			</tr>
+		</thead>
+		<tbody>
+			<% list_child_bbs.forEach(bbs => { %>
+			<tr>
+				<th scope="row"> <%= bbs.id %> </th>
+				<td> <%= bbs.child_bbs %> </td>
+				<td> <a class="text-primary" href="/admin/board_management/manage_child_boards/<%= bbs.id %>">Delete</a> </td>
+			</tr>
+			<% }) %>
+		</tbody>
+	</table>
+</div>
+
+
+
+

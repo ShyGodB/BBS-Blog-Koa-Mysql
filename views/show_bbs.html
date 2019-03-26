@@ -1,0 +1,63 @@
+<% if(path === undefined) { %>
+<div class="showSimpleInformation m-3 p-5">
+	<h1 class="text-light"> 这里用来展示所有基本信息 </h1>
+</div>
+<% } else if(path === 'showAllChildBBS') { %>
+	<div class="m-2 p-2 bg-light">
+		<h2 class="form-group-prepend mb-4"> 子论坛列表：</h2>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col"> id </th>
+					<th scope="col"> name </th>
+				</tr>
+			</thead>
+			<tbody>
+				<% list_child_bbs.forEach(bbs => { %>
+				<tr>
+					<th scope="row"> <%= bbs.id %> </th>
+					<td> <%= bbs.child_bbs %> </td>
+				</tr>
+				<% }) %>
+			</tbody>
+		</table>
+	</div>
+<% } else if(path === 'create_child_BBS') { %>
+	<div class="m-2 p-2">
+		<h2 class="text-light mb-3"> 创建子论坛 </h2>
+		<form action="/create_child_BBS" method="post">
+			<label class="text-light font-weight-bold mb-2"> 请输入子论坛类别：</label>
+			<div class="input-group mb-3">
+				<input type="text" name="child_bbs" class="form-control" aria-label="Default"
+					aria-describedby="inputGroup-sizing-default" placeholder="">
+			</div>
+	
+			<button class="btn btn-primary btn-block" type="submit">创建</button>
+		</form>
+	</div>
+<% } else if(path === 'manageChildBBS') { %>	
+	<div class="m-2 p-2 bg-light">
+		<h2 class="form-group-prepend mb-4"> 子论坛列表：</h2>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th scope="col"> id </th>
+					<th scope="col"> name </th>
+					<th scope="col"> edit </th>
+				</tr>
+			</thead>
+			<tbody>
+				<% list_child_bbs.forEach(bbs => { %>
+				<tr>
+					<th scope="row"> <%= bbs.id %> </th>
+					<td> <%= bbs.child_bbs %> </td>
+					<td> <a class="text-primary" href="/delete?id=<%= bbs.id %>">Delete</a> </td>
+				</tr>
+				<% }) %>
+			</tbody>
+		</table>
+	</div>
+<% }%>
+
+
+

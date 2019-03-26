@@ -1,0 +1,103 @@
+
+<div class="m-2 p-2">
+	<h2 class="text-light my-3"> 在这里你可以对所有帖子进行管理 </h2>
+	<ul class="nav btn-lg bg-light">
+		<li class="nav-item">
+			<a class="nav-link active" href="/admin/allTopicManagement/manageTopics/all">全部</a>
+		</li>
+		<% child_BBS.forEach(bbs => { %>
+		<li class="nav-item">
+			<a class="nav-link" href="/admin/allTopicManagement/manageTopics/<%=bbs.child_bbs%>"> <%= bbs.child_bbs %> </a>
+		</li>
+		<% }) %>
+	</ul>
+
+	<table class="table bg-light text-dark mt-3">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col"> id </th>
+				<th scope="col"> title </th>
+				<th scope="col"> topic_type </th>
+				<th scope="col"> Star? </th>
+				<th scope="col"> edit </th>
+			</tr>
+		</thead>
+		<tbody>
+			<% if(topicType === "all") { %>
+				<% allTopic.forEach(topic => { %>
+					<tr>
+						<th scope="row"> <%= topic.id %> </th>
+						<td> <%= topic.title %> </td>
+						<td> <%= topic.topic_type %> </td>
+						<td>
+							<% if(topic.star === 1) {%>
+								True
+							<%} else {%>
+								False
+							<% } %>
+						</td>
+						<td>
+							<a class="text-primary mr-3" href="/admin/allTopicManagement/manageTopics/all/<%= topic.id %>"> Delete </a>
+							<a class="text-primary mr-3" href="/admin/allTopicManagement/all/<%= topic.id %>"> Star </a>
+							<a class="text-primary" href="/admin/allTopicManagement/star/<%= topic.id %>"> Reduce </a>
+						</td>
+
+					</tr>
+				<% })%>
+			<% } else if(topicType === 'star'){ %>
+				<% listStarTopic.forEach(topic => { %>
+					<tr>
+						<th scope="row"> <%= topic.id %> </th>
+						<td> <%= topic.title %> </td>
+						<td> <%= topic.topic_type %> </td>
+						<td>
+							<% if(topic.star === 1) {%>
+							True
+							<%} else {%>
+							False
+							<% } %>
+						</td>
+						<td>
+							<a class="text-primary mr-3" href="/admin/allTopicManagement/manageTopics/all/<%= topic.id %>"> Delete </a>
+							<a class="text-primary mr-3" href="/admin/allTopicManagement/all/<%= topic.id %>"> Star </a>
+							<a class="text-primary" href="/admin/allTopicManagement/star/<%= topic.id %>"> Reduce </a>
+						</td>
+
+					</tr>
+				<% })%>
+			<% } else { %>
+					<% if(listTopic_byTopic_type.length === 0) { %>
+						<tr>
+							<th scope="row"> -- </th>
+							<td> ---- </td>
+							<td> ----------- </td>
+							<td> ----- </td>
+							<td> ---- </td>
+						</tr>
+					<% } else {%>
+						<% listTopic_byTopic_type.forEach(topic => { %>
+							<tr>
+								<th scope="row"> <%= topic.id %> </th>
+								<td> <%= topic.title %> </td>
+								<td> <%= topic.topic_type %> </td>
+								<td> <% if(topic.star === 1) {%>
+										True
+									 <%} else {%>
+										False
+									 <% } %>
+								</td>
+								<td>
+									<a class="text-primary mr-3" href="/admin/allTopicManagement/manageTopics/all/<%= topic.id %>"> Delete </a>
+									<a class="text-primary mr-3" href="/admin/allTopicManagement/all/<%= topic.id %>"> Star </a>
+									<a class="text-primary" href="/admin/allTopicManagement/star/<%= topic.id %>"> Reduce </a>
+								</td>
+							</tr>
+						<% }) %>
+					<% } %>
+			<% } %>
+		</tbody>
+	</table>
+</div>
+
+
+

@@ -1,0 +1,107 @@
+<section>
+	<div class="col-3 float-left">
+		<nav class="navbar p-0" aria-label="Personal settings" data-pjax>
+				<ul class="navbar-nav bg-light border">
+					<h3 class="menu-heading">
+						Personal settings
+					</h3>
+				
+					<li class="nav-item">
+						<a class="js-selected-navigation-item  menu-item" aria-current="page"
+							data-selected-links="avatar_settings /settings/profile" href="/settings/profile"> 个人资料 </a>
+					</li>
+					<li class="nav-item">
+						<a class="js-selected-navigation-item menu-item" data-selected-links=" /settings/contaction"
+							href="/settings/connection">
+							联系信息
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="js-selected-navigation-item selected menu-item" data-selected-links=" /settings/advanced"
+							href="/settings/advanced"> 高级设置 </a>
+					</li>
+				</ul>
+		</nav>
+	</div>
+</section>
+
+<section>
+	<div class="col-9 float-right pr-1" style="min-height: 660px">
+		<div class="form-group mb-5 border p-2">
+			<h2 class="form-group-prepend mb-2"> 联系人：</h2>
+			<table class="table">
+				<thead class="thead-dark">
+					<tr>
+						<th scope="col"> id </th>
+						<th scope="col"> name </th>
+						<th scope="col"> email </th>
+						<th scope="col"> last_time </th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<th scope="row">1 </th>
+						<td> Mark </td>
+						<td> mark@gmail.com </td>
+						<td> September 15, 2018 </td>
+					</tr>
+					<tr>
+						<th scope="row">2 </th>
+						<td>Jacob </td>
+						<td>jacob@gmail.com </td>
+						<td>May 1, 2018 </td>
+					</tr>
+					<tr>
+						<th scope="row">3 </th>
+						<td>Larry </td>
+						<td>larry@gmail.com </td>
+						<td>December 25, 2017 </td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="w-100 m-1">
+			<!-- 按钮：用于打开模态框 -->
+			<button type="button" class="btn btn-primary btn-block my-3" data-toggle="modal" data-target="#myModal">
+				修改密码
+			</button>
+			<!-- 模态框 -->
+			<div class="modal fade" id="myModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h4 class="modal-title">修改密码</h4>
+							<button type="button" class="close" data-dismiss="modal">&times;</button>
+						</div>
+						<div class="modal-body">
+							<form action="/" accept-charset="UTF-8" method="post">
+								<div id='signUpBox'>
+									<div class="auth-form-body mt-3">
+										<label for="login_field"> 原密码 </label>
+										<input type="text" name="adminName" id="login_email"
+											class="form-control input-block" tabindex="1" autocapitalize="off"
+											autocorrect="off" autofocus="autofocus" />
+										<label for="password"> 新密码 </label>
+										<input type="password" name="adminPassword" id="login_password"
+											class="form-control form-control input-block" tabindex="2" />
+
+										<label for="password"> 新密码确认 </label>
+										<input type="password" name="adminPassword" id="login_password"
+											class="form-control form-control input-block" tabindex="2" />
+
+										<input type="submit" name="commit" value="确定" tabindex="3"
+											class="btn btn-primary btn-block" data-disable-with="Signing in…" />
+									</div>
+								</div>
+							</form>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-secondary" data-dismiss="modal">本帝不改了</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+

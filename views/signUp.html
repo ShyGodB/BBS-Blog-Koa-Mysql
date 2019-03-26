@@ -1,0 +1,54 @@
+<form action="/signUp" accept-charset="UTF-8" method="post" class="needs-validation" novalidate>
+    <div id='signUpBox'>
+        <div class="auth-form-header p-0">
+            <h1>Sign up to BBS</h1>
+        </div>
+
+        <div class="auth-form-body mt-3">
+            <label for="signUpName">
+              Nickname
+            </label>
+            <input required type="name" name="username" id="signUpName" class="form-control input-block" tabindex="1" autocapitalize="off" autocorrect="off" autofocus="autofocus" />
+
+            <label for="signUpEmail">
+              Email address
+            </label>
+            <input required type="email" name="email" id="signUpEmail" class="form-control input-block password" tabindex="1" autocapitalize="off" autocorrect="off" autofocus="autofocus" />
+
+            <label id="label1" for="signUpPassword">
+              Password 
+            </label>
+            <input required type="password" name="password" id="signUpPassword" onchange="listenPassword1()" class="form-control form-control input-block" tabindex="2" />
+            <div class="valid-feedback text-danger mb-3 font-weight-bold">
+              请输入密码
+            </div>
+
+            <input type="submit" id="buttonSign" name="commit" value="Sign up" tabindex="3" class="btn btn-primary btn-block" data-disable-with="Signing in…" />
+        </div>
+    </div>
+</form>
+
+<p class="instruction text-center">
+  已有账号？
+  请 <a href="/signIn">登录</a>
+</p>
+
+
+<script>
+  (function () {
+    'use strict';
+    window.addEventListener('load', function () {
+      var forms = document.getElementsByClassName('needs-validation');
+      var validation = Array.prototype.filter.call(forms, function (form) {
+        form.addEventListener('submit', function (event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    }, false);
+  })();
+</script>
+

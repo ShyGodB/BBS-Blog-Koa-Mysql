@@ -1,0 +1,83 @@
+<div class="mb-5 row">
+	<div class="col-md-9 my-3">
+		<ul class="nav btn-lg bg-light">
+			<li class="nav-item">
+				<a class="nav-link active" href="/showTopics/all">全部</a>
+			</li>
+			<% child_BBS.forEach(bbs => { %>
+			<li class="nav-item">
+				<a class="nav-link" href="/showTopics/<%=bbs.child_bbs%>"> <%= bbs.child_bbs %> </a>
+			</li>
+			<% }) %>
+		</ul>
+
+
+		<div class="box">
+			<% if(topic_type === 'all') { %>
+				<ul class="list-group">
+					<% allTopic.forEach(topic => { %>
+					<li class="list-group-item">
+						<h3>
+							<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+						</h3>
+						<h5> 标签：<%= topic.topic_type %> </h5>
+						<p>正文：<%= topic.article %></p>
+					</li>
+					<% })%>
+				</ul>
+			<% } else if(topic_type === 'star') { %>
+				<ul class="list-group">
+					<% listStarTopic.forEach(topic => { %>
+						<li class="list-group-item">
+							<h3>
+								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+							</h3>
+							<h5> 标签：<%= topic.topic_type %> </h5>
+							<p>正文：<%= topic.article %></p>
+						</li>
+					<% })%>
+				</ul>
+			<% } else { %>
+				<% if(listTopic_byTopic_type.length === 0) { %>
+					<div class="my-3 p-2 bg-warning">
+						<h2 class="text-danger font-weight-bold m-2"> 此论坛还没帖子，请发表或者联系管理员 </h2>
+						<div class="mt-4 mb-2 ml-2">
+							<a href="/postTopic" class="text-primary bg-light btn-lg my-3"> 发帖 </a>
+						</div>
+					</div>
+				<% } else {%>
+					<ul class="list-group">
+						<% listTopic_byTopic_type.forEach(topic => { %>
+						<li class="list-group-item">
+							<h3>
+								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+							</h3>
+							<h5> 标签：<%= topic.topic_type %> </h5>
+							<p>正文：<%= topic.article %></p>
+						</li>
+						<% })%>
+					</ul>
+				<% } %>
+			<% } %>
+		</div>
+	</div>
+
+	<div class="col-md-3 my-3">
+		<div class="w-100 bg-light">
+			<div class='panel'>
+				<div class='header text-center'>
+					<h3>个人信息</h3>
+				</div>
+
+				<div class='inner text-left'>
+					<img src="https://avatars2.githubusercontent.com/	u/31870577?v=4&amp;s=120"
+						title="ShyGodB" /> <br>
+					<strong class="personal my-1 p-3">username:</strong> <%= person[0].username %> <br>
+					<strong class="personal my-1 p-3">email:</strong> <%= person[0].email %> <br>
+					<strong class="personal my-1 p-3">个性签名: </strong><%= person[0].bio %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

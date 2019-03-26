@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Web Practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>    
+</head>
+
+<body class="bg-dark">
+   
+    <header class="bg-dark">
+        
+    </header>
+
+    <main>
+        <section class="md-5">
+            <div class="mb-5 row">
+                <div class="col-md-3 px-1">
+                    <div class="userBox p-2 m-2" style="width:22rem;height:13rem;background-color: #c0c0c0">
+                        <a href="/admin"> Admin </a>
+                    </div>
+                
+                    <div class="accordion bg-dark" id="accordionExample">
+                        <div class="card bg-dark">
+                            <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse"
+                                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        子论坛管理
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <a class="dropdown-item text-light" href="/admin/board_management/show_child_boards"> 展示子论坛 </a>
+                                    <a class="dropdown-item text-light" href="/admin/board_management/create_child_board"> 创建子论坛 </a>
+                                    <a class="dropdown-item text-light" href="/admin/board_management/manage_child_boards"> 编辑子论坛 </a>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="card bg-dark">
+                            <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse"
+                                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        帖子管理
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <a class="dropdown-item text-light" href="/admin/allTopicManagement/manageTopics/all"> 管理所有帖子 </a>
+                                    <a class="dropdown-item text-light" href="/admin/allTopicManagement/Top"> 帖子的置顶 </a>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="card bg-dark">
+                            <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse"
+                                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        普通用户管理
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="card bg-dark">
+                            <div class="card-header" id="headingFour">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse"
+                                        data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        超级用户管理
+                                    </button>
+                                </h2>
+                            </div>
+                            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                <div class="card-body">
+                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 px-1">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-2 px-3">
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav mr-2">
+                                <li class="nav-item active">
+                                    <a class="nav-link text-light" role="button" href="/">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                </li>
+                            </ul>
+                            <form class="form-inline my-3 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                    
+                            <ul class="navbar-nav mr-1 ml-auto">
+                                <li class="nav-item">
+                                    <a class="nav-link text-light" href="#">图标</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+
+                    <%- body %>
+                </div>
+            </div>
+        </section>            
+    </main>
+    
+    <footer class="bg-dark">
+
+    </footer>
+    
+</body>
+
+</html>
