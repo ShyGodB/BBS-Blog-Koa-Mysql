@@ -44,6 +44,8 @@ app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(adminRouter.routes()).use(adminRouter.allowedMethods());
 app.use(topicRouter.routes()).use(topicRouter.allowedMethods());
 
+app.use(require('koa-static')(__dirname));
+
 //监听端口
 app.listen(3000, async() => {
 	console.log("Server is running at http://127.0.0.1:3000")

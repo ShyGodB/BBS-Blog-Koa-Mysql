@@ -3,9 +3,10 @@ const router = new KoaRouter();
 const db = require('../database');
 
 
-// 管理员操作
-// 后台显示所有子论坛
-//  管理员用户登录
+// 此模块为管理员操作
+
+
+// 管理员用户登录
 router.get("/admin", async (ctx) => {  //路由
 	const path = ctx.params.path;
 	const list_child_bbs_promise = db.listChildBBSAll();
@@ -17,7 +18,22 @@ router.get("/admin", async (ctx) => {  //路由
 		list_child_bbs: list_child_bbs
 	});
 });
+// 管理员登录
+router.post('/', async (ctx) => {
+	const username = ctx.request.body.adminName;
+	const password = ctx.request.body.adminPassword;
+	if (username === 'admin' && password === 'admin') {
+		ctx.redirect('/admin');
+	} else {
+		ctx.body = '登录失败';
+	}
+});
 
+
+
+// 子论坛操作
+
+// 后台显示所有子论坛
 router.get("/admin/boardManagement/showChildBoards", async (ctx) => {  //路由
 	const listChildBBSPromise = db.listChildBBSAll();
 	const listChildBBS = await listChildBBSPromise;
@@ -27,12 +43,38 @@ router.get("/admin/boardManagement/showChildBoards", async (ctx) => {  //路由
 	});
 });
 
-// 管理员创建新的子论坛
+// 管理员创建新的子论坛 ---- get
 router.get("/admin/boardManagement/createChildBoard", async (ctx) => {  //路由
 	await ctx.render("/admin/createChildBoard", {
 		layout: 'layouts/layout_admin'
 	});
 });
+
+// 创建子论坛 ---- post
+router.post('/createChildBoard', async (ctx) => {
+	const child_bbs = ctx.request.body.child_bbs;
+	const listChildBBSPromise = db.listChildBBS();
+	const listChildBBS = await listChildBBSPromise; //得到的是所有类别子论坛
+	let existBBSArray = [];
+	listChildBBS.forEach(async (bbs) => {
+		existBBSArray.push(bbs.child_bbs);
+	});
+	if(existBBSArray.length === 0) {
+		await db.addChildBBS(child_bbs);
+		console.log('创建子论坛成功');
+		ctx.redirect('/admin/boardManagement/manageChildBoards');
+	} else {
+		if(existBBSArray.indexOf(child_bbs) !== -1) {
+			console.log('创建失败，该子论坛已存在，请重新创建!');
+			ctx.redirect('/admin/boardManagement/createChildBoard');
+		} else {
+			db.addChildBBS(child_bbs);
+			console.log('创建成功');
+			ctx.redirect('/admin/boardManagement/manageChildBoards');
+		}
+	}
+});
+
 
 // 管理子论坛
 router.get("/admin/boardManagement/manageChildBoards", async (ctx) => {  //路由
@@ -52,6 +94,29 @@ router.get("/admin/boardManagement/manageChildBoards/:id", async (ctx) => {
 	const deletePromise = db.deleteChildBoardById(id);
 	await deletePromise;
 	ctx.redirect("/admin/boardManagement/showChildBoards");
+});
+
+
+
+//帖子管理--管理员
+router.get("/admin/allTopicManagement/manageTopics/:topicType", async (ctx) => {  //路由
+	const childBBSPromise = db.listChildBBS();
+	const childBBS = await childBBSPromise;
+	const allTopicPromise = db.listAllTopicFromBBS();
+	const allTopic = await allTopicPromise;
+	const listStarTopicPromise = db.listStarTopic();
+	const listStarTopic = await listStarTopicPromise;
+	const topicType = ctx.params.topicType;
+	const listTopicByTopicTypePromise = db.listTopicByTopicType(topicType);
+	const listTopicByTopicType = await listTopicByTopicTypePromise;
+	await ctx.render("/admin/manageTopics", {
+		layout: 'layouts/layout_admin',
+		topicType: topicType,
+		childBBS: childBBS,
+		allTopic: allTopic,
+		listStarTopic: listStarTopic,
+		listTopicByTopicType: listTopicByTopicType,
+	});
 });
 
 //  删除帖子
@@ -78,28 +143,6 @@ router.get("/admin/allTopicManagement/star/:id", async (ctx) => {
 	ctx.redirect("/admin/allTopicManagement/manageTopics/star");
 });
 
-
-//帖子管理--管理员
-router.get("/admin/allTopicManagement/manageTopics/:topicType", async (ctx) => {  //路由
-	const childBBSPromise = db.listChildBBS();
-	const childBBS = await childBBSPromise;
-	const allTopicPromise = db.listAllTopicFromBBS();
-	const allTopic = await allTopicPromise;
-	const listStarTopicPromise = db.listStarTopic();
-	const listStarTopic = await listStarTopicPromise;
-	const topicType = ctx.params.topicType;
-	const listTopicByTopicTypePromise = db.listTopicByTopicType(topicType);
-	const listTopicByTopicType = await listTopicByTopicTypePromise;
-	await ctx.render("/admin/manageTopics", {
-		layout: 'layouts/layout_admin',
-		topicType: topicType,
-		childBBS: childBBS,
-		allTopic: allTopic,
-		listStarTopic: listStarTopic,
-		listTopicByTopicType: listTopicByTopicType,
-	});
-});
-
 //  管理置顶的帖子
 router.get("/admin/allTopicManagement/:path", async (ctx) => {  //路由
 	const path = ctx.params.path;
@@ -122,6 +165,7 @@ router.get("/admin/allTopicManagement/manageTopTopics/all/:id", async (ctx) => {
 	await setTopTopicPromise;
 	ctx.redirect("/admin/allTopicManagement/top");
 });
+
 //  取消置顶帖子
 router.get("/admin/allTopicManagement/manageTopTopics/top/:id", async (ctx) => {
 	const id = ctx.params.id;
@@ -129,7 +173,6 @@ router.get("/admin/allTopicManagement/manageTopTopics/top/:id", async (ctx) => {
 	await reduceTopTopicPromise;
 	ctx.redirect("/admin/allTopicManagement/top");
 });
-
 
 module.exports = router;
 

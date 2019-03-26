@@ -4,24 +4,12 @@
     <list default="true" id="9ba8e290-db56-4a81-bac0-e12bf20c00a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/getRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/getRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/signInRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/signInRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/signUpRouter.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/signUpRouter.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/advanced.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/connection.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/createChildBoard.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manageChildBoards.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manageTopTopics.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/manageTopics.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/postTopic.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/profile.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/showChildBoards.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/showTopic.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/showTopics.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/show_bbs.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/signIn.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/signUp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/topic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/partials/_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/_navbar.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -37,11 +25,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app.js">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="37" column="2" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+            <state relative-caret-position="326">
+              <caret line="61" column="7" lean-forward="true" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/userSetting/userHome.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/views/layouts/layout.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-23">
+              <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
             </state>
           </provider>
         </entry>
@@ -63,6 +69,8 @@
       <find>listChild</find>
       <find>listTopicFromBBSByTopicType</find>
       <find>render</find>
+      <find>post</find>
+      <find>user</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -84,11 +92,15 @@
         <option value="$PROJECT_DIR$/routes/signInRouter.js" />
         <option value="$PROJECT_DIR$/routes/signUpRouter.js" />
         <option value="$PROJECT_DIR$/routes/getRouter.js" />
-        <option value="$PROJECT_DIR$/routes/user.js" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/routes/topic.js" />
+        <option value="$USER_HOME$/Documents/项目备份/BBS-by-koa2-mysql/routes/postRouter.js" />
         <option value="$PROJECT_DIR$/routes/admin.js" />
+        <option value="$PROJECT_DIR$/views/partials/_navbar.html" />
+        <option value="$PROJECT_DIR$/routes/user.js" />
+        <option value="$PROJECT_DIR$/views/layouts/layout.html" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/userSetting/userHome.html" />
       </list>
     </option>
   </component>
@@ -122,6 +134,24 @@
               <item name="BBS-by-Koa-Mysql" type="b2602c69:ProjectViewProjectNode" />
               <item name="BBS-by-Koa-Mysql" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BBS-by-Koa-Mysql" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BBS-by-Koa-Mysql" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="partials" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BBS-by-Koa-Mysql" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BBS-by-Koa-Mysql" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="signUpIn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BBS-by-Koa-Mysql" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BBS-by-Koa-Mysql" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="topics" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -160,12 +190,12 @@
       <updated>1553562752273</updated>
       <workItem from="1553562755007" duration="932000" />
       <workItem from="1553566695515" duration="263000" />
-      <workItem from="1553568625754" duration="6652000" />
+      <workItem from="1553568625754" duration="12344000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7847000" />
+    <option name="totallyTimeSpent" value="13539000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -311,34 +341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="8" lean-forward="true" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="82" column="11" selection-start-line="82" selection-start-column="11" selection-end-line="82" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/topic.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="15" lean-forward="true" selection-start-line="14" selection-start-column="15" selection-end-line="14" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/admin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="40" column="14" selection-start-line="40" selection-start-column="14" selection-end-line="40" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/getRouter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="384">
@@ -346,10 +348,85 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$USER_HOME$/Documents/项目备份/BBS-by-koa2-mysql/routes/postRouter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="211">
+          <caret line="21" selection-start-line="21" selection-end-line="24" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/admin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="160" column="10" lean-forward="true" selection-start-line="160" selection-start-column="10" selection-end-line="160" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/topic.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-294">
+          <caret line="5" column="11" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/userSetting/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="51" column="35" lean-forward="true" selection-end-line="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="61" column="7" lean-forward="true" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/partials/_navbar.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="20" column="20" lean-forward="true" selection-start-line="20" selection-start-column="20" selection-end-line="22" selection-end-column="38" />
+          <folding>
+            <element signature="n#style#0;n#h1#0;n#div#0;n#div#0;n#ul#1;n#div#0;n#nav#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/signUpIn/signIn.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/topics/showTopic.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/topics/showTopics.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="37" column="2" lean-forward="true" selection-start-line="37" selection-start-column="2" selection-end-line="37" selection-end-column="2" />
+        <state relative-caret-position="858">
+          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23">
+          <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/userSetting/userHome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
         </state>
       </provider>
     </entry>

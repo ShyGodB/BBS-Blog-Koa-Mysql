@@ -2,7 +2,6 @@ const KoaRouter = require('koa-router');
 const router = new KoaRouter();
 const db = require('../database');
 
-
 //   根据子论坛展示帖子
 router.get("/showTopics/:topicType", async (ctx) => {  //路由
 	const topicType = ctx.params.topicType;
@@ -37,7 +36,6 @@ router.get('/showTopics/all/:id', async (ctx) => {
 		topic: topic
 	});
 });
-
 
 
 module.exports = router;
