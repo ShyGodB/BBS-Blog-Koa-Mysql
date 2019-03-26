@@ -140,6 +140,21 @@ const object = {
 	async reduceTopTopic (id) {
 		const sql = "update topic set top=0 where id=?";
 		const [rows, fields] = await promisePool.query(sql, id);
+	},
+
+	async setProfile (data) {
+		const sql = "update user set nickname=?,birthday=?,gender=?,bio=? where id=?";
+		const [rows, fields] = await promisePool.query(sql, data);
+	},
+
+	async setConnection (data) {
+		const sql = "update user set telephone=?,email=?,qq=?,wechat=? where id=?";
+		const [rows, fields] = await promisePool.query(sql, data);
+	},
+
+	async resetPassword (data) {
+		const sql = "update user set password=? where id=?";
+		const [rows, fields] = await promisePool.query(sql, data)
 	}
 };
 

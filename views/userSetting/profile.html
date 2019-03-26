@@ -28,28 +28,27 @@
 <section>
 	<div class="col-9 float-right pr-1" style="height: 660px">
 		<div class="w-100 h-100">
-			<form class="m-2 p-1">
+			<form class="m-2 p-1" action="/settings/profile" method="post">
 				<div class="col-6 float-left pr-1">
 					<div class="form-group mt-1 mb-3 mr-3">
 						<h5 class="form-group-prepend mb-1"> 昵称：</h5>
-						<input type="text" class="form-control" placeholder="Nickname" aria-label="Username"
+						<input type="text" class="form-control" name="nickname" placeholder="Nickname" aria-label="Username"
 							aria-describedby="basic-addon1">
 					</div>
 					<div class="form-group mb-3">
 						<h5 class="form-group-prepend mb-1"> 生日：</h5>
-						<input type="text" class="form-control" placeholder="birthday" aria-label="Email"
+						<input type="text" class="form-control" name="birthday" placeholder="birthday" aria-label="Email"
 							aria-describedby="basic-addon1">
 					</div>
 					<div class="form-group mb-3">
 						<h5 class="form-group-prepend mb-1"> 性别：</h5>
-						<input type="text" placeholder="此处不是警察局　^_^" class="form-control" aria-label="text"
+						<input type="text" placeholder="此处不是警察局　^_^" name="gender" class="form-control" aria-label="text"
 							aria-describedby="basic-addon1">
 					</div>
 					<div class="form-group mb-3">
 						<h5 class="form-group-prepend mb-1"> 个性签名：</h5>
-						<textarea type="text" class="form-control overflow-auto" placeholder="随便写点什么吧..."
+						<input type="text" class="form-control overflow-auto" name="bio" placeholder="随便写点什么吧..."
 							aria-label="text" aria-describedby="basic-addon1">
-						</textarea>
 					</div>
 				</div>
 				<div class="col-6 float-right pl-1">

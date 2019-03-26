@@ -3,13 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="9ba8e290-db56-4a81-bac0-e12bf20c00a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/topic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/database.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/_navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/userSetting/advanced.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/userSetting/advanced.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/userSetting/connection.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/userSetting/connection.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/userSetting/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/userSetting/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/userSetting/userHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/userSetting/userHome.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -24,35 +23,7 @@
     <favorites_list name="BBS-by-Koa-Mysql" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="61" column="7" lean-forward="true" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/userSetting/userHome.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="234">
-              <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/layouts/layout.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-23">
-              <caret line="11" column="15" lean-forward="true" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -70,7 +41,9 @@
       <find>listTopicFromBBSByTopicType</find>
       <find>render</find>
       <find>post</find>
+      <find>h3</find>
       <find>user</find>
+      <find>getuserByid</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -88,7 +61,6 @@
         <option value="$PROJECT_DIR$/views/createChildBoard.html" />
         <option value="$PROJECT_DIR$/views/partials/footer_navbar.html" />
         <option value="$PROJECT_DIR$/routes/postRouter.js" />
-        <option value="$PROJECT_DIR$/database.js" />
         <option value="$PROJECT_DIR$/routes/signInRouter.js" />
         <option value="$PROJECT_DIR$/routes/signUpRouter.js" />
         <option value="$PROJECT_DIR$/routes/getRouter.js" />
@@ -97,10 +69,14 @@
         <option value="$USER_HOME$/Documents/项目备份/BBS-by-koa2-mysql/routes/postRouter.js" />
         <option value="$PROJECT_DIR$/routes/admin.js" />
         <option value="$PROJECT_DIR$/views/partials/_navbar.html" />
-        <option value="$PROJECT_DIR$/routes/user.js" />
         <option value="$PROJECT_DIR$/views/layouts/layout.html" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/userSetting/profile.html" />
         <option value="$PROJECT_DIR$/views/userSetting/userHome.html" />
+        <option value="$PROJECT_DIR$/views/userSetting/connection.html" />
+        <option value="$PROJECT_DIR$/database.js" />
+        <option value="$PROJECT_DIR$/routes/user.js" />
+        <option value="$PROJECT_DIR$/views/userSetting/advanced.html" />
       </list>
     </option>
   </component>
@@ -117,7 +93,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -153,10 +128,17 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="topics" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="BBS-by-Koa-Mysql" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BBS-by-Koa-Mysql" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="userSetting" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -190,21 +172,21 @@
       <updated>1553562752273</updated>
       <workItem from="1553562755007" duration="932000" />
       <workItem from="1553566695515" duration="263000" />
-      <workItem from="1553568625754" duration="12344000" />
+      <workItem from="1553568625754" duration="15314000" />
+      <workItem from="1553593396204" duration="6272000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13539000" />
+    <option name="totallyTimeSpent" value="22781000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49936306" visible="true" weight="0.16067654" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49808916" visible="true" weight="0.16067654" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" sideWeight="0.50063694" side_tool="true" weight="0.16067654" />
+      <window_info id="Favorites" order="3" sideWeight="0.5019108" side_tool="true" weight="0.16067654" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -221,10 +203,10 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49936306" visible="true" weight="0.16067654" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49808916" visible="true" weight="0.16067654" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
-      <window_info id="Favorites" order="3" sideWeight="0.50063694" side_tool="true" weight="0.16067654" />
+      <window_info id="Favorites" order="3" sideWeight="0.5019108" side_tool="true" weight="0.16067654" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -252,20 +234,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/showTopics.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="48" lean-forward="true" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/showChildBoards.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="8" column="17" lean-forward="true" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/showTopics.html" />
+    <entry file="file://$PROJECT_DIR$/views/showChildBoards.html" />
     <entry file="file://$PROJECT_DIR$/views/layouts/layout_admin.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="422">
@@ -273,30 +243,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/manageTopics.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="26" selection-start-line="15" selection-start-column="26" selection-end-line="15" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/createChildBoard.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="9" column="4" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/postTopic.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/manageChildBoards.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="15" selection-start-line="11" selection-start-column="15" selection-end-line="11" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/views/manageTopics.html" />
+    <entry file="file://$PROJECT_DIR$/views/createChildBoard.html" />
+    <entry file="file://$PROJECT_DIR$/views/postTopic.html" />
+    <entry file="file://$PROJECT_DIR$/views/manageChildBoards.html" />
     <entry file="file://$PROJECT_DIR$/views/partials/footer_navbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -313,41 +263,10 @@
     <entry file="file://$PROJECT_DIR$/views/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/postRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="828">
-          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="517">
-          <caret line="135" column="19" selection-start-line="135" selection-start-column="19" selection-end-line="135" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/signUpRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="11" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/signInRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/getRouter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="95" lean-forward="true" selection-start-line="95" selection-end-line="222" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/postRouter.js" />
+    <entry file="file://$PROJECT_DIR$/routes/signUpRouter.js" />
+    <entry file="file://$PROJECT_DIR$/routes/signInRouter.js" />
+    <entry file="file://$PROJECT_DIR$/routes/getRouter.js" />
     <entry file="file://$USER_HOME$/Documents/项目备份/BBS-by-koa2-mysql/routes/postRouter.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="211">
@@ -373,20 +292,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="361">
           <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/userSetting/profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="51" column="35" lean-forward="true" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="61" column="7" lean-forward="true" selection-start-line="61" selection-start-column="7" selection-end-line="61" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -423,10 +328,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/userSetting/connection.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="48" column="74" selection-start-line="48" selection-start-column="74" selection-end-line="48" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/userSetting/profile.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="50" column="34" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/userSetting/advanced.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="392">
+          <caret line="88" column="36" lean-forward="true" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#1;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="154" column="23" selection-start-line="154" selection-start-column="10" selection-end-line="154" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/views/userSetting/userHome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="24" column="13" lean-forward="true" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="396">
+          <caret line="69" column="57" selection-start-line="69" selection-start-column="57" selection-end-line="69" selection-end-column="57" />
+          <folding>
+            <element signature="n#style#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4">
+          <caret line="121" column="3" selection-start-line="121" selection-start-column="2" selection-end-line="121" selection-end-column="3" />
         </state>
       </provider>
     </entry>

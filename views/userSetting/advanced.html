@@ -74,19 +74,19 @@
 							<button type="button" class="close" data-dismiss="modal">&times;</button>
 						</div>
 						<div class="modal-body">
-							<form action="/" accept-charset="UTF-8" method="post">
+							<form action="/settings/advanced" accept-charset="UTF-8" method="post">
 								<div id='signUpBox'>
 									<div class="auth-form-body mt-3">
-										<label for="login_field"> 原密码 </label>
-										<input type="text" name="adminName" id="login_email"
+										<label for="oldPassword"> 原密码 </label>
+										<input required type="password" name="oldPassword" id="oldPassword"
 											class="form-control input-block" tabindex="1" autocapitalize="off"
 											autocorrect="off" autofocus="autofocus" />
-										<label for="password"> 新密码 </label>
-										<input type="password" name="adminPassword" id="login_password"
+										<label for="newPassword1"> 新密码 </label>
+										<input required type="password" name="newPassword1" id="newPassword1"
 											class="form-control form-control input-block" tabindex="2" />
 
-										<label for="password"> 新密码确认 </label>
-										<input type="password" name="adminPassword" id="login_password"
+										<label for="newPassword2"> 新密码确认 </label>
+										<input required type="password" name="newPassword2" id="newPassword2"
 											class="form-control form-control input-block" tabindex="2" />
 
 										<input type="submit" name="commit" value="确定" tabindex="3"

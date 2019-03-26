@@ -57,12 +57,15 @@ router.get("/signOut", async (ctx) => { //路由
 
 // 请求用户主页
 router.get("/userHome", async (ctx) => {
+	const id = ctx.session.user.id;
+	const getUserPromise = db.getUserById(id);
+	const user = await getUserPromise;
 	await ctx.render("/userSetting/userHome", {
-		user: ctx.session.user
+		user: user
 	});
 });
 
-// 用户设置 ---- 基础设置
+// 用户设置 ---- 个人设置
 router.get("/settings/profile", async (ctx) => { //路由
 	const path = ctx.params.path;
 	await ctx.render('/userSetting/profile', {
@@ -71,6 +74,19 @@ router.get("/settings/profile", async (ctx) => { //路由
 		user: ctx.session.user
 	});
 });
+
+// 用户设置个人信息
+router.post("/Settings/profile", async (ctx) => {
+	const nickname = ctx.request.body.nickname;
+	const birthday = ctx.request.body.birthday;
+	const gender = ctx.request.body.gender;
+	const bio = ctx.request.body.bio;
+	const id = ctx.session.user.id;
+	const data = [nickname, birthday, gender, bio, id];
+	const setProfilePromise = db.setProfile(data);
+	await setProfilePromise;
+	ctx.redirect("/userHome");
+})
 
 // 联系信息设置
 router.get("/settings/connection", async (ctx) => { //路由
@@ -82,6 +98,19 @@ router.get("/settings/connection", async (ctx) => { //路由
 	});
 });
 
+// 用户设置联系信息
+router.post("/Settings/connection", async (ctx) => {
+	const telephone = ctx.request.body.telephone;
+	const email = ctx.request.body.email;
+	const qq = ctx.request.body.qq;
+	const wechatId = ctx.request.body.wechatId;
+	const id = ctx.session.user.id;
+	const data = [telephone, email, qq, wechatId, id];
+	const setConnectionPromise = db.setConnection(data);
+	await setConnectionPromise;
+	ctx.redirect("/userHome");
+})
+
 // 高级设置
 router.get("/settings/advanced", async (ctx) => { //路由
 	const path = ctx.params.path;
@@ -91,6 +120,33 @@ router.get("/settings/advanced", async (ctx) => { //路由
 		user: ctx.session.user
 	});
 });
+
+// 用户高级设置-- 暂时就只有重置密码
+router.post("/Settings/advanced", async (ctx) => {
+	const oldPassword = ctx.request.body.oldPassword;
+	const newPassword1 = ctx.request.body.newPassword1;
+	const newPassword2 = ctx.request.body.newPassword2;
+	const id = ctx.session.user.id;
+	const getUserPromise = db.getUserById(id);
+	const user = await getUserPromise;
+	const userPassword = user[0].password; //得到该用户的初始密码
+	const data = [newPassword2, id]
+	if(oldPassword !== userPassword) {
+		console.log('你输入的旧密码不正确，请重新输入');
+		ctx.redirect("/settings/advanced");
+	} else {
+		if(newPassword1 !== newPassword2) {
+			console.log('你2次输入的新密码不一致，请重新输入')
+			ctx.redirect("/settings/advanced");
+		} else {
+			const resetPasswordPromise = db.resetPassword(data);
+			await resetPasswordPromise;
+			console.log('恭喜你，修改密码成功，请牢记你的新密码！');
+			ctx.redirect("/userHome");
+
+		}
+	}
+})
 
 
 
