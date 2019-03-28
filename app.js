@@ -2,6 +2,7 @@ const Koa = require('koa');
 const json = require('koa-json');
 const path = require('path');
 const render = require('koa-ejs');
+const fs = require('fs');
 const bodyParser = require('koa-bodyparser');
 const app = new Koa();
 
@@ -14,6 +15,8 @@ const session = require('koa-session');
 
 app.use(json());
 app.use(bodyParser());
+app.use(require('koa-static')(__dirname));
+
 
 //配置模版引擎
 render(app, {
@@ -44,7 +47,10 @@ app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(adminRouter.routes()).use(adminRouter.allowedMethods());
 app.use(topicRouter.routes()).use(topicRouter.allowedMethods());
 
-app.use(require('koa-static')(__dirname));
+
+
+
+
 
 //监听端口
 app.listen(3000, async() => {

@@ -1,6 +1,9 @@
 const KoaRouter = require('koa-router');
 const router = new KoaRouter();
 const db = require('../database');
+const multer = require('koa-multer');
+const upload = multer({ dest: 'public/uploads/' });
+
 
 // 此模块为用户操作模块
 
@@ -111,14 +114,21 @@ router.post("/Settings/connection", async (ctx) => {
 	ctx.redirect("/userHome");
 })
 
-// 高级设置
-router.get("/settings/advanced", async (ctx) => { //路由
-	const path = ctx.params.path;
-	await ctx.render('/userSetting/advanced', {
-		layout: "layouts/layout_user_settings",
-		path: path,
+// 设置头像
+router.get("/settings/profile/changeImage", async (ctx) => {
+	await ctx.render("/changeImage", {
+		layout: '/layouts/layout_cutImage',
 		user: ctx.session.user
 	});
+});
+router.post("/settings/profile/changeImage", upload.single('image'), async (ctx) => {
+	//console.log(ctx.req.file);
+	const picPath = ctx.req.file.path;
+	const id = ctx.session.user.id;
+	const data=[picPath, id];
+	const resetPicturePromise = db.resetPicture(data);
+	await resetPicturePromise;
+	ctx.redirect('/userHome');
 });
 
 // 用户高级设置-- 暂时就只有重置密码

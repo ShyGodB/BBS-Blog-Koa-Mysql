@@ -1,7 +1,7 @@
 <div class="row bg-light">
     <div class="col-3 pr-1" style="height: 660px">
         <div class="row">
-            <img src="/public/images/S1.jpg">
+            <img src="<%= user[0].picpath %>">
             <div class="col float-left pr-1 mt-3">
                 <p> 昵称：<%= user.username %> </p>
                 <p> 邮箱：<%= user.email %> </p>
@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="col-5">
-                        <img src="/public/images/S1.jpg">
+                        <img id="head_pic" src="<%= user[0].picpath %>">
                     </div>
                 </div>
 

@@ -155,6 +155,11 @@ const object = {
 	async resetPassword (data) {
 		const sql = "update user set password=? where id=?";
 		const [rows, fields] = await promisePool.query(sql, data)
+	},
+
+	async resetPicture (data) {
+		const sql = "update user set picpath=? where id=?";
+		const [rows, fields] = await promisePool.query(sql, data);
 	}
 };
 
