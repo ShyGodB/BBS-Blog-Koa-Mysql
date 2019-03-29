@@ -4,56 +4,10 @@
     <list default="true" id="9ba8e290-db56-4a81-bac0-e12bf20c00a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.js" beforeDir="false" afterPath="$PROJECT_DIR$/database.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/01843c88653c2134a978304de05fab18" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/0477227bd44cfdbb86aee066dfa71f2d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/05b192508eb44b2a569fccd919ade03c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/07280ad8f688ad980dcc4ae7ec05f2ba" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/0820e0f8a6adca155c439e8c303289d4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/09d24eea78b2d8e1cbec9ec626dc904c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/0daf9651036b8d510551cc24f61cd6f0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/15dbbd05fb6a417905b74092e12efdd5" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/1a4d4df77c3b5087c9bcb911540ea3a7" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/3877e0d3611fabd891d05cb9c57a833f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/46437e1ef73e035ddf91ecfcd8c329be" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/47e001698aba4f05fb9aa5b776f5ccb4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/64303f6b07b540ea0c674173af5a29bd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/68baff59c5e13d47b8336f6370ac96f4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/6bb4114c62b9a7861cf64c94046a3061" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/6e8b164d1c7ce4cf9268425a96133b99" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/7445cccbfca133619ba5eefb2637249d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/76ca064ddb00b0f71c9dfce6ddfb7607" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/795424c4806cf24142535a6718e1acea" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/7b0d770765d3f0df006fd8847bf70851" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/9559ee4c413650b2f2124fab9213498e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/9aca3c5f283e1323069bf21cd0ec370e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/bac32151729e6bd1ad9dfbc2e5427c0a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/bc41c53f4367443f3a986c0d2859dd0f" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/c8a05e5a354c1c3f1c568f02ec5d2d47" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/ceec225d3ddf143c2f48135ebb2e988d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/d0b8711a70241d125c1f26caf7723c1e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/db4a68cf6def757e2bcf9ff025cd421d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/df3fef04e0cb55a998f50b4e55963439" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/e79c443e31b6ca869628cd1711a83e9d" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/e9a4dc09c85b77cf712c2220b8967ff8" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/ed4eeb8ec27aa3166c07bc43cacc32e1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/edde75e9ba0d120cd4f52bf66496de58" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/fcd1752102d1bd341f1eecbb7d97ab42" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/fcec23adb9f30beced16ab9379e5b381" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/topic.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/topic.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/2.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/changeImage.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/userSetting/changeImage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/layout_cutImage.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_cutImage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/layout_user_settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_user_settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/_navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/footer_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/footer_navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/topics/postTopic.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/topics/postTopic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/topics/showTopics.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/topics/showTopics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/userSetting/userHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/userSetting/userHome.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -72,38 +26,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/views/userSetting/profile.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="649">
-              <caret line="45" column="58" selection-start-line="45" selection-start-column="58" selection-end-line="45" selection-end-column="58" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/user.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="91" column="3" lean-forward="true" selection-start-line="91" selection-start-column="3" selection-end-line="91" selection-end-column="3" />
+            <state relative-caret-position="368">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/views/layouts/layout_user_settings.html">
+        <entry file="file://$PROJECT_DIR$/routes/user.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="396">
+              <caret line="84" column="24" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/database.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="473">
+              <caret line="101" selection-start-line="101" selection-end-line="101" />
             </state>
           </provider>
         </entry>
@@ -111,8 +53,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+            <state relative-caret-position="315">
+              <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#a#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -127,12 +69,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>req.on</find>
-      <find>filename</find>
-      <find>img</find>
-      <find>userHome</find>
-      <find>username</find>
-      <find>getUsernameByEmail</find>
       <find>person</find>
       <find>advanced</find>
       <find>[0]</find>
@@ -147,16 +83,22 @@
       <find>home</find>
       <find>postT</find>
       <find>userhome</find>
-      <find>user</find>
       <find>render</find>
       <find>userh</find>
       <find>strong</find>
       <find>console.log</find>
       <find>child</find>
-      <find>addTopicToDatabase</find>
       <find>post</find>
-      <find>picpath</find>
       <find>settings</find>
+      <find>picpath</find>
+      <find>addTopicToDatabase</find>
+      <find>user</find>
+      <find>listTopic</find>
+      <find>userPicture</find>
+      <find>userHome</find>
+      <find>cutImage</find>
+      <find>console.log(user)</find>
+      <find>console.log(ctx.session.user)</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -182,7 +124,6 @@
         <option value="$USER_HOME$/Downloads/cut 2/index.html" />
         <option value="$PROJECT_DIR$/views/userSetting/profile.html" />
         <option value="$PROJECT_DIR$/views/changeImage.html" />
-        <option value="$PROJECT_DIR$/database.js" />
         <option value="$USER_HOME$/Downloads/cut/css/style.css" />
         <option value="$PROJECT_DIR$/public/css/style.css" />
         <option value="$PROJECT_DIR$/views/userSetting/changeImage.html" />
@@ -193,12 +134,13 @@
         <option value="$PROJECT_DIR$/views/layouts/layout.html" />
         <option value="$PROJECT_DIR$/routes/topic.js" />
         <option value="$PROJECT_DIR$/views/topics/postTopic.html" />
-        <option value="$PROJECT_DIR$/views/index.html" />
         <option value="$PROJECT_DIR$/views/topics/showTopics.html" />
         <option value="$PROJECT_DIR$/views/partials/_navbar.html" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
-        <option value="$PROJECT_DIR$/routes/user.js" />
         <option value="$PROJECT_DIR$/views/layouts/layout_user_settings.html" />
+        <option value="$PROJECT_DIR$/views/index.html" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/database.js" />
+        <option value="$PROJECT_DIR$/routes/user.js" />
       </list>
     </option>
   </component>
@@ -334,12 +276,12 @@
       <workItem from="1553684974198" duration="44000" />
       <workItem from="1553685057714" duration="13115000" />
       <workItem from="1553743467057" duration="4802000" />
-      <workItem from="1553760009707" duration="43251000" />
+      <workItem from="1553760009707" duration="47815000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95940000" />
+    <option name="totallyTimeSpent" value="100504000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
@@ -529,18 +471,6 @@
     <entry file="file://$PROJECT_DIR$/views/.gitignore">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/userSetting/userHome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="76" column="44" selection-start-line="76" selection-start-column="44" selection-end-line="76" selection-end-column="44" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="460">
@@ -596,13 +526,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/database.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-213">
-          <caret line="51" column="27" selection-start-line="51" selection-start-column="27" selection-end-line="51" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/footer_navbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
@@ -617,23 +540,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html">
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout_user_settings.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="21" column="24" lean-forward="true" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
+        <state relative-caret-position="485">
+          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
           <folding>
-            <element signature="n#style#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
         </state>
       </provider>
     </entry>
@@ -644,20 +557,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user.js">
+    <entry file="file://$PROJECT_DIR$/views/userSetting/userHome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="91" column="3" lean-forward="true" selection-start-line="91" selection-start-column="3" selection-end-line="91" selection-end-column="3" />
+        <state relative-caret-position="114">
+          <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout_user_settings.html">
+    <entry file="file://$PROJECT_DIR$/views/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="34" column="13" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="34" selection-end-column="13" />
+        <state relative-caret-position="315">
+          <caret line="21" column="24" selection-start-line="21" selection-start-column="24" selection-end-line="21" selection-end-column="24" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="101" selection-start-line="101" selection-end-line="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="84" column="24" selection-start-line="84" selection-start-column="24" selection-end-line="84" selection-end-column="24" />
         </state>
       </provider>
     </entry>

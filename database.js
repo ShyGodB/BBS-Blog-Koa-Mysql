@@ -46,8 +46,14 @@ const object = {
 		return rows;
 	},
 
+	async getUserByUsername (data) {
+		const sql = 'select * from user where username=?';
+		const [rows, fields] = await promisePool.query(sql, data);
+		return rows;
+	},
+
 	async addTopicToDatabase (data) {
-		const sql = "insert into topic(title, topic_type, article) values(?, ?, ?)";
+		const sql = "insert into topic(title, topic_type, article, topic_image_path, post_man) values(?, ?, ?, ?, ?)";
 		const [rows, fields] = await promisePool.query(sql, data);
     	console.log('数据存入数据库成功');
 	},
@@ -86,6 +92,18 @@ const object = {
 		const sql = "select * from topic where topic_type=? ";
 		const [rows, fields] = await promisePool.query(sql, topicType);
 		return rows;
+	},
+
+	async listTopicByPostMan (username) {
+		const sql = "select * from topic where post_man=?";
+		const [rows, fields] = await promisePool.query(sql, username);
+		return rows;
+	},
+
+	async updateTopicImagePathByPostMan (data) {
+		const sql = "update topic set topic_image_path=? where post_man=?";
+		const [rows, fields] = await promisePool.query(sql, data);
+		console.log('更新成功');
 	},
 
 	async deleteChildBoardById (id) {

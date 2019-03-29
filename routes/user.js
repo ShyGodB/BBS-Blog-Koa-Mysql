@@ -140,8 +140,8 @@ router.post("/settings/profile/changeImage", upload.single('image'), async (ctx)
 	const base64Data = value.replace(/^data:image\/\w+;base64,/, "");
 	const dataBuffer = Buffer.from(base64Data, 'base64');
 	const userId = ctx.session.user.id;
- 	const userPicturePath = `public/uploads/${userId}.png`;
-	fs.writeFile (userPicturePath, dataBuffer, function(err) {
+ 	const newUserPicturePath = `public/uploads/${userId}.png`;
+	fs.writeFile (newUserPicturePath, dataBuffer, function(err) {
 		if (err) {
 			console.log(err);
 		}else{
@@ -149,14 +149,22 @@ router.post("/settings/profile/changeImage", upload.single('image'), async (ctx)
 		}
 	});
 	const id = ctx.session.user.id;
-	console.log(id)
-	const data=[userPicturePath, id];
+	const data=[newUserPicturePath, id];
 	const resetPicturePromise = db.resetPicture(data);
 	await resetPicturePromise; //新的头像路径保存完成，但是要更新session才能使头像立即生效
 	const getUserInformationPromise = db.getUserById(id);
 	const userArray = await getUserInformationPromise;
 	const user = userArray[0];
 	ctx.session.user = user;
+	// 在用户更新头像完成后，我们要将数据库中该用户发表的所有话题的topic_image_path
+	// 换成该用户当前头像的路径，即 --> newUserPicturePath
+	// 根据数据表topic中的每条topic的post_man字段我们可以得到发表该话题的用户，因为用户名唯一
+	// 其实在这里用户名就是当前用户的username属性，因为session、更新，所以我们也用新的,
+	// 即ctx.session.user.username. 其实它 === user.username
+	const userName = ctx.session.user.username;
+	const data2 = [newUserPicturePath, userName]
+	const updateTopicImagePathByPostManPromise = db.updateTopicImagePathByPostMan(data2);
+	await updateTopicImagePathByPostManPromise;
 	ctx.redirect('/userHome');
 });
 
@@ -207,10 +215,13 @@ router.get("/postTopic", async (ctx) => {  //路由
 
 // 发表帖子
 router.post('/postTopic', async (ctx) => {
+	const user = ctx.session.user;
 	const childBBS = ctx.request.body.select_current_value;
 	const title = ctx.request.body.title;
 	const article = ctx.request.body.article;
-	const data = [title, childBBS, article];
+	const topicImagePath = user.picpath;
+	const postMan = user.username;
+	const data = [title, childBBS, article, topicImagePath, postMan];
 	await db.addTopicToDatabase(data);
 	ctx.redirect('/')
 });
