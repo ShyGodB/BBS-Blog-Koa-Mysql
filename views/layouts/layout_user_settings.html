@@ -21,11 +21,14 @@
 
 <body>
     <header class="bg-dark">
-       <% include ../partials/_navbar.html %> 
+
+       <% include ../partials/_navbar.html %>
+
     </header>
 
     <main>
-        <div class="container w-100">
+        <div class="container w-100" style="min-height: 50rem">
+
             <div class="page-content">
                 <%- body %>
             </div>
@@ -34,7 +37,9 @@
     </main>
 
     <footer class="bg-dark">
+
         <% include ../partials/footer_navbar.html %>
+
     </footer>
        
 

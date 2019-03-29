@@ -1,12 +1,18 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Navbar</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4">
+    <a class="navbar-brand" href="/">Navbar</a>
+
+    <form class="form-inline my-2 my-lg-0" action="/" method="post">
+        <input required name="user_input_string" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"> Search </button>
+    </form>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
+        <ul class="navbar-nav mr-auto ml-3">
             <li class="nav-item active">
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li> 
@@ -14,35 +20,31 @@
 
         <ul class="navbar-nav ml-1 justify-content-end pr-2">
             <% if(user) { %>
-            <div class="dropdown justify-content-end pr-2">
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-                </button>
-                <div class="dropdown-menu">
-                    <h1 class="text-hide"
-                        style="background-image: url(http://ku.90sjimg.com/element_pic/01/31/87/96573b585a7c9c4.jpg); width: 300px; height: 300px;">
-                        Bootstrap</h1>
-                    <a class="dropdown-item" href="/userHome"> 当前用户：<%= user.username %> </a>
-                    <a class="dropdown-item" href="/userHome"> 主页 </a>
-                    <a class="dropdown-item" href="/settings/profile"> 设置 </a>
-                    <a class="dropdown-item" href="/signOut"> Sign out </a>
-                </div>
-            </div>
-            <li class="nav-item">
-                <a class="nav-link" id="writeArticle" href="/postTopic" style=""> 写文章 </a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" id="writeArticle" href="/postTopic" style=""> 写文章 </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/userHome"> <%= user.username %> </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/userHome"> 主页 </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/settings/profile"> 设置 </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/signOut"> 退出 </a>
+                </li>
             <% } else { %>
-            <li class="nav-item">
-                <a class="nav-link" href="/signUp">注册</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/signIn">登录</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/signUp">注册</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="/signIn">登录</a>
+                </li>
             <% } %>
         </ul>
 
-        <form class="form-inline my-2 my-lg-0">
-            <input required class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+
     </div>
 </nav>

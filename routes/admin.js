@@ -11,8 +11,7 @@ router.get("/admin", async (ctx) => {  //路由
 	const path = ctx.params.path;
 	const list_child_bbs_promise = db.listChildBBSAll();
 	const list_child_bbs = await list_child_bbs_promise;
-	await ctx.render("/admin/admin" +
-		"", {
+	await ctx.render("/admin/admin", {
 		layout: 'layouts/layout_admin',
 		path: path,
 		list_child_bbs: list_child_bbs

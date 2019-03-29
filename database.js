@@ -17,33 +17,21 @@ const object = {
     	return rows;
 	},
 
-	async getUserByUsername (data) {
+	async getUserByUsername (username) {
 		const sql = 'select * from user where username=?';
-		const [rows, fields] = await promisePool.query(sql,data[0]);
-		if(rows.length !== 0 ) {
-			console.log('你输入的用户名已被注册，请重新输入!');
-		} else {
-			console.log('继续');
-			this.getUserByEmail(data);				
-		}
+		const [rows, fields] = await promisePool.query(sql,username);
+		return rows;
 	},
 
-	async getUserByEmail (data) {
+	async getUserByEmail (email) {
 		const sql = "select * from user where email=?";
-		const [rows, fields] = await promisePool.query(sql, data[1]);
-		if (rows.length !== 0) {
-			console.log('你输入的邮箱已被注册，请重新输入!');
-		} else {
-			console.log('继续');	
-			this.addUserData(data);		
-		}
+		const [rows, fields] = await promisePool.query(sql, email);
+		return rows;
 	},
 
 	async addUserData (data) {
 		const sql = "insert into user(username, email, password) values(?, ?, ?)";
 		const [rows, fields] = await promisePool.query(sql, data);
-    	console.log('注册成功');
-		console.log('数据存入数据库成功');	
 	},
 
 	async getUsernameByEmail (email) {

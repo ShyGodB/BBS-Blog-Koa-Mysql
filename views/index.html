@@ -1,3 +1,4 @@
+
 <div class="mb-2 row">
 	<div class="col-md-9 my-3">
 		<div class="bg-light">
@@ -7,20 +8,20 @@
 				</li>
 				<% child_BBS.forEach(bbs => { %>
 				<li class="nav-item">
-					<a class="nav-link" href="/showTopics/<%=bbs.child_bbs%>"> <%= bbs.child_bbs %> </a>
+					<a class="nav-link" href="/showTopics/<%=bbs.child_bbs%>"> <%= bbs.zh_bbs %> </a>
 				</li>
 				<% }) %>
 			</ul>
 		</div>
-		<div class="box">
+		<div class="list-group">
 			<ul class="list-group"></ul>
 				<% allTopic.forEach(topic => { %>
-				<li class="list-group-item">
-					<h3>
-						<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
-					</h3>
-					<h5> 标签：<%= topic.topic_type %> </h5>
-					<p>正文：<%= topic.article %></p>
+				<li class="list-group-item list-group-item-action cell form-inline" style="font-size: 24px">
+					<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+						<img src="<%= user.picpath %>" title="<%= user.username %>" style="width:28px;height:28px">
+					</a>
+					<span class="text-center bg-primary mr-1"> <%= topic.topic_type%> </span>
+					<a class="topic-link text-lg-center" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
 				</li>
 				<% })%>
 			</ul>
@@ -30,17 +31,30 @@
 	<div class="col-md-3 my-3">
 		<div class="w-100 bg-light">
 			<div class='panel'>
-				<div class='header text-center'>
-					<h3>个人信息</h3>
+				<div class='header text-left p-2 bg'  style="background-color: #bbbbbb ">
+					<h5 class="">个人信息</h5>
 				</div>
 
-				<div class='inner text-left'>
-					<img src="https://avatars2.githubusercontent.com/	u/31870577?v=4&amp;s=120"
-						title="ShyGodB" /> <br>
-					<strong class="personal my-1 p-3">username:</strong> <%= person[0].username %> <br>
-					<strong class="personal my-1 p-3">email:</strong> <%= person[0].email %> <br>
-					<strong class="personal my-1 p-3">个性签名: </strong><%= person[0].bio %>
+				<% if(user) {%>
+				<div class='inner text-left p-2'>
+					<div class="">
+						<img src="<%= user.picpath %>"><span class="h1 ml-2"><%= user.username %></span>
+					</div>
+					<div class="mt-2">
+						<ul>
+							<li class="user my-1">email: <%= user.email %></li>
+							<li class="user my-1">个性签名: <%= user.bio %></li>
+						</ul>
+
+					</div>
 				</div>
+				<% } else {%>
+				<div class='box'>
+					<h4 class="text-primary">欢迎来到BBS</h4>
+					<p>您尚未登录，请<a href="/signIn" class="">登录</a></p>
+					<p>没有账号？点击<a href="/signUp" class="">注册</a></p>
+				</div>
+				<% } %>
 			</div>
 		</div>
 	</div>

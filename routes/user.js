@@ -3,7 +3,7 @@ const router = new KoaRouter();
 const db = require('../database');
 const multer = require('koa-multer');
 const upload = multer({ dest: 'public/uploads/' });
-
+const fs = require('fs');
 
 // 此模块为用户操作模块
 
@@ -18,11 +18,25 @@ router.get("/signUp", async(ctx) => {  //路由
 router.post('/signUp', async(ctx) => {
 	const username = ctx.request.body.username; //获取用户输入的名字
 	const email = ctx.request.body.email;  //获取用户输入的邮箱地址
-	const password = ctx.request.body.password; 
-	const user = ctx.request.body;
+	const password = ctx.request.body.password;
 	const data = [username, email, password];
-	db.getUserByUsername(data);
-	ctx.session.user = user;
+	const getUserByUsernamePromise = db.getUserByUsername(username);
+	const row1 = await getUserByUsernamePromise;
+	if(row1.length !== 0) {
+		console.log("注册失败，用户名重复，请重新输入");
+	} else {
+		const getUserByEmailPromise = db.getUserByEmail(email);
+		const row2 = await getUserByEmailPromise;
+		if(row2.length !== 0) {
+			console.log("注册失败，邮箱账号重复，请重新输入");
+		} else {
+			const addUserDataPromise = db.addUserData(data);
+			await addUserDataPromise;
+			const getUserByUsernamePromise = db.getUserByUsername(username);
+			const row4 = await getUserByUsernamePromise;
+			ctx.session.user = row4[0];
+		}
+	}
 	ctx.redirect('/');
 });
 
@@ -42,9 +56,11 @@ router.post('/signIn', async(ctx) => {
 	const usersPromise = db.getUsernameByEmail(email);
 	const users = await usersPromise;
 	const user = users[0];
+
 	if (rows.length !== 0 && (rows[0].email === email && rows[0].password === password)) {
 		console.log('登录成功');
 		ctx.session.user = user;
+		console.log(user)
 		ctx.redirect('/');
 	} else {
 		console.log('登录失败');
@@ -60,11 +76,8 @@ router.get("/signOut", async (ctx) => { //路由
 
 // 请求用户主页
 router.get("/userHome", async (ctx) => {
-	const id = ctx.session.user.id;
-	const getUserPromise = db.getUserById(id);
-	const user = await getUserPromise;
 	await ctx.render("/userSetting/userHome", {
-		user: user
+		user: ctx.session.user
 	});
 });
 
@@ -112,26 +125,51 @@ router.post("/Settings/connection", async (ctx) => {
 	const setConnectionPromise = db.setConnection(data);
 	await setConnectionPromise;
 	ctx.redirect("/userHome");
-})
+});
 
 // 设置头像
 router.get("/settings/profile/changeImage", async (ctx) => {
-	await ctx.render("/changeImage", {
+	await ctx.render("/userSetting/changeImage", {
 		layout: '/layouts/layout_cutImage',
 		user: ctx.session.user
 	});
 });
+
 router.post("/settings/profile/changeImage", upload.single('image'), async (ctx) => {
-	//console.log(ctx.req.file);
-	const picPath = ctx.req.file.path;
+	const value = ctx.req.body.upload_base;
+	const base64Data = value.replace(/^data:image\/\w+;base64,/, "");
+	const dataBuffer = Buffer.from(base64Data, 'base64');
+	const userId = ctx.session.user.id;
+ 	const userPicturePath = `public/uploads/${userId}.png`;
+	fs.writeFile (userPicturePath, dataBuffer, function(err) {
+		if (err) {
+			console.log(err);
+		}else{
+			console.log("保存成功！");
+		}
+	});
 	const id = ctx.session.user.id;
-	const data=[picPath, id];
+	console.log(id)
+	const data=[userPicturePath, id];
 	const resetPicturePromise = db.resetPicture(data);
-	await resetPicturePromise;
+	await resetPicturePromise; //新的头像路径保存完成，但是要更新session才能使头像立即生效
+	const getUserInformationPromise = db.getUserById(id);
+	const userArray = await getUserInformationPromise;
+	const user = userArray[0];
+	ctx.session.user = user;
 	ctx.redirect('/userHome');
 });
 
 // 用户高级设置-- 暂时就只有重置密码
+router.get("/settings/advanced", async (ctx) => { //路由
+	const path = ctx.params.path;
+	await ctx.render('/userSetting/advanced', {
+		layout: "layouts/layout_user_settings",
+		path: path,
+		user: ctx.session.user
+	});
+});
+
 router.post("/Settings/advanced", async (ctx) => {
 	const oldPassword = ctx.request.body.oldPassword;
 	const newPassword1 = ctx.request.body.newPassword1;
@@ -153,26 +191,26 @@ router.post("/Settings/advanced", async (ctx) => {
 			await resetPasswordPromise;
 			console.log('恭喜你，修改密码成功，请牢记你的新密码！');
 			ctx.redirect("/userHome");
-
 		}
 	}
-})
-
-
+});
 
 //  用户发表帖子
 router.get("/postTopic", async (ctx) => {  //路由
+	const listChildBBSPromise = db.listChildBBSAll();
+	const listChildBBS = await listChildBBSPromise;
 	await ctx.render("/topics/postTopic", {
-		user: ctx.session.user
+		user: ctx.session.user,
+		listChildBBS: listChildBBS
 	});
 });
 
 // 发表帖子
-router.post('/postTopic', async(ctx) => {
+router.post('/postTopic', async (ctx) => {
+	const childBBS = ctx.request.body.select_current_value;
 	const title = ctx.request.body.title;
-	const topic_type = ctx.request.body.topic_type;
 	const article = ctx.request.body.article;
-	const data = [title, topic_type, article];
+	const data = [title, childBBS, article];
 	await db.addTopicToDatabase(data);
 	ctx.redirect('/')
 });
@@ -183,6 +221,8 @@ router.post('/showTopic', async(ctx) => {
 	console.log(article);
 });
 
-
 module.exports = router;
+
+
+
 

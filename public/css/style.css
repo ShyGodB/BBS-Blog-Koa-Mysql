@@ -1,26 +1,27 @@
 @charset "utf-8";
+.container {
+	font-family: 微软雅黑;
+	position: relative;
+	font-size: 12px;
+}
 .container p {
 	line-height: 12px;
 	line-height: 0px;
 	height: 0px;
+	color: #bbb;
 	margin: 10px;
-	color: #bbb
 }
-.action {
+.buttonBox {
 	width: 400px;
-	height: 30px;
-	margin: 10px 0;
-	top: 470px;
-	left: 350px;
+	height: 60px;
+	top: 400px;
 	position: absolute;
 }
 .cropped {
 	position: absolute;
-	right: 455px;
-	top: 73px;
 	width: 200px;
 	border: 1px #ddd solid;
-	height: 460px;
+	height: 470px;
 	padding: 4px;
 	box-shadow: 0px 0px 12px #ddd;
 	text-align: center;
@@ -34,16 +35,12 @@
 	overflow: hidden;
 	background-repeat: no-repeat;
 	cursor: move;
-	box-shadow: 4px 4px 12px #B0B0B0; 
+	box-shadow: 4px 4px 12px #B0B0B0;
 }
 .imageBox .thumbBox {
 	position: absolute;
-	top: 50%;
-	left: 50%;
-	width: 200px;
-	height: 200px;
-	margin-top: -100px;
-	margin-left: -100px;
+	top: 25%;
+	left: 25%;
 	box-sizing: border-box;
 	border: 1px solid rgb(102, 102, 102);
 	box-shadow: 0 0 0 1000px rgba(0, 0, 0, 0.5);
@@ -60,25 +57,25 @@
 	background: rgba(0,0,0,0.7);
 }
 .Btnsty_peyton{ float: right;
-   width: 66px;
-  display: inline-block;
-  margin-bottom: 10px;
-  height: 57px;
-  line-height: 57px;
-  font-size: 20px;
-  color: #FFFFFF;
-  margin:0px 2px;
-  background-color: #f38e81;
-  border-radius: 3px;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0px 0px 5px #B0B0B0;
-  border: 0px #fff solid;}
+	width: 66px;
+	display: inline-block;
+	margin-bottom: 10px;
+	height: 57px;
+	line-height: 57px;
+	font-size: 20px;
+	color: #FFFFFF;
+	margin:0px 2px;
+	background-color: #f38e81;
+	border-radius: 3px;
+	text-decoration: none;
+	cursor: pointer;
+	box-shadow: 0px 0px 5px #B0B0B0;
+	border: 0px #fff solid;
+}
 /*选择文件上传*/
 .new-contentarea {
 	width: 165px;
 	overflow:hidden;
-	margin: 0 auto;
 	position:relative;float:left;
 }
 .new-contentarea label {
@@ -90,13 +87,10 @@
 	width:188px;
 	height:60px;
 	background:#333;
-	margin: 0 auto;
 	position:absolute;
 	right:50%;
-	margin-right:-94px;
 	top:0;
 	right/*\**/:0px\9;
-	margin-right/*\**/:0px\9;
 	width/*\**/:10px\9;
 	opacity:0;
 	filter:alpha(opacity=0);
@@ -105,7 +99,6 @@
 a.upload-img{
 	width:165px;
 	display: inline-block;
-	margin-bottom: 10px;
 	height:57px;
 	line-height: 57px;
 	font-size: 20px;
@@ -119,6 +112,10 @@ a.upload-img{
 }
 a.upload-img:hover{
 	background-color: #ec7e70;
+}
+
+#form2 {
+	top: 600px
 }
 
 .tc{text-align:center;}

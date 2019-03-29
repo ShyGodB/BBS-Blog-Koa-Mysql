@@ -1,36 +1,65 @@
-<div class="post-topic my-3">
-	<div>
-		<h3>发布话题:</h3>
+<div class="px-5">
+	<div class="post-topic my-2 p-2 w-100" style="background-color: #B0B0B0">
+		<h3 >发布话题:</h3>
+	</div>
+
+	<div class="bg-light p-2 mt-1">
+		<div class="row">
+			<div class="col-lg-9">
+				<form action="/postTopic" method="post">
+
+					<div class="form-group form-inline mt-2">
+						<lebel class="text-dark h5 mr-3 mb-0 py-2"> 选择板块: </lebel>
+
+						<select id="bbs_options" class="form-control custom-select mr-3" style="width:20rem" aria-describedby="promption">
+							<% listChildBBS.forEach(bbs => { %>
+								<% if(bbs.child_bbs !== 'star') { %>
+									<option value="<%= bbs.child_bbs %>"> <%= bbs.zh_bbs %> </option>
+								<% } %>
+							<% }) %>
+
+						</select>
+
+						<small class="ml-3 text-secondary" id="promption">用于写点提示</small>
+					</div>
+
+					<div class="input-group mb-3">
+						<input required type="text" name="title" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="标题字数5个以上...">
+					</div>
+
+					<div class="form-group">
+						<label for="exampleFormControlTextarea1">正文</label>
+						<textarea required class="form-control" style="min-height: 20rem" name="article" id="exampleFormControlTextarea1" rows="3"></textarea>
+					</div>
+
+					<div>
+						<input type="hidden" name="select_current_value" id="post_current_value" value="111">
+					</div>
+
+					<div>
+						<button class="btn btn-primary" type="submit">Submit</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="col-lg-3 w-100 h-100" style="background-color:whitesmoke">
+
+			</div>
+		</div>
 	</div>
 </div>
 
-<form action="/postTopic" method="post">
-	<div class="thinPlaceholderLine"></div>
-	
-	<div class="input-group mb-3">
-		<input required type="text" name="title" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="标题字数5个以上...">
-	</div>
+<script>
 
-	<div class="thinPlaceholderLine"></div>
+	$('#bbs_options').change(function () {
+		document.getElementById('post_current_value').value = $(this).find("option:selected").val(); //获取当前显示的值
+	});
 
-	<div class="input-group mb-3">
-		<input required type="text" name="topic_type" class="form-control" aria-label="Default"
-			aria-describedby="inputGroup-sizing-default" placeholder="请输入话题标签...">
-	</div>
-	
-	<div class="thickPlaceholderLine"></div>
+	/*
+		$('#bbs_options').on('', function() {
+			//alert($(this).val());
+			console.log($(this).val());
+		});
 
-	<div class="form-group">
-    	<label for="exampleFormControlTextarea1">正文</label>
-    	<textarea required class="form-control" style="min-height: 20rem" name="article" id="exampleFormControlTextarea1" rows="3"></textarea>
- 	</div>
-
-	<div class="thinPlaceholderLine"></div>
-
-	<div>
-		<button class="btn btn-primary" type="submit">Submit</button>
-	</div>
-
-	<div class="thickPlaceholderLine"></div>
-</form>
-
+	 */
+</script>

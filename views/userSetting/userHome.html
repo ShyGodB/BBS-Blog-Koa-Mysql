@@ -1,89 +1,89 @@
-<div class="row bg-light">
-    <div class="col-3 pr-1" style="height: 660px">
-        <div class="row">
-            <img src="<%= user[0].picpath %>">
-            <div class="col float-left pr-1 mt-3">
-                <p> 昵称：<%= user.username %> </p>
-                <p> 邮箱：<%= user.email %> </p>
-                <p> 个性签名：<%= user.bio %> </p>
+<div class="container">
+    <div class="row bg-light">
+        <div class="col-3 pr-1" style="height: 660px">
+            <div class="row">
+                <img src="<%= user.picpath %>" style="width:300px;height:300px">
+                <div class="col float-left pr-1 mt-3">
+                    <p> 昵称：<%= user.username %> </p>
+                    <p> 邮箱：<%= user.email %> </p>
+                    <p> 个性签名：<%= user.bio %> </p>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="col-9 p-3 " style="height: 660px">
-        <ul class="nav nav-pills mb-3 ml-3" id="pills-tab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"> Home </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"> Profile </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"> Contact </a>
-            </li>
-        </ul>
-        <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                <h2> 显示用户概况---- 足迹，操作等 </h2>
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
+        <div class="col-9 p-3 " style="height: 660px">
+            <ul class="nav nav-pills mb-3 ml-3" id="pills-tab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"> Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"> Profile </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false"> Contact </a>
+                </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <h2> 显示用户概况---- 足迹，操作等 </h2>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
-            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                <h2>显示用户的详细信息，并提供修改按钮</h2>
-                <div class="row">
-                    <div class="col-7">
-                        <div class="col float-left pr-1 mt-3">
-                            <p> 昵称：<%= user[0].nickname %> </p>
-                            <p> 性别：<%= user[0].gender %> </p>
-                            <p> 生日：<%= user[0].birthday %> </p>
-                            <p> 个性签名：<%= user[0].bio %> </p>
-                            <p> 邮箱：<%= user[0].email %> </p>
-                            <p> 手机：<%= user[0].telephone %> </p>
-                            <p> QQ：<%= user[0].qq %> </p>
-                            <p> 微信：<%= user[0].wechat %> </p>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <h2>显示用户的详细信息，并提供修改按钮</h2>
+                    <div class="row">`
+                        <div class="col-7">
+                            <div class="float-left pr-1 mt-3">
+                                <p> 昵称：<%= user.nickname %> </p>
+                                <p> 性别：<%= user.gender %> </p>
+                                <p> 生日：<%= user.birthday %> </p>
+                                <p> 个性签名：<%= user.bio %> </p>
+                                <p> 邮箱：<%= user.email %> </p>
+                                <p> 手机：<%= user.telephone %> </p>
+                                <p> QQ：<%= user.qq %> </p>
+                                <p> 微信：<%= user.wechat %> </p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-5">
-                        <img id="head_pic" src="<%= user[0].picpath %>">
+                        <div class="col-5 float-right">
+                            <img id="head_pic" src="<%= user.picpath %>" style="width:200px;height:200px">
+                        </div>
                     </div>
                 </div>
 
-
-
-            </div>
-
-            <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-                <h1> 显示用户的联系人，及操作概要 </h1>
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                    <h1> 显示用户的联系人，及操作概要 </h1>
+                </div>
             </div>
         </div>
     </div>
+
 </div>

@@ -23,62 +23,56 @@
 </head>
 
 <body class="bg-secondary">
-    <header class="bg-dark">
-        <div class="container">
-            <% include ../partials/_navbar.html %>
-        </div>
-    </header>
 
-    <main class="mt-3">
-        <section>
-            <div class="container" style="min-height:50rem">
-                <%- body %>
-            </div>
-        </section>
-    </main>
+<header>
+    <% include ../partials/_navbar.html %>
+</header>
 
-    <footer class="bg-dark">
-        <section>
-            <div class="container">
-                <% include ../partials/footer_navbar.html %>
-            </div>
-        </section>
-    </footer>
+<main>
+    <div class="container py-2 my-2" style="height:530px">
+        <%- body %>
+    </div>
+</main>
 
 
-    <script type="text/javascript">
-        $(window).load(function() {
-            var options =
-                {
-                    thumbBox: '.thumbBox',
-                    spinner: '.spinner',
-                    imgSrc: '/public/images/S1.jpg'
-                }
-            var cropper = $('.imageBox').cropbox(options);
-            $('#image').on('change', function(){
-                var reader = new FileReader();
-                reader.onload = function(e) {
-                    options.imgSrc = e.target.result;
-                    cropper = $('.imageBox').cropbox(options);
-                }
-                reader.readAsDataURL(this.files[0]);
-                this.files = [];
-            })
-            $('#btnCrop').on('click', function(){
-                var img = cropper.getDataURL();
-                $('.cropped').html('');
-                $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
-                $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
-                $('.cropped').append('<img src="'+img+'" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
-            })
-            $('#btnZoomIn').on('click', function(){
-                cropper.zoomIn();
-            })
-            $('#btnZoomOut').on('click', function(){
-                cropper.zoomOut();
-            })
-        });
-    </script>
+
+<script>
+    $(window).load(function() {
+        var options =
+            {
+                thumbBox: '.thumbBox',
+                spinner: '.spinner',
+                imgSrc: '/public/images/S1.jpg'
+            }
+        var cropper = $('.imageBox').cropbox(options);
+        $('#image').on('change', function(){
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                options.imgSrc = e.target.result;
+                cropper = $('.imageBox').cropbox(options);
+            }
+            reader.readAsDataURL(this.files[0]);
+            this.files = [];
+        })
+        $('#btnZoomIn').on('click', function(){
+            cropper.zoomIn();
+        })
+        $('#btnZoomOut').on('click', function(){
+            cropper.zoomOut();
+        })
+        $('#btnCrop').on('click', function(){
+            var img = cropper.getDataURL();
+            $('.cropped').html('');
+            $('.cropped').append('<img id="img1" src="'+img+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
+            $('.cropped').append('<img id="img2" src="'+img+'" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
+            $('.cropped').append('<img id="img3" src="'+img+'" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
+            var img1Src = document.getElementById('img3').src;
+            var upload_base = document.getElementById('upload_base');
+            upload_base.value = img1Src;
+        })
+    });
+
+</script>
 
 </body>
 

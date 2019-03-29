@@ -17,28 +17,23 @@
 </head>
 
 <body class="bg-secondary">
-    <header class="bg-dark">
-        <div class="container">
-            <% include ../partials/_navbar.html %>
-        </div>
+    <header>
+        <% include ../partials/_navbar.html %>
     </header>
 
-    <main class="mt-3">
+    <main class="mt-2">
         <section>
-            <div class="container" style="min-height:50rem">
+            <div class="container-fluid px-5" style="min-height:50rem">
                 <%- body %>
             </div>
         </section>
     </main>
 
-    <footer class="bg-dark">
+    <footer>
         <section>
-            <div class="container">
-                <% include ../partials/footer_navbar.html %>
-            </div>
+            <% include ../partials/footer_navbar.html %>
         </section>
     </footer>
-
 
 
 </body>
