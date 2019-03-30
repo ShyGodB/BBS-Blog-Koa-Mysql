@@ -1,6 +1,6 @@
 const KoaRouter = require('koa-router');
 const router = new KoaRouter();
-const db = require('../database');
+const db = require('../lib/database');
 
 //   根据子论坛展示帖子
 router.get("/showTopics/:topicType", async (ctx) => {  //路由

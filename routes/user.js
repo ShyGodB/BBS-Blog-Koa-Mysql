@@ -1,6 +1,6 @@
 const KoaRouter = require('koa-router');
 const router = new KoaRouter();
-const db = require('../database');
+const db = require('../lib/database');
 const multer = require('koa-multer');
 const upload = multer({ dest: 'public/uploads/' });
 const fs = require('fs');
@@ -223,7 +223,7 @@ router.post('/postTopic', async (ctx) => {
 	const postMan = user.username;
 	const data = [title, childBBS, article, topicImagePath, postMan];
 	await db.addTopicToDatabase(data);
-	ctx.redirect('/')
+	ctx.redirect('/');
 });
 
 // 添加留言

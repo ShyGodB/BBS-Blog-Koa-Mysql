@@ -2,7 +2,6 @@ const Koa = require('koa');
 const json = require('koa-json');
 const path = require('path');
 const render = require('koa-ejs');
-const fs = require('fs');
 const bodyParser = require('koa-bodyparser');
 const app = new Koa();
 
@@ -46,11 +45,6 @@ app.use(indexRouter.routes()).use(indexRouter.allowedMethods());
 app.use(userRouter.routes()).use(userRouter.allowedMethods());
 app.use(adminRouter.routes()).use(adminRouter.allowedMethods());
 app.use(topicRouter.routes()).use(topicRouter.allowedMethods());
-
-
-
-
-
 
 //监听端口
 app.listen(3000, async() => {

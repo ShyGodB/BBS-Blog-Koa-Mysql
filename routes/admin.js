@@ -1,6 +1,6 @@
 const KoaRouter = require('koa-router');
 const router = new KoaRouter();
-const db = require('../database');
+const db = require('../lib/database');
 
 
 // 此模块为管理员操作
