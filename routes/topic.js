@@ -28,9 +28,12 @@ router.get('/showTopics/all/:id', async (ctx) => {
 	const id = ctx.params.id;
 	const topicPromise = db.getTopicFromBBSById(id);
 	const topic = await topicPromise;
+	const listMessageByTopicIdPromise = db.listMessageByTopicId(id);
+	const listMessage = await listMessageByTopicIdPromise;
 	await ctx.render('/topics/showTopic', {
+		topic: topic,
 		user: ctx.session.user,
-		topic: topic
+		listMessage: listMessage,
 	});
 });
 

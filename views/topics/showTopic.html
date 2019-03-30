@@ -1,9 +1,9 @@
-<div>
+<div class="mb-3">
 	<ul class="list-group">
 	  	<li class="list-group-item">
-	  		<h1> 
+	  		<h1>
 	  			话题：<%= topic[0].title %>
-	  		</h1> 
+	  		</h1>
 	  		<h3>
 	  			标签：<%= topic[0].topic_type %>
 	  		</h3>
@@ -11,25 +11,37 @@
 	  		<p>---------------------------------------------------------------------------------------------------------------------------------------------------</p>
 	  		<p>正文：<%= topic[0].article %></p>
 		</li>
-		<li class="list-group-comments"></li>
 	</ul>
+</div>
 
+<div class="mb-3">
+	<ul class="list-group">
+		<% listMessage.forEach(message => { %>
+
+			<li class="list-group-item">
+				<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+					<img src="../../<%= message.message_picpath %>" title="<%= message.message_people %>" style="width:28px;height:28px">
+				</a>
+				<%= message.message_content %>
+			</li>
+		<% }) %>
+	</ul>
 </div>
 
 <div class="comments">
-	<div>
-		<div>
-			<h2>留言</h2>
-		</div>
+	<div class="header p-1" style="background-color:#f6f6f6">
+		<span class="w-100" >共有 <%= listMessage.length %> 条留言</span>
 	</div>
 
-	<form action="/showTopic" method="post">
-		<div class="my-2">
-			<textarea class="form-control overflow-auto" style="min-height: 20rem" name="article" contenteditable="true"></textarea>
-		</div>
-		<div class="my-2">
-			<button class="btn btn-primary" type="submit">Submit</button>
-		</div>
-	</form>
+	<div>
+		<form action="/<%= topic[0].id %>/reply" method="post">
+			<div class="my-2">
+				<textarea class="form-control overflow-auto" style="min-height: 20rem" name="message_content" contenteditable="true"></textarea>
+			</div>
+			<div class="my-2">
+				<button class="btn btn-primary" type="submit">Submit</button>
+			</div>
+		</form>
+	</div>
 </div>
 

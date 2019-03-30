@@ -42,7 +42,7 @@
             {
                 thumbBox: '.thumbBox',
                 spinner: '.spinner',
-                imgSrc: '/public/images/S1.jpg'
+                imgSrc: '/public/images/wenyiXJJ_1.png'
             }
         var cropper = $('.imageBox').cropbox(options);
         $('#image').on('change', function(){
@@ -52,7 +52,7 @@
                 cropper = $('.imageBox').cropbox(options);
             }
             reader.readAsDataURL(this.files[0]);
-            this.files = [];
+            //this.files = [];
         })
         $('#btnZoomIn').on('click', function(){
             cropper.zoomIn();

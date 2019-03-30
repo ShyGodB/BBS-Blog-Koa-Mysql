@@ -156,15 +156,20 @@ router.post("/settings/profile/changeImage", upload.single('image'), async (ctx)
 	const userArray = await getUserInformationPromise;
 	const user = userArray[0];
 	ctx.session.user = user;
+
 	// 在用户更新头像完成后，我们要将数据库中该用户发表的所有话题的topic_image_path
 	// 换成该用户当前头像的路径，即 --> newUserPicturePath
 	// 根据数据表topic中的每条topic的post_man字段我们可以得到发表该话题的用户，因为用户名唯一
 	// 其实在这里用户名就是当前用户的username属性，因为session、更新，所以我们也用新的,
 	// 即ctx.session.user.username. 其实它 === user.username
-	const userName = ctx.session.user.username;
-	const data2 = [newUserPicturePath, userName]
-	const updateTopicImagePathByPostManPromise = db.updateTopicImagePathByPostMan(data2);
-	await updateTopicImagePathByPostManPromise;
+	// const userName = ctx.session.user.username;
+	// const data2 = [newUserPicturePath, userName]
+    // const updateTopicImagePathByPostManPromise = db.updateTopicImagePathByPostMan(data2);
+    // await updateTopicImagePathByPostManPromise;
+	// 同上，用户更换头像，该用户留言前的图片也应该换
+	// const data3 = [newUserPicturePath, userName];
+	// const updateMessageImagePathByMessagePeoplePromise = db.updateMessageImagePathByMessagePeople(data3);
+	// await updateMessageImagePathByMessagePeoplePromise;
 	ctx.redirect('/userHome');
 });
 
@@ -227,9 +232,20 @@ router.post('/postTopic', async (ctx) => {
 });
 
 // 添加留言
-router.post('/showTopic', async(ctx) => {
-	const article = ctx.request.body.article;
-	console.log(article);
+router.post('/:id/reply', async (ctx) => {
+	//console.log(ctx.session.user);
+	const user = ctx.session.user;
+	const message_people = user.username;
+	const message_picpath = user.picpath;
+	// 拿到当前页面显示话题的id
+	const topicId = ctx.params.id;
+	// 拿到当前页面用户输入的留言内容
+	const messageContent = ctx.request.body.message_content;
+	const data = [topicId, messageContent, message_people, message_picpath];
+	const saveMessageToTableMessagePromise = db.saveMessageToTableMessage(data);
+	await saveMessageToTableMessagePromise;
+	const targetAdress = `/showTopics/all/${topicId}`;
+	ctx.redirect(targetAdress);
 });
 
 module.exports = router;
