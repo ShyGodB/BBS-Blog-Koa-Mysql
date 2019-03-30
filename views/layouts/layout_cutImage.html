@@ -67,9 +67,12 @@
             $('.cropped').append('<img id="img2" src="'+img+'" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
             $('.cropped').append('<img id="img3" src="'+img+'" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
             var img1Src = document.getElementById('img3').src;
+            //var sourceImagePath = document.getElementById('image').value
             var upload_base = document.getElementById('upload_base');
+            //var source_image = document.getElementById('source_image');
             upload_base.value = img1Src;
-        })
+            //source_image.value = sourceImagePath;
+        });
     });
 
 </script>

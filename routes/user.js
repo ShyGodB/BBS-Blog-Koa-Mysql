@@ -146,6 +146,11 @@ router.post("/settings/profile/changeImage", upload.single('image'), async (ctx)
 			console.log(err);
 		}else{
 			console.log("保存成功！");
+			if(ctx.req.file) {
+				const filename = ctx.req.file.filename;
+				const savedFilePath = `public/uploads/${filename}`;
+				fs.unlinkSync(savedFilePath);
+			}
 		}
 	});
 	const id = ctx.session.user.id;
