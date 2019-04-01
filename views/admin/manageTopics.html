@@ -54,10 +54,19 @@
 						</td>
 						<td>
 							<a class="text-primary btn btn-danger text-light mr-3" href="/admin/manageTopics/all/delete/<%= topic.id %>"> Delete </a>
-							<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/setStar/<%= topic.id %>"> Set star </a>
-							<a class="text-primary btn btn-warning text-light mr-3" href="/admin/manageTopics/all/cancelStar/<%= topic.id %>"> Cancel star </a>
-							<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/setTop/<%= topic.id %>"> Set top </a>
-							<a class="text-primary btn btn-warning text-light" href="/admin/manageTopics/all/cancelTop/<%= topic.id %>"> Cancel top </a>
+
+							<% if(topic.top === 1) {%>
+								<a class="text-primary btn btn-warning text-light mr-3" href="/admin/manageTopics/all/cancelTop/<%= topic.id %>"> Cancel top </a>
+							<%} else {%>
+								<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/setTop/<%= topic.id %>"> Set top </a>
+							<% } %>
+
+
+							<% if(topic.star === 1) {%>
+								<a class="text-primary btn btn-warning text-light mr-3" href="/admin/manageTopics/all/cancelStar/<%= topic.id %>"> Cancel star </a>
+							<%} else {%>
+								<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/setStar/<%= topic.id %>"> Set star </a>
+							<% } %>
 						</td>
 					</tr>
 				<% })%>
@@ -167,10 +176,19 @@
 								</td>
 								<td>
 									<a class="text-primary btn btn-danger text-light mr-3" href="/admin/manageTopics/all/delete/<%= topic.id %>"> Delete </a>
-									<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/set_star/<%= topic.id %>"> Set star </a>
-									<a class="text-primary btn-warning text-light mr-3" href="/admin/manageTopics/all/cancelStar/<%= topic.id %>"> Cancel star </a>
-									<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/set_top/<%= topic.id %>"> Set top </a>
-									<a class="text-primary btn btn-warning text-light" href="/admin/manageTopics/all/cancelTop/<%= topic.id %>"> Cancel top </a>
+
+									<% if(topic.top === 1) {%>
+										<a class="text-primary btn btn-warning text-light mr-3" href="/admin/manageTopics/all/cancelTop/<%= topic.id %>"> Cancel top </a>
+									<%} else {%>
+										<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/setTop/<%= topic.id %>"> Set top </a>
+									<% } %>
+
+
+									<% if(topic.star === 1) {%>
+										<a class="text-primary btn btn-warning text-light mr-3" href="/admin/manageTopics/all/cancelStar/<%= topic.id %>"> Cancel star </a>
+									<%} else {%>
+										<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/setStar/<%= topic.id %>"> Set star </a>
+									<% } %>
 								</td>
 							</tr>
 						<% }) %>

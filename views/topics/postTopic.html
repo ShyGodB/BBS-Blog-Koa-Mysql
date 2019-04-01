@@ -32,7 +32,7 @@
 					</div>
 
 					<div>
-						<input type="hidden" name="select_current_value" id="post_current_value" value="111">
+						<input type="hidden" name="select_current_value" id="post_current_value" value="<%= listBoard[1].board_name %>">
 					</div>
 
 					<div>
@@ -51,6 +51,7 @@
 <script>
 
 	$('#bbs_options').change(function () {
+		//console.log($(this).find("option:selected").val())
 		document.getElementById('post_current_value').value = $(this).find("option:selected").val(); //获取当前显示的值
 	});
 

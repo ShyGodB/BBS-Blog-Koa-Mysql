@@ -20,7 +20,7 @@
 					<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
 						<img src="<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
 					</a>
-					<span class="text-center bg-primary mr-1"> <%= topic.topic_type%> </span>
+					<span class="text-center bg-primary mr-1"> <%= topic.board_name%> </span>
 					<a class="topic-link text-lg-center" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
 				</li>
 				<% })%>

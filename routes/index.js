@@ -1,15 +1,17 @@
 const KoaRouter = require('koa-router');
 const router = new KoaRouter();
-const db = require('../lib/database');
+const editBoard = require('../lib/boards');
+const editTopic = require('../lib/topics');
 
 //  请求主页
 router.get("/", async (ctx) => { //路由
-	const allTopicPromise = db.listAllTopicFromBBS();
+	const user = ctx.session.user;
+	const allTopicPromise = editTopic.listAllTopicFromBBS();
 	const allTopic = await allTopicPromise;
-	const listBoardPromise = db.listChildBBSAll();
+	const listBoardPromise = editBoard.listChildBBSAll();
 	const listBoard = await listBoardPromise;
 	await ctx.render('index', {
-		user: ctx.session.user,
+		user: user,
 		listBoard: listBoard,
 		allTopic: allTopic
 	});
@@ -25,7 +27,7 @@ router.post("/allTopic/showSearchResults", async (ctx) => {
 	//console.log(typeof userInputString)
 	//const userInputArray = userInputString.split(' ');
 	// 拿到数据库中所有topic的title，结果返回的是一个包含多个对象的数组
-	const listAllTopicFromBBSPromise = db.listAllTopicFromBBS();
+	const listAllTopicFromBBSPromise = editTopic.listAllTopicFromBBS();
 	const allTopic = await listAllTopicFromBBSPromise;
 	//console.log(allTopic)
 	// 定义一个结果数组，用来存储找到的结果

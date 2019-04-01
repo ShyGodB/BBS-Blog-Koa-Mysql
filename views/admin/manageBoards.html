@@ -1,12 +1,17 @@
 
 <div class="m-2 p-2 bg-light">
-	<div class="form-check-inline">
-		<h2 class="form-group-prepend mb-4"> 子论坛列表：</h2>
+	<div class="row form-check-inline w-100 ml-1">
+		<div class="col-md-9">
+			<h2 class="form-group-prepend py-2 pr-2"> 子论坛列表：</h2>
 
-		<!-- 按钮：用于打开模态框 -->
-		<button type="button" class="btn btn-lg btn-primary" data-toggle="modal" data-target="#newBoard">
-			New board
-		</button>
+		</div>
+		<div class="col-md-3 pr-2">
+			<!-- 按钮：用于打开模态框 -->
+			<button type="button" class="btn btn-lg btn-primary mb-1 float-right" data-toggle="modal" data-target="#newBoard">
+				New board
+			</button>
+		</div>
+
 		<!-- 模态框 -->
 		<div class="modal fade" id="newBoard">
 			<div class="modal-dialog">
@@ -35,6 +40,7 @@
 				</div>
 			</div>
 		</div>
+
 
 	</div>
 
