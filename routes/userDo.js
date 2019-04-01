@@ -61,7 +61,6 @@ router.post('/signIn', async(ctx) => {
 	if (rows.length !== 0 && (rows[0].email === email && rows[0].password === password)) {
 		console.log('登录成功');
 		ctx.session.user = user;
-		console.log(ctx.session.user)
 		await ctx.redirect('/');
 	} else {
 		console.log('登录失败');
@@ -92,7 +91,6 @@ router.get("/userHome", async (ctx) => {
 router.get("/postTopic", async (ctx) => {  //路由
 	const listBoardPromise = editBoard.listChildBBSAll();
 	const listBoard = await listBoardPromise;
-	console.log(listBoard)
 	await ctx.render("/topics/postTopic", {
 		user: ctx.session.user,
 		listBoard: listBoard
@@ -108,9 +106,7 @@ router.post('/postTopic', async (ctx) => {
 	const article = ctx.request.body.article;
 	const topicImagePath = user.picpath;
 	const postMan = user.username;
-	console.log(board_name);
 	const data = [title, board_name, article, topicImagePath, postMan];
-	console.log(data)
 	const addTopicPromise = editTopic.addTopicToDatabase(data);
 	await addTopicPromise;
 	ctx.redirect('/');

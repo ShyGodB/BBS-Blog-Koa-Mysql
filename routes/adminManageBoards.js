@@ -54,7 +54,6 @@ router.get("/admin/manageBoards/delete/:id", async (ctx) => {
 router.post("/admin/manageBoards/:id", async (ctx) => {
 	const newName = ctx.request.body.newName;
 	const id = ctx.params.id;
-	console.log(id)
 	const data = [newName, id];
 	const renamePromise = editBoard.renameBoardById(data);
 	await renamePromise;

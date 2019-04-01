@@ -57,7 +57,6 @@ router.get("/admin/manageTopics/all/cancelStar/:id", async (ctx) => {
 //  设置置顶帖子
 router.get("/admin/manageTopics/all/setTop/:id", async (ctx) => {
 	const id = ctx.params.id;
-	console.log(id)
 	const setTopTopicPromise = editTopic.setTopTopic(id);
 	await setTopTopicPromise;
 	ctx.redirect("/admin/manageTopics/top");
