@@ -1,6 +1,34 @@
 
 <div class="mb-2 row">
+    <div class="col-md-9 my-3">
 
+        <div class="list-group">
+            <ul class="list-group"></ul>
+                <li class="list-group-item list-group-item-action cell form-inline" style="font-size: 24px">
+                    <h3> 查询结果： </h3>
+                </li>
+                <% if (resultArray.length === 0) { %>
+                    <li class="list-group-item list-group-item-action cell form-inline" style="font-size: 24px">
+                        <h4> 抱歉，找不到和您查询的“ <span class="text-danger"> <%= userInputString %> </span> ”相符的内容或信息。</h4>
+                        <h5> 建议： </h5>
+                        <p> ∙ 请检查输入字词有无错误。 </p>
+                        <p> ∙ 请尝试其他查询词。 </p>
+                        <p> ∙ 请改用较常见的字词。 </p>
+                    </li>
+                <% } %>
+
+                <% resultArray.forEach(topic => { %>
+                    <li class="list-group-item list-group-item-action cell form-inline" style="font-size: 24px">
+                        <a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+                            <img src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+                        </a>
+                        <span class="text-center bg-primary mr-1"> <%= topic.board_name%> </span>
+                        <a class="topic-link text-lg-center" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+                    </li>
+                <% })%>
+            </ul>
+        </div>
+    </div>
 
     <div class="col-md-3 my-3">
         <div class="w-100 bg-light">
@@ -12,7 +40,7 @@
                 <% if(user) {%>
                 <div class='inner text-left p-2'>
                     <div class="">
-                        <img src="<%= user.picpath %>"><span class="h1 ml-2"><%= user.username %></span>
+                        <img src="../<%= user.picpath %>"><span class="h1 ml-2"><%= user.username %></span>
                     </div>
                     <div class="mt-2">
                         <ul>

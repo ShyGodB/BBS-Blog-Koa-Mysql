@@ -36,8 +36,10 @@
         <section class="md-5">
             <div class="mb-5 row">
                 <div class="col-md-3 px-1">
-                    <div class="userBox p-2 m-2" style="width:22rem;height:13rem;background-color: #c0c0c0">
-                        <a href="/admin"> Admin </a>
+                    <div class="userBox m-2 p-1" style="width:22rem;height:13rem;background-color: #c0c0c0">
+                        <a class="nav-link text-light p-0" href="#">
+                            <img src="/public/images/terrorist.jpg" alt="" style="width:200px;height:200px">
+                        </a>
                     </div>
                 
                     <div class="accordion bg-dark" id="accordionExample">
@@ -77,24 +79,27 @@
                     </div>
                 </div>
                 <div class="col-md-9 px-1">
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mt-2 px-3">
+                    <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-1 py-0">
                         <div class="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul class="navbar-nav mr-2">
                                 <li class="nav-item active">
-                                    <a class="nav-link text-light" role="button" href="/">Home <span class="sr-only">(current)</span></a>
+                                    <a class="nav-link text-light" role="button" href="/"> Home <span class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                                <li class="nav-item active">
+                                    <a class="nav-link text-light" role="button" href="/admin"> Admin <span class="sr-only">(current)</span></a>
                                 </li>
                             </ul>
+
                             <form class="form-inline my-3 my-lg-0">
                                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             </form>
-                    
+
                             <ul class="navbar-nav mr-1 ml-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link text-light" href="#">图标</a>
+                                <li class="nav-item mr-2">
+                                    <a class="nav-link text-light" href="#">
+                                        <img src="/public/images/terrorist.jpg" alt="" style="width:30px;height:30px">
+                                    </a>
                                 </li>
                             </ul>
                         </div>
