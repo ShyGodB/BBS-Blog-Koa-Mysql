@@ -3,12 +3,20 @@
 	<h2 class="text-light my-3"> 在这里你可以对所有帖子进行管理 </h2>
 	<ul class="nav btn-lg bg-light">
 		<li class="nav-item">
-			<a class="nav-link active" href="/admin/allTopicManagement/manageTopics/all">全部</a>
+			<a class="nav-link active" href="/admin/manageTopics/all">全部</a>
 		</li>
-		<% childBBS.forEach(bbs => { %>
 		<li class="nav-item">
-			<a class="nav-link" href="/admin/allTopicManagement/manageTopics/<%=bbs.child_bbs%>"> <%= bbs.child_bbs %> </a>
+			<a class="nav-link active" href="/admin/manageTopics/top"> 置顶 </a>
 		</li>
+		<li class="nav-item">
+			<a class="nav-link active" href="/admin/manageTopics/star"> 精华 </a>
+		</li>
+		<% listBoard.forEach(board => { %>
+			<% if(board.board_name !== '精华') { %>
+				<li class="nav-item">
+					<a class="nav-link" href="/admin/manageTopics/<%=board.board_name%>"> <%= board.board_name %> </a>
+				</li>
+			<% } %>
 		<% }) %>
 	</ul>
 
@@ -18,6 +26,7 @@
 				<th scope="col"> id </th>
 				<th scope="col"> title </th>
 				<th scope="col"> topic_type </th>
+				<th scope="col"> Top? </th>
 				<th scope="col"> Star? </th>
 				<th scope="col"> edit </th>
 			</tr>
@@ -30,6 +39,13 @@
 						<td> <%= topic.title %> </td>
 						<td> <%= topic.topic_type %> </td>
 						<td>
+							<% if(topic.top === 1) {%>
+								True
+							<%} else {%>
+								False
+							<% } %>
+						</td>
+						<td>
 							<% if(topic.star === 1) {%>
 								True
 							<%} else {%>
@@ -37,34 +53,89 @@
 							<% } %>
 						</td>
 						<td>
-							<a class="text-primary mr-3" href="/admin/allTopicManagement/manageTopics/all/<%= topic.id %>"> Delete </a>
-							<a class="text-primary mr-3" href="/admin/allTopicManagement/all/<%= topic.id %>"> Star </a>
-							<a class="text-primary" href="/admin/allTopicManagement/star/<%= topic.id %>"> Reduce </a>
+							<a class="text-primary btn btn-danger text-light mr-3" href="/admin/manageTopics/all/delete/<%= topic.id %>"> Delete </a>
+							<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/setStar/<%= topic.id %>"> Set star </a>
+							<a class="text-primary btn btn-warning text-light mr-3" href="/admin/manageTopics/all/cancelStar/<%= topic.id %>"> Cancel star </a>
+							<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/setTop/<%= topic.id %>"> Set top </a>
+							<a class="text-primary btn btn-warning text-light" href="/admin/manageTopics/all/cancelTop/<%= topic.id %>"> Cancel top </a>
 						</td>
-
 					</tr>
 				<% })%>
 			<% } else if(topicType === 'star'){ %>
-				<% listStarTopic.forEach(topic => { %>
+				<% if (listStarTopic.length === 0) { %>
 					<tr>
-						<th scope="row"> <%= topic.id %> </th>
-						<td> <%= topic.title %> </td>
-						<td> <%= topic.topic_type %> </td>
-						<td>
-							<% if(topic.star === 1) {%>
-							True
-							<%} else {%>
-							False
-							<% } %>
-						</td>
-						<td>
-							<a class="text-primary mr-3" href="/admin/allTopicManagement/manageTopics/all/<%= topic.id %>"> Delete </a>
-							<a class="text-primary mr-3" href="/admin/allTopicManagement/all/<%= topic.id %>"> Star </a>
-							<a class="text-primary" href="/admin/allTopicManagement/star/<%= topic.id %>"> Reduce </a>
-						</td>
-
+						<th scope="row"> -- </th>
+						<td> ---- </td>
+						<td> ----------- </td>
+						<td> ----- </td>
+						<td> ---- </td>
+						<td> ---- </td>
 					</tr>
-				<% })%>
+				<% } else { %>
+					<% listStarTopic.forEach(topic => { %>
+						<tr>
+							<th scope="row"> <%= topic.id %> </th>
+							<td> <%= topic.title %> </td>
+							<td> <%= topic.topic_type %> </td>
+							<td>
+								<% if(topic.top === 1) {%>
+									True
+								<%} else {%>
+									False
+								<% } %>
+							</td>
+							<td>
+								<% if(topic.star === 1) {%>
+									True
+								<%} else {%>
+									False
+								<% } %>
+							</td>
+							<td>
+								<a class="text-primary btn btn-danger text-light mr-3" href="/admin/manageTopics/all/delete/<%= topic.id %>"> Delete </a>
+								<a class="text-primary btn btn-warning text-light" href="/admin/manageTopics/all/cancelStar/<%= topic.id %>"> Cancel star </a>
+							</td>
+
+						</tr>
+					<% })%>
+				<% } %>
+			<% } else if(topicType === 'top'){ %>
+				<% if (listTopTopic.length === 0) { %>
+					<tr>
+						<th scope="row"> -- </th>
+						<td> ---- </td>
+						<td> ----------- </td>
+						<td> ----- </td>
+						<td> ---- </td>
+						<td> ---- </td>
+					</tr>
+				<% } else { %>
+					<% listTopTopic.forEach(topic => { %>
+						<tr>
+							<th scope="row"> <%= topic.id %> </th>
+							<td> <%= topic.title %> </td>
+							<td> <%= topic.topic_type %> </td>
+							<td>
+								<% if(topic.top === 1) {%>
+									True
+								<%} else {%>
+									False
+								<% } %>
+							</td>
+							<td>
+								<% if(topic.top === 1) {%>
+								True
+								<%} else {%>
+								False
+								<% } %>
+							</td>
+							<td>
+								<a class="text-primary btn btn-danger text-light mr-3" href="/admin/manageTopics/all/delete/<%= topic.id %>"> Delete </a>
+								<a class="text-primary btn btn-warning text-light" href="/admin/manageTopics/all/cancelTop/<%= topic.id %>"> Cancel top </a>
+							</td>
+						</tr>
+					<% })%>
+				<% } %>
 			<% } else { %>
 					<% if(listTopicByTopicType.length === 0) { %>
 						<tr>
@@ -73,6 +144,7 @@
 							<td> ----------- </td>
 							<td> ----- </td>
 							<td> ---- </td>
+							<td> ---- </td>
 						</tr>
 					<% } else {%>
 						<% listTopicByTopicType.forEach(topic => { %>
@@ -80,6 +152,13 @@
 								<th scope="row"> <%= topic.id %> </th>
 								<td> <%= topic.title %> </td>
 								<td> <%= topic.topic_type %> </td>
+								<td>
+									<% if(topic.top === 1) {%>
+										True
+									<%} else {%>
+										False
+									<% } %>
+								</td>
 								<td> <% if(topic.star === 1) {%>
 										True
 									 <%} else {%>
@@ -87,9 +166,11 @@
 									 <% } %>
 								</td>
 								<td>
-									<a class="text-primary mr-3" href="/admin/allTopicManagement/manageTopics/all/<%= topic.id %>"> Delete </a>
-									<a class="text-primary mr-3" href="/admin/allTopicManagement/all/<%= topic.id %>"> Star </a>
-									<a class="text-primary" href="/admin/allTopicManagement/star/<%= topic.id %>"> Reduce </a>
+									<a class="text-primary btn btn-danger text-light mr-3" href="/admin/manageTopics/all/delete/<%= topic.id %>"> Delete </a>
+									<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/set_star/<%= topic.id %>"> Set star </a>
+									<a class="text-primary btn-warning text-light mr-3" href="/admin/manageTopics/all/cancelStar/<%= topic.id %>"> Cancel star </a>
+									<a class="text-primary btn btn-success text-light mr-3" href="/admin/manageTopics/all/set_top/<%= topic.id %>"> Set top </a>
+									<a class="text-primary btn btn-warning text-light" href="/admin/manageTopics/all/cancelTop/<%= topic.id %>"> Cancel top </a>
 								</td>
 							</tr>
 						<% }) %>

@@ -4,20 +4,20 @@ const db = require('../lib/database');
 
 //   根据子论坛展示帖子
 router.get("/showTopics/:topicType", async (ctx) => {  //路由
-	const topicType = ctx.params.topicType;
+	const boardName = ctx.params.topicType;
 	const allTopicPromise = db.listAllTopicFromBBS();
 	const allTopic = await allTopicPromise;
-	const childBBSPromise = db.listChildBBSAll();
-	const childBBS = await childBBSPromise;
+	const listBoardPromise = db.listChildBBSAll();
+	const listBoard = await listBoardPromise;
 	const listStarTopicPromise = db.listStarTopic();
 	const listStarTopic = await listStarTopicPromise;
-	const listTopicByTopicTypePromise = db.listTopicByTopicType(topicType);
+	const listTopicByTopicTypePromise = db.listTopicByTopicType(boardName);
 	const listTopicByTopicType = await listTopicByTopicTypePromise;
 	await ctx.render('/topics/showTopics', {
 		allTopic: allTopic,
-		childBBS: childBBS,
+		listBoard: listBoard,
 		user: ctx.session.user,
-		topicType: topicType,
+		boardName: boardName,
 		listStarTopic: listStarTopic,
 		listTopicByTopicType: listTopicByTopicType
 	});

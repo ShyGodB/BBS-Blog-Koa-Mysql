@@ -6,9 +6,9 @@
 				<li class="nav-item">
 					<a class="nav-link active" href="/showTopics/all">全部</a>
 				</li>
-				<% child_BBS.forEach(bbs => { %>
+				<% listBoard.forEach(board => { %>
 				<li class="nav-item">
-					<a class="nav-link" href="/showTopics/<%=bbs.child_bbs%>"> <%= bbs.zh_bbs %> </a>
+					<a class="nav-link" href="/showTopics/<%=board.board_name%>"> <%= board.board_name %> </a>
 				</li>
 				<% }) %>
 			</ul>

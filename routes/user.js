@@ -24,20 +24,24 @@ router.post('/signUp', async(ctx) => {
 	const row1 = await getUserByUsernamePromise;
 	if(row1.length !== 0) {
 		console.log("注册失败，用户名重复，请重新输入");
+		await ctx.redirect("/signUp");
 	} else {
 		const getUserByEmailPromise = db.getUserByEmail(email);
 		const row2 = await getUserByEmailPromise;
 		if(row2.length !== 0) {
 			console.log("注册失败，邮箱账号重复，请重新输入");
+			await ctx.redirect("/signUp");
 		} else {
+			console.log("注册成功");
 			const addUserDataPromise = db.addUserData(data);
 			await addUserDataPromise;
 			const getUserByUsernamePromise = db.getUserByUsername(username);
 			const row4 = await getUserByUsernamePromise;
 			ctx.session.user = row4[0];
+			await ctx.redirect('/');
 		}
 	}
-	ctx.redirect('/');
+
 });
 
 // 用户登录
@@ -56,14 +60,13 @@ router.post('/signIn', async(ctx) => {
 	const usersPromise = db.getUsernameByEmail(email);
 	const users = await usersPromise;
 	const user = users[0];
-
 	if (rows.length !== 0 && (rows[0].email === email && rows[0].password === password)) {
 		console.log('登录成功');
 		ctx.session.user = user;
-		console.log(user)
-		ctx.redirect('/');
+		await ctx.redirect('/');
 	} else {
 		console.log('登录失败');
+		await ctx.redirect("/signIn");
 	}
 });
 
@@ -76,8 +79,12 @@ router.get("/signOut", async (ctx) => { //路由
 
 // 请求用户主页
 router.get("/userHome", async (ctx) => {
+	const id = ctx.session.user.id;
+	const getUserByIdPromise = db.getUserById(id);
+	const userArray = await getUserByIdPromise;
+	const user = userArray[0];
 	await ctx.render("/userSetting/userHome", {
-		user: ctx.session.user
+		user: user
 	});
 });
 
@@ -167,14 +174,14 @@ router.post("/settings/profile/changeImage", upload.single('image'), async (ctx)
 	// 根据数据表topic中的每条topic的post_man字段我们可以得到发表该话题的用户，因为用户名唯一
 	// 其实在这里用户名就是当前用户的username属性，因为session、更新，所以我们也用新的,
 	// 即ctx.session.user.username. 其实它 === user.username
-	// const userName = ctx.session.user.username;
-	// const data2 = [newUserPicturePath, userName]
-    // const updateTopicImagePathByPostManPromise = db.updateTopicImagePathByPostMan(data2);
-    // await updateTopicImagePathByPostManPromise;
+	const userName = ctx.session.user.username;
+	const data2 = [newUserPicturePath, userName]
+    const updateTopicImagePathByPostManPromise = db.updateTopicImagePathByPostMan(data2);
+    await updateTopicImagePathByPostManPromise;
 	// 同上，用户更换头像，该用户留言前的图片也应该换
-	// const data3 = [newUserPicturePath, userName];
-	// const updateMessageImagePathByMessagePeoplePromise = db.updateMessageImagePathByMessagePeople(data3);
-	// await updateMessageImagePathByMessagePeoplePromise;
+	const data3 = [newUserPicturePath, userName];
+	const updateMessageImagePathByMessagePeoplePromise = db.updateMessageImagePathByMessagePeople(data3);
+	await updateMessageImagePathByMessagePeoplePromise;
 	ctx.redirect('/userHome');
 });
 
@@ -215,11 +222,11 @@ router.post("/Settings/advanced", async (ctx) => {
 
 //  用户发表帖子
 router.get("/postTopic", async (ctx) => {  //路由
-	const listChildBBSPromise = db.listChildBBSAll();
-	const listChildBBS = await listChildBBSPromise;
+	const listBoardPromise = db.listChildBBSAll();
+	const listBoard = await listBoardPromise;
 	await ctx.render("/topics/postTopic", {
 		user: ctx.session.user,
-		listChildBBS: listChildBBS
+		listBoard: listBoard
 	});
 });
 

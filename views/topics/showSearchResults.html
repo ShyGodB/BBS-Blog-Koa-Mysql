@@ -1,0 +1,35 @@
+
+<div class="mb-2 row">
+
+
+    <div class="col-md-3 my-3">
+        <div class="w-100 bg-light">
+            <div class='panel'>
+                <div class='header text-left p-2 bg'  style="background-color: #bbbbbb ">
+                    <h5 class="">个人信息</h5>
+                </div>
+
+                <% if(user) {%>
+                <div class='inner text-left p-2'>
+                    <div class="">
+                        <img src="<%= user.picpath %>"><span class="h1 ml-2"><%= user.username %></span>
+                    </div>
+                    <div class="mt-2">
+                        <ul>
+                            <li class="user my-1">email: <%= user.email %></li>
+                            <li class="user my-1">个性签名: <%= user.bio %></li>
+                        </ul>
+
+                    </div>
+                </div>
+                <% } else {%>
+                <div class='box'>
+                    <h4 class="text-primary">欢迎来到BBS</h4>
+                    <p>您尚未登录，请<a href="/signIn" class="">登录</a></p>
+                    <p>没有账号？点击<a href="/signUp" class="">注册</a></p>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </div>
+</div>

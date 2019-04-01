@@ -12,12 +12,11 @@
 						<lebel class="text-dark h5 mr-3 mb-0 py-2"> 选择板块: </lebel>
 
 						<select id="bbs_options" class="form-control custom-select mr-3" style="width:20rem" aria-describedby="promption">
-							<% listChildBBS.forEach(bbs => { %>
-								<% if(bbs.child_bbs !== 'star') { %>
-									<option value="<%= bbs.child_bbs %>"> <%= bbs.zh_bbs %> </option>
+							<% listBoard.forEach(board => { %>
+								<% if(board.board_name !== '精华') { %>
+									<option value="<%= board.board_name %>"> <%= board.board_name %> </option>
 								<% } %>
 							<% }) %>
-
 						</select>
 
 						<small class="ml-3 text-secondary" id="promption">用于写点提示</small>
