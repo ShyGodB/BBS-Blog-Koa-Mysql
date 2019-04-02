@@ -6,9 +6,9 @@ const editTopic = require('../lib/topics');
 //  请求主页
 router.get("/", async (ctx) => { //路由
 	const user = ctx.session.user;
-	const allTopicPromise = editTopic.listAllTopicFromBBS();
+	const allTopicPromise = editTopic.listAllTopic();
 	const allTopic = await allTopicPromise;
-	const listBoardPromise = editBoard.listChildBBSAll();
+	const listBoardPromise = editBoard.listBoardAll();
 	const listBoard = await listBoardPromise;
 	await ctx.render('index', {
 		user: user,
@@ -17,15 +17,13 @@ router.get("/", async (ctx) => { //路由
 	});
 });
 
-
-
-router.post("/allTopic/showSearchResults", async (ctx) => {
+router.post("/allTopic/results", async (ctx) => {
 	// 需求： 拿到用户在搜索框中输入的字符串，将其与Topic表中所有topic的title进行对比，
 	// 有相等的就展示出来，没有则提示用户说：未找到符合条件的内容，搜索的显示页面可以是另外一个页面
 
 	// 拿到用户在搜索框中输入的字符串
 	const userInputString = ctx.request.body.user_input_string;
-	const listAllTopicFromBBSPromise = editTopic.listAllTopicFromBBS();
+	const listAllTopicFromBBSPromise = editTopic.listAllTopic();
 	const allTopic = await listAllTopicFromBBSPromise;
 
 	// 定义一个结果数组，用来存储找到的结果
@@ -37,15 +35,13 @@ router.post("/allTopic/showSearchResults", async (ctx) => {
 		}
 	}
 	const user = ctx.session.user;
-	await ctx.render("/topics/showSearchResults", {
+	await ctx.render("/topics/show_results", {
 		user: user,
 		resultArray: resultArray,
 		userInputString: userInputString
 	});
 
 });
-
-
 
 module.exports = router;
 

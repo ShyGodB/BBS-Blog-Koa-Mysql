@@ -1,23 +1,23 @@
 const KoaRouter = require('koa-router');
 const router = new KoaRouter();
-const editBoard = require('../lib/boards');
-const editTopic = require('../lib/topics');
+const editBoard = require('../../lib/boards');
+const editTopic = require('../../lib/topics');
 
 
 //帖子管理--管理员
 router.get("/admin/manageTopics/:topicType", async (ctx) => {  //路由
-	const listBoardPromise = editBoard.listChildBBS();
+	const listBoardPromise = editBoard.listBoard();
 	const listBoard = await listBoardPromise;
-	const allTopicPromise = editTopic.listAllTopicFromBBS();
+	const allTopicPromise = editTopic.listAllTopic();
 	const allTopic = await allTopicPromise;
 	const listStarTopicPromise = editTopic.listStarTopic();
 	const listStarTopic = await listStarTopicPromise;
 	const listTopTopicPromise = editTopic.listTopTopic();
 	const listTopTopic = await listTopTopicPromise;
 	const topicType = ctx.params.topicType;
-	const listTopicByTopicTypePromise = editTopic.listTopicByTopicType(topicType);
+	const listTopicByTopicTypePromise = editTopic.listTopic(topicType);
 	const listTopicByTopicType = await listTopicByTopicTypePromise;
-	await ctx.render("/admin/manageTopics", {
+	await ctx.render("/admin/topics", {
 		layout: 'layouts/layout_admin',
 		topicType: topicType,
 		listBoard: listBoard,

@@ -1,0 +1,31 @@
+
+<div class="m-2 p-2 bg-light">
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col"> id </th>
+				<th scope="col"> 用户名 </th>
+				<th scope="col"> 邮箱 </th>
+				<th scope="col"> Edit </th>
+			</tr>
+		</thead>
+		<tbody>
+			<% allUser.forEach(user => { %>
+				<tr>
+					<th scope="row"> <%= user.id %> </th>
+					<td> <%= user.username %> </td>
+					<td> <%= user.email %> </td>
+					<td>
+						<a class="text-light btn btn-danger mr-3" href="/admin/manageUsers/delete/<%= user.id %>">
+							Delete
+						</a>
+					</td>
+				</tr>
+			<% }) %>
+		</tbody>
+	</table>
+</div>
+
+
+
+

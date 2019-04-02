@@ -1,9 +1,9 @@
 const KoaRouter = require('koa-router');
 const router = new KoaRouter();
 
-const editUser = require('../lib/users');
-const editTopic = require('../lib/topics');
-const editMessage = require('../lib/message');
+const editUser = require('../../lib/users');
+const editTopic = require('../../lib/topics');
+const editMessage = require('../../lib/message');
 
 const multer = require('koa-multer');
 const upload = multer({ dest: 'public/uploads/' });
@@ -59,7 +59,7 @@ router.post("/settings/connection", async (ctx) => {
 
 // 设置头像
 router.get("/settings/profile/changeImage", async (ctx) => {
-	await ctx.render("/userSetting/changeImage", {
+	await ctx.render("/userSetting/change_image", {
 		layout: '/layouts/layout_cutImage',
 		user: ctx.session.user
 	});
@@ -99,12 +99,12 @@ router.post("/settings/profile/changeImage", upload.single('image'), async (ctx)
 	// 即ctx.session.user.username. 其实它 === user.username
 	const userName = ctx.session.user.username;
 	const data2 = [newUserPicturePath, userName]
-	const updateTopicImagePathByPostManPromise = editTopic.updateTopicImagePathByPostMan(data2);
+	const updateTopicImagePathByPostManPromise = editTopic.updateTopicPic(data2);
 	await updateTopicImagePathByPostManPromise;
 	// 同上，用户更换头像，该用户留言前的图片也应该换
 	const data3 = [newUserPicturePath, userName];
-	const updateMessageImagePathByMessagePeoplePromise = editMessage.updateMessageImagePathByMessagePeople(data3);
-	await updateMessageImagePathByMessagePeoplePromise;
+	const updateMessagePicPromise = editMessage.updateMessagePic(data3);
+	await updateMessagePicPromise;
 	ctx.redirect('/userHome');
 });
 

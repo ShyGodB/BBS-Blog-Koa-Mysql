@@ -1,13 +1,13 @@
 const KoaRouter = require('koa-router');
 const router = new KoaRouter();
-const editUser = require('../lib/users');
-const editBoard = require('../lib/boards');
-const editTopic = require('../lib/topics');
-const editMessage = require('../lib/message');
+const editUser = require('../../lib/users');
+const editBoard = require('../../lib/boards');
+const editTopic = require('../../lib/topics');
+const editMessage = require('../../lib/message');
 
 // 用户注册
 router.get("/signUp", async(ctx) => {  //路由
-	await ctx.render('/signUpIn/signUp', {
+	await ctx.render('/signUpIn/sign_up', {
 		layout: "layouts/layout_login"
 	});
 });
@@ -44,7 +44,7 @@ router.post('/signUp', async(ctx) => {
 
 // 用户登录
 router.get("/signIn", async(ctx) => {  //路由
-	await ctx.render("/signUpIn/signIn", {
+	await ctx.render("/signUpIn/sign_in", {
 		layout: "layouts/layout_login",
 	});
 });
@@ -82,16 +82,16 @@ router.get("/userHome", async (ctx) => {
 	const getUserByIdPromise = editUser.getUserById(id);
 	const userArray = await getUserByIdPromise;
 	const user = userArray[0];
-	await ctx.render("/userSetting/userHome", {
+	await ctx.render("/userSetting/userhome", {
 		user: user
 	});
 });
 
 //  用户发表帖子
 router.get("/postTopic", async (ctx) => {  //路由
-	const listBoardPromise = editBoard.listChildBBSAll();
+	const listBoardPromise = editBoard.listBoardAll();
 	const listBoard = await listBoardPromise;
-	await ctx.render("/topics/postTopic", {
+	await ctx.render("/topics/post_topic", {
 		user: ctx.session.user,
 		listBoard: listBoard
 	});
@@ -107,7 +107,7 @@ router.post('/postTopic', async (ctx) => {
 	const topicImagePath = user.picpath;
 	const postMan = user.username;
 	const data = [title, board_name, article, topicImagePath, postMan];
-	const addTopicPromise = editTopic.addTopicToDatabase(data);
+	const addTopicPromise = editTopic.addTopic(data);
 	await addTopicPromise;
 	ctx.redirect('/');
 });
@@ -123,7 +123,7 @@ router.post('/:id/reply', async (ctx) => {
 	// 拿到当前页面用户输入的留言内容
 	const messageContent = ctx.request.body.message_content;
 	const data = [topicId, messageContent, message_people, message_picpath];
-	const saveMessageToTableMessagePromise = editMessage.saveMessageToTableMessage(data);
+	const saveMessageToTableMessagePromise = editMessage.addMessage(data);
 	await saveMessageToTableMessagePromise;
 	const targetAdress = `/showTopics/all/${topicId}`;
 	ctx.redirect(targetAdress);

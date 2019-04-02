@@ -6,12 +6,12 @@ const bodyParser = require('koa-bodyparser');
 const app = new Koa();
 
 const indexRouter = require('./routes/index');
-const userDoRouter = require('./routes/userDo');
-const userSetRouter = require('./routes/userSetting');
-const adminRouter = require('./routes/admin');
-const showTopicRouter = require('./routes/showTopics');
-const manageBoardRouter = require('./routes/adminManageBoards')
-const manageTopicRouter = require('./routes/adminManageTopics')
+const userDoRouter = require('./routes/user/user_do');
+const userSetRouter = require('./routes/user/user_setting');
+const adminRouter = require('./routes/admin/admin');
+const showTopicRouter = require('./routes/topic/show_topics');
+const manageBoardRouter = require('./routes/admin/boards')
+const manageTopicRouter = require('./routes/admin/topics')
 
 
 const session = require('koa-session');
@@ -56,6 +56,6 @@ app.use(manageBoardRouter.routes()).use(manageBoardRouter.allowedMethods());
 app.use(manageTopicRouter.routes()).use(manageTopicRouter.allowedMethods());
 
 //监听端口
-app.listen(3000, async() => {
+app.listen(3001, async() => {
 	console.log("Server is running at http://127.0.0.1:3000")
 })
