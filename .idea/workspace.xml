@@ -2,36 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ba8e290-db56-4a81-bac0-e12bf20c00a5" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/routes/admin/admin.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/boards.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/boards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/message.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/topics.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/topics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/admin.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/adminManageBoards.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/boards.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/adminManageTopics.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/admin/topics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/showTopics.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/topic/show_topics.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/userDo.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/user_do.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/userSetting.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/user_setting.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/manageBoards.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/boards.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/admin/manageTopics.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/admin/topics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/layout_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/layout_cutImage.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_cutImage.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/layouts/layout_user_settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_user_settings.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/partials/_navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/partials/header_navbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/signUpIn/signIn.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/signUpIn/sign_in.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/signUpIn/signUp.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/signUpIn/sign_up.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/topics/postTopic.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/topics/post_topic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/topics/showSearchResults.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/topics/show_results.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/topics/showTopic.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/topics/show_topic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/topics/showTopics.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/topics/show_topics.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/userSetting/changeImage.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/userSetting/change_image.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/userSetting/userHome.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/userSetting/userhome.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -46,7 +19,17 @@
     <favorites_list name="BBS-by-Koa-Mysql" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="358">
+              <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -161,8 +144,9 @@
   <component name="PackageJsonUpdateNotifier">
     <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="188" />
+    <option name="y" value="122" />
     <option name="width" value="1440" />
     <option name="height" value="877" />
   </component>
@@ -170,7 +154,7 @@
     <ConfirmationsSetting value="1" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="Scope" currentSubView="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope" proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -185,7 +169,37 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scope">
+        <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
+          <expand>
+            <path>
+              <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+            <path>
+              <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="lib" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="routes" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+            <path>
+              <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
+              <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
+              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,14 +268,21 @@
       <workItem from="1554102418620" duration="1026000" />
       <workItem from="1554110906263" duration="5928000" />
       <workItem from="1554165285438" duration="9414000" />
+      <workItem from="1554193377948" duration="22000" />
+      <workItem from="1554201992351" duration="33000" />
+      <workItem from="1554202144785" duration="29000" />
+      <workItem from="1554202215162" duration="108000" />
+      <workItem from="1554258960846" duration="1038000" />
+      <workItem from="1554298873866" duration="448000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168436000" />
+    <option name="totallyTimeSpent" value="170114000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <frame x="0" y="23" width="1440" height="877" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4968153" visible="true" weight="0.15574348" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -307,17 +328,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/cut/css/style.css" />
-    <entry file="file://$PROJECT_DIR$/views/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="597" column="16" selection-start-line="597" selection-start-column="16" selection-end-line="597" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database.js" />
     <entry file="file://$PROJECT_DIR$/views/userSetting/change_image.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -331,11 +341,6 @@
             <element signature="n#style#0;n#input#0;n#div#1;n#div#0;n#form#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/cropbox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-672" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/testWeb.js" />
@@ -363,10 +368,8 @@
     <entry file="file://$PROJECT_DIR$/views/admin/manageTopTopics.html" />
     <entry file="file://$PROJECT_DIR$/views/admin/createChildBoard.html" />
     <entry file="file://$PROJECT_DIR$/views/admin/manageChildBoards.html" />
-    <entry file="file://$PROJECT_DIR$/routes/admin/topics.js" />
     <entry file="file://$PROJECT_DIR$/routes/message.js" />
     <entry file="file://$PROJECT_DIR$/routes/users.js" />
-    <entry file="file://$PROJECT_DIR$/routes/admin/boards.js" />
     <entry file="file://$PROJECT_DIR$/views/topics/post_topic.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
@@ -617,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -638,6 +634,31 @@
           <folding>
             <element signature="n#style#0;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/13.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/3.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/default.jpeg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/cropbox.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="48" column="8" lean-forward="true" selection-start-line="48" selection-start-column="8" selection-end-line="48" selection-end-column="8" />
         </state>
       </provider>
     </entry>

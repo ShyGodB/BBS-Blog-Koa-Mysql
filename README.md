@@ -29,6 +29,12 @@ If everything is OK, you can see a BBS on your browser and the address is :
 
 
 
+Admin background entry：  lower left corner of homepage
+
+Administrator user name :   admin
+
+Password:    admin
+
 ## A piece of my mind 
 
 If you have any questions or Suggestions, please contact me, thank you！！！
