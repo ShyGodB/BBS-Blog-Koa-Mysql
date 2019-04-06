@@ -1,47 +1,147 @@
-<div class="mb-3">
-	<ul class="list-group">
-	  	<li class="list-group-item">
-	  		<h1>
-	  			话题：<%= topic[0].title %>
-	  		</h1>
-	  		<h3>
-	  			标签：<%= topic[0].topic_type %>
-	  		</h3>
-	  		<div class="thinPlaceholderLine"></div>
-	  		<p>---------------------------------------------------------------------------------------------------------------------------------------------------</p>
-	  		<p>正文：<%= topic[0].article %></p>
-		</li>
-	</ul>
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Web Practice</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+			integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+			crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+			crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+			crossorigin="anonymous"></script>
+</head>
 
-<div class="mb-3">
-	<ul class="list-group">
-		<% listMessage.forEach(message => { %>
+<body class="bg-secondary">
+<header>
+	<% include ../partials/header_navbar.html %>
+</header>
 
-			<li class="list-group-item">
-				<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
-					<img src="../../<%= message.message_picpath %>" title="<%= message.message_people %>" style="width:28px;height:28px">
-				</a>
-				<%= message.message_content %>
-			</li>
-		<% }) %>
-	</ul>
-</div>
-
-<div class="comments">
-	<div class="header p-1" style="background-color:#f6f6f6">
-		<span class="w-100" >共有 <%= listMessage.length %> 条留言</span>
-	</div>
-
-	<div>
-		<form action="/<%= topic[0].id %>/reply" method="post">
-			<div class="my-2">
-				<textarea class="form-control overflow-auto" style="min-height: 20rem" name="message_content" contenteditable="true"></textarea>
+<main class="mt-2">
+	<section>
+		<div class="container-fluid px-5" style="min-height:50rem">
+			<div class="mb-3">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<h1>
+							话题：<%= topic[0].title %>
+						</h1>
+						<h3>
+							标签：<%= topic[0].topic_type %>
+						</h3>
+						<div class="thinPlaceholderLine"></div>
+						<p>---------------------------------------------------------------------------------------------------------------------------------------------------</p>
+						<p>正文：<%= topic[0].article %></p>
+					</li>
+				</ul>
 			</div>
-			<div class="my-2">
-				<button class="btn btn-primary" type="submit">Submit</button>
+
+			<div class="mb-3">
+				<ul class="list-group" id="messages">
+					<% listMessage.forEach(message => { %>
+
+					<li class="list-group-item">
+						<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+							<img src="../../<%= message.message_picpath %>" title="<%= message.message_people %>" style="width:28px;height:28px">
+						</a>
+						<%= message.message_content %>
+					</li>
+					<% }) %>
+				</ul>
 			</div>
-		</form>
-	</div>
-</div>
+
+
+			<div class="comments">
+				<div class="header p-1" style="background-color:#f6f6f6">
+					共有 <span class="w-100" id="num_msg"> <%= listMessage.length %> </span> 条留言
+				</div>
+
+				<div>
+					<form action="/<%= topic[0].id %>/reply" method="post">
+						<div class="my-2">
+							<textarea class="form-control overflow-auto" id="userMessage" style="min-height: 20rem" name="message_content" contenteditable="true"></textarea>
+						</div>
+						<div class="my-2">
+							<button class="btn btn-primary" type="button" id="btn" data-id="<%= id %>">Submit</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</main>
+
+
+<script>
+
+	$("#btn").click(function(event){
+		let id = $("#btn").attr("data-id");
+		let userMessage = $("#userMessage").val();
+		const url = '/showTopics/all/' + id
+		fetch(url, {
+			method: 'POST',
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				'X-Requested-With': 'XMLHttpRequest'
+			},
+			body: JSON.stringify({
+				id: id,
+				message: userMessage,
+			})
+		})
+		.then(function(response) {
+			return response.json();
+		})
+		.then(function(myJson) {
+			const newMessageLi = `
+				<li class="list-group-item">
+					<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+						<img src="../../${myJson[3]}" title="${myJson[2]}" style="width:28px;height:28px">
+					</a>
+					${myJson[1]}
+				</li>
+			`;
+			$("#messages").prepend(newMessageLi);
+		});
+
+		document.getElementById("num_msg").innerHTML ++;
+		document.getElementById("userMessage").value = '';
+	});
+
+	// fetch('https://httpbin.org/post', { method: 'POST', body: 'a=1' })
+	// 	.then(res => res.json()) // expecting a json response
+	// 	.then(json => console.log(json));
+
+	// $('#btn').click(function(event) {
+	// 	const userMessage = $('#userMessage').val();
+	// 	event.preventDefault();
+	// 	const id = $(this).attr('data-id');
+	// 	$.ajax({
+	// 		url: '/showTopics/all/' + id,
+	// 		method: 'POST',
+	// 		data: {
+	// 			id: id,
+	// 			userMessage: userMessage
+	// 		}
+	// 	}).done(function(res) {
+	// 		console.log(res)
+	// 		// if (res.success) {
+	// 		// 	console.log('id from ajax call is', res);
+	// 		// 	window.location.reload();
+	// 		// } else {
+	// 		// 	console.log('error...ajax');
+	// 		// }
+	// 	});
+	// })
+
+</script>
+
+</body>
+
+</html>
 
