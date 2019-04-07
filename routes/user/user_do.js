@@ -83,7 +83,8 @@ router.get("/userHome", async (ctx) => {
 	const userArray = await getUserByIdPromise;
 	const user = userArray[0];
 	await ctx.render("/userSetting/userhome", {
-		user: user
+		user: user,
+		layout: "layouts/layout_userhome"
 	});
 });
 

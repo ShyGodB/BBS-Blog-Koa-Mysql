@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Web Practice</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <style>
+        input {
+            padding: 0;
+            border: 0;
+        }
+        .title {
+            width: 90px;
+            font-size: 18px;
+            text-align: right;
+            font-weight: 700;
+
+
+        }
+        .sure {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="bg-secondary">
+    <header>
+        <% include ../partials/header_navbar.html %>
+    </header>
+
+    <main class="mt-2">
+        <section>
+            <div class="container-fluid px-5" style="min-height:50rem">
+                <%- body %>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+
+
+        let editPen = document.getElementsByTagName("svg");
+        let inputArray = document.getElementsByTagName("input");
+        let btnArray = document.getElementsByTagName("button");
+        let spanArray = document.getElementsByTagName("span");
+        // console.log(spanArray[3].innerHTML); //昵称:
+        // console.log(btnArray[2]);
+        let sureBtn = document.getElementsByClassName("sure");
+        // console.log(sureBtn.length)
+        for(let i = 1; i < editPen.length; i++) {
+            editPen[i].onclick = function() {
+                // console.log(111)
+                // $('input').removeAttr("disabled");
+               inputArray[i].removeAttribute("disabled");
+               inputArray[i].style.border= "1px solid black";
+               inputArray[i].style.padding= "2px";
+               sureBtn[i-1].style.display = "inline-block";
+            }
+            btnArray[i+1].onclick = function() {
+                const url = '/userHome';
+                const inputValue = inputArray[i].value;
+                // console.log(postValue)
+                const spanValue = spanArray[i+2].innerHTML.substring(1, spanArray[i+2].innerHTML.length-1);
+                // console.log(spanValue);
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json',
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    body: JSON.stringify({
+                        spanValue: spanValue,
+                        inputValue: inputValue,
+                    })
+                })
+                .then(function(response) {
+                    return response.json();
+                })
+                .then(function(myJson) {
+                    inputArray[i].placeholder = myJson.inputValue;
+                    inputArray[i].setAttribute("disabled", "disabled");
+                    sureBtn[i-1].style.display = "none";
+                });
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

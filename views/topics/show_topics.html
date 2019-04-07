@@ -18,7 +18,7 @@
 					<% allTopic.forEach(topic => { %>
 					<li class="list-group-item list-group-item-action" style="font-size: 24px">
 						<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
-							<img src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+							<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
 						</a>
 						<span class="text-center bg-primary mr-1"> <%= topic.board_name%> </span>
 						<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
@@ -30,7 +30,7 @@
 					<% listStarTopic.forEach(topic => { %>
 						<li class="list-group-item list-group-item-action" style="font-size: 24px">
 							<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
-								<img src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+								<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
 							</a>
 							<span class="text-center bg-primary mr-1"> <%= topic.board_name%> </span>
 							<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
@@ -50,7 +50,7 @@
 						<% listTopicByTopicType.forEach(topic => { %>
 						<li class="list-group-item list-group-item-action" style="font-size: 24px">
 							<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
-								<img src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+								<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
 							</a>
 							<span class="text-center bg-primary mr-1"> <%= topic.board_name%> </span>
 							<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
@@ -72,7 +72,7 @@
 				<% if(user) {%>
 				<div class='inner text-left p-2'>
 					<div class="">
-						<img src="../<%= user.picpath %>"><span class="h1 ml-2"><%= user.username %></span>
+						<img class="rounded-2" src="../<%= user.picpath %>"><span class="h1 ml-2"><%= user.username %></span>
 					</div>
 					<div class="mt-2">
 						<ul>

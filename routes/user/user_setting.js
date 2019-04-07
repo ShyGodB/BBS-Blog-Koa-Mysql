@@ -143,4 +143,50 @@ router.post("/settings/advanced", async (ctx) => {
 	}
 });
 
+
+// 用户在主页设置信息
+router.post('/userHome', async (ctx) => {
+	const id = ctx.session.user.id;
+	const postData = ctx.request.body;
+	const spanValue = postData.spanValue;
+	const inputValue = postData.inputValue;
+	const data = [inputValue, id];
+	switch (spanValue) {
+		case "昵称":
+			const updateNicknamePromise = editUser.updateNickname(data);
+			await updateNicknamePromise;
+			break;
+		case "性别":
+			const updateGenderPromise = editUser.updateGender(data);
+			await updateGenderPromise;
+			break;
+		case "生日":
+			const updateBirthdayPromise = editUser.updateBirthday(data);
+			await updateBirthdayPromise;
+			break;
+		case "邮箱":
+			const updateEmailPromise = editUser.updateEmail(data);
+			await updateEmailPromise;
+			break;
+		case "手机":
+			const updateTelephonePromise = editUser.updateTelephone(data);
+			await updateTelephonePromise;
+			break;
+		case "QQ":
+			const updateQQPromise = editUser.updateQQ(data);
+			await updateQQPromise;
+			break;
+		case "微信":
+			const updateWechatPromise = editUser.updateWechat(data);
+			await updateWechatPromise;
+			break;
+		case "签名":
+			const updateBioPromise = editUser.updateBio(data);
+			await updateBioPromise;
+			break;
+	}
+
+	ctx.body = {inputValue};
+})
+
 module.exports = router;

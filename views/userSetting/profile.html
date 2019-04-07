@@ -1,36 +1,11 @@
-<section>
-	<div class="col-3 float-left">
-		<nav class="navbar p-0" aria-label="Personal settings" data-pjax>
-				<ul class="navbar-nav bg-light border">
-					<h3 class="menu-heading">
-						Personal settings
-					</h3>
-				
-					<li class="nav-item">
-						<a class="js-selected-navigation-item selected menu-item" aria-current="page"
-							data-selected-links="avatar_settings /settings/profile" href="/settings/profile"> 个人资料 </a>
-					</li>
-					<li class="nav-item">
-						<a class="js-selected-navigation-item menu-item" data-selected-links=" /settings/contaction"
-							href="/settings/connection">
-							联系信息
-						</a>
-					</li>
-					<li class="nav-item">
-						<a class="js-selected-navigation-item menu-item" data-selected-links=" /settings/advanced"
-							href="/settings/advanced"> 高级设置 </a>
-					</li>
-				</ul>
-		</nav>
-	</div>
-</section>
+
 
 <section>
 	<div class="col-9 float-right pr-1" style="height: 660px">
 		<div class="w-100 h-100">
 			<form class="m-2 p-1" action="/settings/profile" method="post">
 				<div class="col-6 float-left pr-1">
-					<div class="form-group mt-1 mb-3 mr-3">
+					<div class="form-group mt-1 mb-3">
 						<h5 class="form-group-prepend mb-1"> 昵称：</h5>
 						<input type="text" class="form-control" name="nickname" placeholder="Nickname" aria-label="Username"
 							aria-describedby="basic-addon1">
@@ -52,7 +27,10 @@
 					</div>
 				</div>
 				<div class="col-6 float-right pl-1">
-					<div class="form-group mt-1 mb-3 ml-3">
+					<div class="float-right form-group mt-1 mb-3">
+						<h4 class="mb-2"> Profile picture </h4>
+						<img class="rounded-2 mb-3" id="head_pic" src="../<%= user.picpath %>" style="width:200px;height:200px">
+						<br>
 						<a href="/settings/profile/changeImage" class="btn btn-lg btn-primary">修改头像</a>
 					</div>
 				</div>

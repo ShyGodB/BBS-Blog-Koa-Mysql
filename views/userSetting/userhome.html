@@ -2,9 +2,18 @@
     <div class="row bg-light">
         <div class="col-3 pr-1" style="height: 660px">
             <div class="row">
-                <img src="<%= user.picpath %>" style="width:300px;height:300px">
+                <img class="rounded-2" src="<%= user.picpath %>" style="width:300px;height:300px">
+                <div class="position-absolute bg-dark rounded-2 text-white p-1 ml-1 mt-1">
+                    <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                            <a href="/settings/profile/changeImage" class="text-light"> Edit </a>
+                        </path>
+
+                    </svg>
+                    <a href="/settings/profile/changeImage" class="text-light"> Edit </a>
+                </div>
                 <div class="col float-left pr-1 mt-3">
-                    <p> 昵称：<%= user.username %> </p>
+                    <p> 用户：<%= user.username %> </p>
                     <p> 邮箱：<%= user.email %> </p>
                     <p> 个性签名：<%= user.bio %> </p>
                 </div>
@@ -50,19 +59,107 @@
                     <div class="row">`
                         <div class="col-7">
                             <div class="float-left pr-1 mt-3">
-                                <p> 昵称：<%= user.nickname %> </p>
-                                <p> 性别：<%= user.gender %> </p>
-                                <p> 生日：<%= user.birthday %> </p>
-                                <p> 个性签名：<%= user.bio %> </p>
-                                <p> 邮箱：<%= user.email %> </p>
-                                <p> 手机：<%= user.telephone %> </p>
-                                <p> QQ：<%= user.qq %> </p>
-                                <p> 微信：<%= user.wechat %> </p>
+                                <!--
+                                    <p> 昵称：<%= user.nickname %> </p>
+                                    <p> 性别：<%= user.gender %> </p>
+                                    <p> 生日：<%= user.birthday %> </p>
+                                    <p> 个性签名：<%= user.bio %> </p>
+                                    <p> 邮箱：<%= user.email %> </p>
+                                    <p> 手机：<%= user.telephone %> </p>
+                                    <p> QQ：<%= user.qq %> </p>
+                                    <p> 微信：<%= user.wechat %> </p>
+                                -->
+                                <dl class="part_two show">
+                                    <dt>
+                                        <h4>联系信息</h4>
+                                        <a href="javascript:void(0);" class="edit_contectinfo  flex_center">
+                                            <em></em>
+                                            <span>编辑</span>
+                                        </a>
+                                        <a href="javascript:void(0);" class="submit_contectinfo flex_center hide"> 完成 </a>
+                                    </dt>
+
+                                    <dd>
+                                        <span class="title"> 昵称：</span>
+                                        <input placeholder="<%= user.nickname %>" id="name" maxlength="11" type="text" class="data_mobile bg-light" value="" disabled="true">
+                                        <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                                            </path>
+                                        </svg>
+                                        <button class="btn sure"> 确定 </button>
+                                    </dd>
+                                    <dd>
+                                        <span class="title"> 性别：</span>
+                                        <input placeholder="<%= user.gender %>" maxlength="11" type="text" class="data_mobile bg-light" value="" disabled="">
+                                        <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                                            </path>
+                                        </svg>
+                                        <button class="btn sure"> 确定 </button>
+                                    </dd>
+                                    <dd>
+                                        <span class="title"> 生日：</span>
+                                        <input placeholder="<%= user.birthday %>" maxlength="11" type="text" class="data_mobile bg-light" value="" disabled="">
+                                        <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                                            </path>
+                                        </svg>
+                                        <button class="btn sure"> 确定 </button>
+                                    </dd>
+                                    <dd>
+                                        <span class="title"> 邮箱：</span>
+                                        <input placeholder="<%= user.email %>" maxlength="11" type="text" class="data_mobile bg-light" value="" disabled="">
+                                        <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                                            </path>
+                                        </svg>
+                                        <button class="btn sure"> 确定 </button>
+                                    </dd>
+                                    <dd>
+                                        <span class="title"> 手机：</span>
+                                        <input placeholder="<%= user.telephone %>" maxlength="11" type="text" class="data_mobile bg-light" value="" disabled="">
+                                        <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                                            </path>
+                                        </svg>
+                                        <button class="btn sure"> 确定 </button>
+                                    </dd>
+                                    <dd>
+                                        <span class="title"> Q Q：</span>
+                                        <input placeholder="<%= user.qq %>" maxlength="11" type="text" class="data_mobile bg-light" value="" disabled="">
+                                        <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                                            </path>
+                                        </svg>
+                                        <button class="btn sure"> 确定 </button>
+                                    </dd>
+                                    <dd>
+                                        <span class="title"> 微信：</span>
+                                        <input placeholder="<%= user.wechat %>" maxlength="11" type="text" class="data_mobile bg-light" value="" disabled="">
+                                        <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                                            </path>
+                                        </svg>
+                                        <button class="btn sure"> 确定 </button>
+                                    </dd>
+                                    <dd>
+                                        <span class="title"> 个性签名：</span>
+                                        <input placeholder="<%= user.bio %>" maxlength="11" type="text" class="data_mobile bg-light" value="" disabled="">
+                                        <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                                            </path>
+                                        </svg>
+                                        <button class="btn sure"> 确定 </button>
+                                    </dd>
+
+
+
+                                </dl>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="justify-content-end">
-                                <img id="head_pic" src="<%= user.picpath %>" style="width:200px;height:200px">
+                                <img class="rounded-2" id="head_pic" src="<%= user.picpath %>" style="width:200px;height:200px">
                             </div>
                         </div>
                     </div>
