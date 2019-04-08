@@ -1,25 +1,30 @@
-<form action="/signIn" accept-charset="UTF-8" method="post" class="needs-validation" novalidate>
+<form action="/signIn" accept-charset="UTF-8" method="post" class="needs-validation" novalidate
+      xmlns="http://www.w3.org/1999/html">
     <div id='signUpBox'>
         <div class="auth-form-header p-0">
-            <h1>Sign in to BBS</h1>
+            <h1 id="title">Sign in to BBS</h1>
+            <div id="js-flash-container">
+                <div class="flash flash-full flash-error">
+                    <div class="error_msg">
+                        Incorrect username or password.
+                        <button type="button" id="closeButton" class="close d-inline-block" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="auth-form-body mt-3">
-            <label for="loginEmail">
-              Email address
-            </label>
-            <input type="email" name="email" id="loginEmail" class="form-control input-block"  autofocus="autofocus" required/>
+            <label for="loginEmail" id="labelEmail"> Email address </label>
+            <input type="email" name="email" id="loginEmail" class="form-control input-block"  onchange="listenEmail()" tabindex="1" autofocus="autofocus" aria-describedby="emailHelp" required/>
 
-            <div for="loginPassword">
-                <label id="label2"> Password </label>
-                <a class="label-link" href="/regetPassword">Forgot password?</a>
-            </div>
-            <input type="password" name="password" onchange="listenPassword2()" id="loginPassword" class="form-control input-block" required/>
-            <div class="valid-feedback text-danger mb-3 font-weight-bold">
-                请输入密码
-            </div>
+            <label id="label2"> Password </label>
+            <label class="label-link text-danger" href="/regetPassword">Forgot password?</label>
+            <input type="password" name="password" id="loginPassword" class="form-control input-block" onchange="listenPassword()" tabindex="2" required/>
 
-            <input id="btn_login" type="submit" name="commit" value="Sign in" tabindex="3" class="btn btn-primary btn-block" data-disable-with="Signing in…" />
+
+            <button id="btn_login" type="button" class="btn btn-primary btn-block" tabindex="3" /> Sign in </button>
         </div>
         
     </div>
@@ -27,23 +32,5 @@
 
 <p class="instruction text-center">
   没有账号？
-  请 <a href="/signUp">注册</a>
+  请 <a href="/signUp" tabindex="4">注册</a>
 </p>
-
-<script>
-    (function () {
-        'use strict';
-        window.addEventListener('load', function () {
-            var forms = document.getElementsByClassName('needs-validation');
-            var validation = Array.prototype.filter.call(forms, function (form) {
-                form.addEventListener('submit', function (event) {
-                    if (form.checkValidity() === false) {
-                        event.preventDefault();
-                        event.stopPropagation();
-                    }
-                    form.classList.add('was-validated');
-                }, false);
-            });
-        }, false);
-    })();
-</script>

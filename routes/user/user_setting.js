@@ -149,6 +149,7 @@ router.post('/userHome', async (ctx) => {
 	const id = ctx.session.user.id;
 	const postData = ctx.request.body;
 	const spanValue = postData.spanValue;
+	console.log(spanValue);
 	const inputValue = postData.inputValue;
 	const data = [inputValue, id];
 	switch (spanValue) {
@@ -180,9 +181,11 @@ router.post('/userHome', async (ctx) => {
 			const updateWechatPromise = editUser.updateWechat(data);
 			await updateWechatPromise;
 			break;
-		case "签名":
+		case "个性签名":
 			const updateBioPromise = editUser.updateBio(data);
 			await updateBioPromise;
+			break;
+		default:
 			break;
 	}
 

@@ -4,13 +4,14 @@
             <div class="row">
                 <img class="rounded-2" src="<%= user.picpath %>" style="width:300px;height:300px">
                 <div class="position-absolute bg-dark rounded-2 text-white p-1 ml-1 mt-1">
-                    <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
-                            <a href="/settings/profile/changeImage" class="text-light"> Edit </a>
-                        </path>
-
-                    </svg>
-                    <a href="/settings/profile/changeImage" class="text-light"> Edit </a>
+                    <a href="/settings/profile/changeImage" class="text-light">
+                        <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                                <a href="/settings/profile/changeImage" class="text-light"> Edit </a>
+                            </path>
+                        </svg>
+                        Edit
+                    </a>
                 </div>
                 <div class="col float-left pr-1 mt-3">
                     <p> 用户：<%= user.username %> </p>
@@ -21,7 +22,7 @@
         </div>
 
         <div class="col-9 p-3 " style="height: 660px">
-            <ul class="nav nav-pills mb-3 ml-3" id="pills-tab" role="tablist">
+            <ul class="nav nav-pills mb-1 ml-3" id="pills-tab" role="tablist">
                 <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"> Home </a>
                 </li>
@@ -55,10 +56,9 @@
                 </div>
 
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <h2>显示用户的详细信息，并提供修改按钮</h2>
                     <div class="row">`
                         <div class="col-7">
-                            <div class="float-left pr-1 mt-3">
+                            <div class="float-left pr-1 mt-2">
                                 <!--
                                     <p> 昵称：<%= user.nickname %> </p>
                                     <p> 性别：<%= user.gender %> </p>
@@ -70,13 +70,8 @@
                                     <p> 微信：<%= user.wechat %> </p>
                                 -->
                                 <dl class="part_two show">
-                                    <dt>
-                                        <h4>联系信息</h4>
-                                        <a href="javascript:void(0);" class="edit_contectinfo  flex_center">
-                                            <em></em>
-                                            <span>编辑</span>
-                                        </a>
-                                        <a href="javascript:void(0);" class="submit_contectinfo flex_center hide"> 完成 </a>
+                                    <dt class="mb-3">
+                                        <h4 class="mb-3"> 用户信息 && 设置</h4>
                                     </dt>
 
                                     <dd>
@@ -108,7 +103,7 @@
                                     </dd>
                                     <dd>
                                         <span class="title"> 邮箱：</span>
-                                        <input placeholder="<%= user.email %>" maxlength="11" type="text" class="data_mobile bg-light" value="" disabled="">
+                                        <input placeholder="<%= user.email %>" maxlength="11" type="email" class="data_mobile bg-light" value="" disabled="">
                                         <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
                                             <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
                                             </path>
@@ -125,7 +120,7 @@
                                         <button class="btn sure"> 确定 </button>
                                     </dd>
                                     <dd>
-                                        <span class="title"> Q Q：</span>
+                                        <span class="title"> QQ：</span>
                                         <input placeholder="<%= user.qq %>" maxlength="11" type="text" class="data_mobile bg-light" value="" disabled="">
                                         <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
                                             <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
@@ -151,15 +146,68 @@
                                         </svg>
                                         <button class="btn sure"> 确定 </button>
                                     </dd>
-
-
-
                                 </dl>
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="justify-content-end">
+                            <div class="justify-content-end row">
                                 <img class="rounded-2" id="head_pic" src="<%= user.picpath %>" style="width:200px;height:200px">
+                                <div class="position-absolute bg-secondary rounded-2 text-light p-1">
+                                    <a href="/settings/profile/changeImage" class="text-light">
+                                        <svg height="16" width="16" class="octicon octicon-pencil" viewBox="0 0 14 16" version="1.1" aria-hidden="true">
+                                            <path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z">
+                                            </path>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="row pl-3">
+                        <div class="float-left p-1">
+                            <div class="w-100 m-1">
+                                <!-- 按钮：用于打开模态框 -->
+                                <button type="button" class="btn btn-primary btn-block my-3" data-toggle="modal" data-target="#myModal">
+                                    修改密码
+                                </button>
+                                <!-- 模态框 -->
+                                <div class="modal fade" id="myModal">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">修改密码</h4>
+                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form action="/settings/advanced" accept-charset="UTF-8" method="post">
+                                                    <div id='signUpBox'>
+                                                        <div class="auth-form-body mt-2">
+                                                            <label for="oldPassword"> 原密码 </label>
+                                                            <input required type="password" name="oldPassword" id="oldPassword"
+                                                                   class="form-control input-block" tabindex="1" autocapitalize="off"
+                                                                   autocorrect="off" autofocus="autofocus" />
+                                                            <label for="newPassword1"> 新密码 </label>
+                                                            <input required type="password" name="newPassword1" id="newPassword1"
+                                                                   class="form-control form-control input-block" tabindex="2" />
+
+                                                            <label for="newPassword2"> 新密码确认 </label>
+                                                            <input required type="password" name="newPassword2" id="newPassword2"
+                                                                   class="form-control form-control input-block" tabindex="2" />
+
+                                                            <input type="submit" name="commit" value="确定" tabindex="3"
+                                                                   class="btn btn-primary btn-block" data-disable-with="Signing in…" />
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">本帝不改了</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>

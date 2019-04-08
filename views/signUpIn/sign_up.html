@@ -5,50 +5,28 @@
         </div>
 
         <div class="auth-form-body mt-3">
-            <label for="signUpName">
-              Username
-            </label>
-            <input required type="name" name="username" id="signUpName" class="form-control input-block" tabindex="1" autocapitalize="off" autocorrect="off" autofocus="autofocus" />
+            <label for="signUpName" id="username_label"> Username </label>
+            <input required type="name" name="username" id="signUpName" class="form-control input-block" onchange="listenSignUsername()" tabindex="1" autocapitalize="off" autocorrect="off" autofocus="autofocus" />
 
-            <label for="signUpEmail">
-              Email address
-            </label>
-            <input required type="email" name="email" id="signUpEmail" class="form-control input-block password" tabindex="1" autocapitalize="off" autocorrect="off" autofocus="autofocus" />
+            <label for="signUpEmail" id="email_label"> Email address </label>
+            <input required type="email" name="email" id="signUpEmail" class="form-control input-block password" onchange="listenSignEmail()" tabindex="2" autocapitalize="off" autocorrect="off" autofocus="autofocus" />
 
-            <label id="label1" for="signUpPassword">
-              Password 
-            </label>
-            <input required type="password" name="password" id="signUpPassword" onchange="listenPassword1()" class="form-control form-control input-block" tabindex="2" />
-            <div class="valid-feedback text-danger mb-3 font-weight-bold">
-              请输入密码
-            </div>
+            <label id="password_label" for="signUpPassword"> Password </label>
+            <input required type="password" name="password" id="signUpPassword" onchange="listenSignPassword()" class="form-control form-control input-block" tabindex="3" />
 
-            <input type="submit" id="buttonSign" name="commit" value="Sign up" tabindex="3" class="btn btn-primary btn-block" data-disable-with="Signing in…" />
-        </div>
+
+            <label id="rePassword_label" for="signUpPassword2"> RePassword </label>
+            <input required type="password" name="password" id="signUpPassword2" onchange="listenSignRePassword()" class="form-control form-control input-block" tabindex="4" />
+
+            <button type="button" id="buttonSign" tabindex="5" class="btn btn-primary btn-block" /> Sign up </button>
+
     </div>
 </form>
 
 <p class="instruction text-center">
   已有账号？
-  请 <a href="/signIn">登录</a>
+  请 <a href="/signIn" tabindex="6">登录</a>
 </p>
 
 
-<script>
-  (function () {
-    'use strict';
-    window.addEventListener('load', function () {
-      var forms = document.getElementsByClassName('needs-validation');
-      var validation = Array.prototype.filter.call(forms, function (form) {
-        form.addEventListener('submit', function (event) {
-          if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    }, false);
-  })();
-</script>
 

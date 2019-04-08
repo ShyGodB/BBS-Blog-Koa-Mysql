@@ -8,39 +8,53 @@ const editMessage = require('../../lib/message');
 // 用户注册
 router.get("/signUp", async(ctx) => {  //路由
 	await ctx.render('/signUpIn/sign_up', {
-		layout: "layouts/layout_login"
+		layout: "layouts/layout_signUp"
 	});
 });
 
 // 用户注册 -- 获取用户在form表单中输入的数据，判断是否合乎规则，如果正确则将数据存入数据库
 router.post('/signUp', async(ctx) => {
-	const username = ctx.request.body.username; //获取用户输入的名字
-	const email = ctx.request.body.email;  //获取用户输入的邮箱地址
-	const password = ctx.request.body.password;
-	const data = [username, email, password];
-	const getUserByUsernamePromise = editUser.getUserByUsername(username);
-	const row1 = await getUserByUsernamePromise;
-	if(row1.length !== 0) {
-		console.log("注册失败，用户名重复，请重新输入");
-		await ctx.redirect("/signUp");
-	} else {
-		const getUserByEmailPromise = editUser.getUserByEmail(email);
-		const row2 = await getUserByEmailPromise;
-		if(row2.length !== 0) {
-			console.log("注册失败，邮箱账号重复，请重新输入");
-			await ctx.redirect("/signUp");
-		} else {
-			console.log("注册成功");
+	const postData = ctx.request.body;
+	const labelValue = postData.labelValue
+	switch(labelValue) {
+		case "Username":
+			const username = postData.username;
+			const getUserByUsernamePromise = editUser.getUserByUsername(username);
+			const row1 = await getUserByUsernamePromise;
+			if(row1.length !== 0) {
+				ctx.body = {msg: "用户名已被占用，请重新输入"};
+			} else {
+				ctx.body = {msg: "此用户名可以使用"};
+			}
+			break;
+		case "Email address":
+			const email = postData.email;
+			const ggetUserByEmailPromise = editUser.getUserByEmail(email);
+			const row2 = await ggetUserByEmailPromise;
+			if(row2.length !== 0) {
+				ctx.body = {msg: "用邮箱已被占用，请重新输入"};
+			} else {
+				ctx.body = {msg: "此邮箱可以使用"};
+			}
+			break;
+		case "Sign up":
+			const username1 = postData.username;
+			const email1 = postData.email;
+			const password1 = postData.password;
+			const data = [username1, email1, password1];
 			const addUserDataPromise = editUser.addUserData(data);
 			await addUserDataPromise;
-			const getUserByUsernamePromise = editUser.getUserByUsername(username);
-			const row4 = await getUserByUsernamePromise;
-			ctx.session.user = row4[0];
-			await ctx.redirect('/');
-		}
-	}
 
-});
+			const usersPromise = editUser.getUsernameByEmail(email1);
+			const users = await usersPromise;
+			const user = users[0];
+
+			ctx.session.user = user;
+			ctx.body = {msg: "注册成功"}
+
+			break;
+	}
+})
 
 // 用户登录
 router.get("/signIn", async(ctx) => {  //路由
@@ -51,20 +65,23 @@ router.get("/signIn", async(ctx) => {  //路由
 
 //获取用户在form表单中输入的数据，并将其与数据库中储存的信息进行对比以判断是否允许该用户登录
 router.post('/signIn', async(ctx) => {
-	const email = ctx.request.body.email;  //获取用户输入的邮箱地址
-	const password = ctx.request.body.password;  //获取用户输入的密码
-	const rowsPromise = editUser.userLogin(email, password);
+	const postData = ctx.request.body;
+	const email = postData.inputEmail;  //获取用户输入的邮箱地址
+	const password = postData.inputPassword;  //获取用户输入的密码
+	const data = [email, password];
+
+	const rowsPromise = editUser.userLogin(data);
 	const rows = await rowsPromise;
+
 	const usersPromise = editUser.getUsernameByEmail(email);
 	const users = await usersPromise;
 	const user = users[0];
-	if (rows.length !== 0 && (rows[0].email === email && rows[0].password === password)) {
-		console.log('登录成功');
-		ctx.session.user = user;
-		await ctx.redirect('/');
+
+	if(rows.length === 0) {
+			ctx.body = {msg: "Incorrect username or password."}
 	} else {
-		console.log('登录失败');
-		await ctx.redirect("/signIn");
+		ctx.session.user = user;
+		ctx.body = {msg: "登录成功"}
 	}
 });
 

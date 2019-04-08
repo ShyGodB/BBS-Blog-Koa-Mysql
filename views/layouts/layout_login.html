@@ -16,7 +16,20 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-        
+
+    <style>
+        #js-flash-container {
+            height: 51px;
+            display: none;
+            background-color: #ffdce0;
+            border: 1px solid snow;
+            border-radius: 3px;
+        }
+        .text-danger {
+            font-size: 18px;
+            font-weight: 700;
+        }
+    </style>
 </head>
 
 <body class="logged-out env-production emoji-size-boost page-responsive min-width-0 session-authentication">
@@ -32,7 +45,7 @@
                             aria-hidden="true">
                             <path fill-rule="evenodd"
                                 d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16   8c0-4.42-3.58-8-8-8z" />
-                            </svg>
+                        </svg>
                     </a>
                 </div>
             </div>
@@ -43,37 +56,88 @@
 </main>
 
 <script>
-    var loginPassword = document.getElementById('loginPassword');
-    var errorMessage2 = document.getElementById('label2');
-    var buttonLogin = document.getElementById('btn_login');
-    function listenPassword2(){
-        var password = loginPassword.value;
-        var length = password.length;
+
+    let buttonLogin = document.getElementById('btn_login');
+    let errorBox = document.getElementById("js-flash-container");
+    let closeButton = document.getElementById("closeButton");
+
+    document.onkeydown = function(e) {
+        let ev = e || window.event;
+        if (ev.code === 13) {
+            buttonLogin.click();
+        }
+    }
+
+    buttonLogin.onclick = function () {
+        let inputEmail = document.getElementsByTagName("input")[0].value;
+        let inputPassword = document.getElementsByTagName("input")[1].value;
+        const url = "/signIn";
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({
+                inputEmail: inputEmail,
+                inputPassword: inputPassword,
+            })
+        })
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(myJson) {
+                console.log(myJson.msg);
+                if (myJson.msg === "登录成功") {
+                    window.location="http://localhost:3000";
+                } else {
+                    errorBox.style.display = "block";
+                    document.getElementsByTagName("input")[0].value = "";
+                    document.getElementsByTagName("input")[1].value = "";
+                }
+            });
+    }
+
+    closeButton.onclick = function() {
+        errorBox.style.display = "none";
+        document.getElementsByTagName("input")[0].value = "";
+        document.getElementsByTagName("input")[1].value = "";
+        document.getElementById("labelEmail").removeAttribute("class");
+        document.getElementById("labelPassword").removeAttribute("class");
+    }
+
+    function listenEmail(){
+        let emailLabel = document.getElementById("labelEmail");
+        let inputEmail = document.getElementsByTagName("input")[0].value;
+        for(let i = 0; i < inputEmail.length; i++) {
+            if((inputEmail.indexOf("@") === -1) || (inputEmail.indexOf(".com") === -1)) {
+                document.getElementsByTagName("input")[0].focus();
+                document.getElementsByTagName("input")[0].select();
+                emailLabel.innerHTML = "您输入的邮箱不合法";
+                emailLabel.setAttribute('class', 'text-danger');
+                buttonLogin.disabled = true;
+            } else {
+                emailLabel.innerHTML = "Email address";
+                emailLabel.removeAttribute('class');
+                buttonLogin.disabled = false;
+            }
+        }
+    }
+
+    function listenPassword(){
+        let passwordLabel = document.getElementById("labelPassword");
+        let inputPassword = document.getElementsByTagName("input")[1].value;
+        let length = inputPassword.length;
         if (length < 6 || length > 16) {
-            var value2 = '请输入6至16位的密码';
-            errorMessage2.innerHTML = value2;
-            errorMessage2.setAttribute('class', 'text-danger font-weight-bold');
+            document.getElementsByTagName("input")[1].focus();
+            document.getElementsByTagName("input")[1].select();
+            passwordLabel.innerHTML = "请输入6至16位的密码";
+            passwordLabel.setAttribute('class', 'text-danger');
             buttonLogin.disabled = true;
         } else {
-            errorMessage2.innerHTML = "Password";
+            passwordLabel.innerHTML = "Password";
             buttonLogin.disabled = false;
-        }
-        
-    }
-    var signUpPassword = document.getElementById('signUpPassword');
-    var errorMessage1 = document.getElementById('label1');
-    var buttonSign = document.getElementById('buttonSign');
-    function listenPassword1(){
-        var password = signUpPassword.value;
-        var length = password.length;
-        if (length < 6 || length > 16) {
-            var value1 = '请输入6至16位的密码';
-            errorMessage1.innerHTML = value1;
-            errorMessage1.setAttribute('class', 'text-danger font-weight-bold');
-            buttonSign.disabled = true;
-        } else {
-            errorMessage1.innerHTML = "Password";
-            buttonSign.disabled = false;
         }
     }
 

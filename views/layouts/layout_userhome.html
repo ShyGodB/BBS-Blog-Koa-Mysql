@@ -17,10 +17,13 @@
 
     <style>
         input {
-            padding: 0;
+            display: inline-block;
             border: 0;
+            width: 315px;
+            margin-right: 0.5rem;
         }
         .title {
+            display: inline-block;
             width: 90px;
             font-size: 18px;
             text-align: right;
@@ -30,6 +33,7 @@
         }
         .sure {
             display: none;
+            padding: 3px;
         }
     </style>
 </head>
@@ -50,30 +54,23 @@
 
     <script>
 
-
         let editPen = document.getElementsByTagName("svg");
         let inputArray = document.getElementsByTagName("input");
         let btnArray = document.getElementsByTagName("button");
         let spanArray = document.getElementsByTagName("span");
-        // console.log(spanArray[3].innerHTML); //昵称:
-        // console.log(btnArray[2]);
         let sureBtn = document.getElementsByClassName("sure");
-        // console.log(sureBtn.length)
         for(let i = 1; i < editPen.length; i++) {
             editPen[i].onclick = function() {
-                // console.log(111)
-                // $('input').removeAttr("disabled");
-               inputArray[i].removeAttribute("disabled");
-               inputArray[i].style.border= "1px solid black";
-               inputArray[i].style.padding= "2px";
-               sureBtn[i-1].style.display = "inline-block";
+                editPen[i].style.display = "none";
+                inputArray[i].removeAttribute("disabled");
+                inputArray[i].style.border = "1px solid black";
+                inputArray[i].style.padding = "2px";
+                sureBtn[i - 1].style.display = "inline-block";
             }
             btnArray[i+1].onclick = function() {
                 const url = '/userHome';
                 const inputValue = inputArray[i].value;
-                // console.log(postValue)
-                const spanValue = spanArray[i+2].innerHTML.substring(1, spanArray[i+2].innerHTML.length-1);
-                // console.log(spanValue);
+                const spanValue = spanArray[i+1].innerHTML.substring(1, spanArray[i+1].innerHTML.length-1);
                 fetch(url, {
                     method: 'POST',
                     headers: {
@@ -93,10 +90,11 @@
                     inputArray[i].placeholder = myJson.inputValue;
                     inputArray[i].setAttribute("disabled", "disabled");
                     sureBtn[i-1].style.display = "none";
+                    inputArray[i].style.border= "none";
+                    editPen[i].style.display = "inline-block";
                 });
             }
         }
-
 
     </script>
 
