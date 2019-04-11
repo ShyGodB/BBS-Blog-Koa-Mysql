@@ -38,10 +38,10 @@
                     <h2> 显示用户概况---- 足迹，操作等 </h2>
                     <div>
                         <ul class="list-group">
-                            <li class="list-group-item"> 注册时间：  </li>
-                            <li class="list-group-item list-group-item-secondary"> 上次登录时间：  </li>
-                            <li class="list-group-item"> 上次发表： </li>
-                            <li class="list-group-item list-group-item-secondary"> 上次留言： </li>
+                            <li class="list-group-item"> 注册时间：<%= user.register_time %>  </li>
+                            <li class="list-group-item list-group-item-secondary"> 上次登录时间：<%= user.last_login_time %>  </li>
+                            <li class="list-group-item"> 上次发表：<%= user.last_post_time %> </li>
+                            <li class="list-group-item list-group-item-secondary"> 上次留言：<%= user.last_msg_time %> </li>
                         </ul>
                     </div>
                     <div class="my-2 p-1 border">

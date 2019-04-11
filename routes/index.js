@@ -30,7 +30,7 @@ router.post("/allTopic/results", async (ctx) => {
 	let resultArray = [];
 	// 将符合条件的Tina 驾到results里面
 	for(let i = 0; i < allTopic.length; i++) {
-		if(allTopic[i].title === userInputString) {
+		if(allTopic[i].title.indexOf(userInputString) !== -1) {
 			resultArray.push(allTopic[i]);
 		}
 	}

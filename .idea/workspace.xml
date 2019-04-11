@@ -3,18 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="9ba8e290-db56-4a81-bac0-e12bf20c00a5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/lib/users.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/uploads/default.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/default.jpeg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/uploads/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/uploads/1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/topic/show_topics.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/topic/show_topics.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/user/user_do.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/user_do.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/user/user_setting.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/user/user_setting.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/layout_admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_admin.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/layout_cutImage.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_cutImage.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/layout_login.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/layout_signUp.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_signUp.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layouts/layout_user_settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_user_settings.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/layouts/layout_userhome.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/layouts/layout_userhome.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/signUpIn/sign_in.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/signUpIn/sign_in.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/views/signUpIn/sign_up.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/signUpIn/sign_up.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/topics/show_topic.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/topics/show_topic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/topics/show_topics.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/topics/show_topics.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/userSetting/userhome.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/userSetting/userhome.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -30,13 +34,43 @@
     <favorites_list name="BBS-by-Koa-Mysql" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/user/user_do.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="719">
+              <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/views/userSetting/userhome.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>db</find>
-      <find>database</find>
-      <find>user</find>
       <find>profile</find>
       <find>topic_type</find>
       <find>userDo</find>
@@ -64,6 +98,9 @@
       <find>console.log</find>
       <find>label</find>
       <find>let</find>
+      <find>inputArray[0]</find>
+      <find>innerHTML</find>
+      <find>listStarTopic</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -99,41 +136,41 @@
         <option value="$PROJECT_DIR$/views/userSetting/userHome.html" />
         <option value="$PROJECT_DIR$/routes/adminManageBoards.js" />
         <option value="$PROJECT_DIR$/lib/message.js" />
-        <option value="$PROJECT_DIR$/lib/topics.js" />
         <option value="$PROJECT_DIR$/routes/adminManageTopics.js" />
         <option value="$PROJECT_DIR$/routes/showTopics.js" />
         <option value="$PROJECT_DIR$/routes/userDo.js" />
         <option value="$PROJECT_DIR$/routes/userSetting.js" />
-        <option value="$PROJECT_DIR$/views/layouts/layout_admin.html" />
         <option value="$PROJECT_DIR$/views/admin/manageUsers.html" />
         <option value="$PROJECT_DIR$/routes/admin.js" />
         <option value="$PROJECT_DIR$/routes/boards.js" />
         <option value="$PROJECT_DIR$/routes/topics.js" />
-        <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/routes/show_topics.js" />
         <option value="$PROJECT_DIR$/routes/user_do.js" />
         <option value="$PROJECT_DIR$/routes/user_setting.js" />
         <option value="$PROJECT_DIR$/lib/boards.js" />
-        <option value="$PROJECT_DIR$/views/layouts/layout_cutImage.html" />
-        <option value="$PROJECT_DIR$/views/layouts/layout.html" />
-        <option value="$PROJECT_DIR$/app.js" />
-        <option value="$PROJECT_DIR$/views/topics/show_topic.html" />
-        <option value="$PROJECT_DIR$/routes/topic/show_topics.js" />
         <option value="$PROJECT_DIR$/views/index.html" />
-        <option value="$PROJECT_DIR$/views/topics/show_topics.html" />
         <option value="$PROJECT_DIR$/views/userSetting/profile.html" />
-        <option value="$PROJECT_DIR$/views/layouts/layout_user_settings.html" />
         <option value="$PROJECT_DIR$/views/userSetting/connection.html" />
         <option value="$PROJECT_DIR$/views/userSetting/advanced.html" />
-        <option value="$PROJECT_DIR$/views/layouts/layout_userhome.html" />
         <option value="$PROJECT_DIR$/routes/user/user_setting.js" />
-        <option value="$PROJECT_DIR$/views/userSetting/userhome.html" />
-        <option value="$PROJECT_DIR$/lib/users.js" />
-        <option value="$PROJECT_DIR$/routes/user/user_do.js" />
-        <option value="$PROJECT_DIR$/views/layouts/layout_signUp.html" />
+        <option value="$PROJECT_DIR$/views/layouts/layout.html" />
+        <option value="$PROJECT_DIR$/views/layouts/layout_admin.html" />
+        <option value="$PROJECT_DIR$/views/layouts/layout_cutImage.html" />
+        <option value="$PROJECT_DIR$/views/layouts/layout_user_settings.html" />
+        <option value="$PROJECT_DIR$/views/layouts/layout_userhome.html" />
         <option value="$PROJECT_DIR$/views/layouts/layout_login.html" />
-        <option value="$PROJECT_DIR$/views/signUpIn/sign_up.html" />
+        <option value="$PROJECT_DIR$/lib/topics.js" />
+        <option value="$PROJECT_DIR$/views/topics/show_topics.html" />
         <option value="$PROJECT_DIR$/views/signUpIn/sign_in.html" />
+        <option value="$PROJECT_DIR$/views/signUpIn/sign_up.html" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/views/layouts/layout_signUp.html" />
+        <option value="$PROJECT_DIR$/lib/users.js" />
+        <option value="$PROJECT_DIR$/views/topics/show_topic.html" />
+        <option value="$PROJECT_DIR$/routes/topic/show_topics.js" />
+        <option value="$PROJECT_DIR$/routes/user/user_do.js" />
+        <option value="$PROJECT_DIR$/routes/index.js" />
+        <option value="$PROJECT_DIR$/views/userSetting/userhome.html" />
       </list>
     </option>
   </component>
@@ -159,17 +196,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="BBS-by-Koa-Mysql" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BBS-by-Koa-Mysql" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Project Files'; set:Project Files; class com.intellij.psi.search.scope.ProjectFilesScope">
           <expand>
@@ -181,11 +207,6 @@
               <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="lib" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="public" type="9f88c78c:ScopeViewTreeModel$FileNode" />
             </path>
             <path>
               <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
@@ -213,25 +234,18 @@
               <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
               <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="layouts" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="signUpIn" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-              <item name="topics" type="9f88c78c:ScopeViewTreeModel$FileNode" />
-            </path>
-            <path>
-              <item name="BBS-by-Koa-Mysql" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
-              <item name="~/myProjectFromGithub/BBS-by-Koa-Mysql" type="442cc68d:ScopeViewTreeModel$RootNode" />
-              <item name="views" type="9f88c78c:ScopeViewTreeModel$FileNode" />
               <item name="userSetting" type="9f88c78c:ScopeViewTreeModel$FileNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="BBS-by-Koa-Mysql" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BBS-by-Koa-Mysql" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -314,14 +328,18 @@
       <workItem from="1554348232001" duration="664000" />
       <workItem from="1554361170662" duration="29751000" />
       <workItem from="1554626645548" duration="30381000" />
+      <workItem from="1554769844594" duration="4000000" />
+      <workItem from="1554813341698" duration="875000" />
+      <workItem from="1554988046510" duration="3991000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="232538000" />
+    <option name="totallyTimeSpent" value="241404000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="877" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4968153" visible="true" weight="0.15574348" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -398,13 +416,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/topics.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6">
-          <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/admin/users.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -450,29 +461,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout_cutImage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="33" column="10" lean-forward="true" selection-start-line="33" selection-start-column="10" selection-end-line="33" selection-end-column="10" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout_admin.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="69" column="13" lean-forward="true" selection-start-line="69" selection-start-column="13" selection-end-line="69" selection-end-column="13" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#nav#0;n#div#1;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/partials/header_navbar.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -483,15 +471,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/13.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/3.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/uploads/2.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/public/uploads/13.png" />
+    <entry file="file://$PROJECT_DIR$/public/uploads/3.png" />
+    <entry file="file://$PROJECT_DIR$/public/uploads/2.png" />
     <entry file="file://$PROJECT_DIR$/public/uploads/1.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -501,59 +483,10 @@
     <entry file="file://$PROJECT_DIR$/public/js/cropbox.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
-          <caret line="32" column="17" selection-end-line="43" selection-end-column="7" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/fetch/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="10" column="34" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/topics/show_topics.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="453">
-          <caret line="83" column="12" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#li#0;n#ul#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="32" lean-forward="true" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding>
-            <element signature="n#style#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-123">
-          <caret line="6" selection-start-line="6" selection-end-line="7" />
         </state>
       </provider>
     </entry>
@@ -606,27 +539,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/topics/show_topic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="83" column="8" selection-start-line="83" selection-start-column="8" selection-end-line="109" selection-end-column="11" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#textarea#0;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/topic/show_topics.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="46" selection-start-line="46" selection-end-line="58" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/userSetting/advanced.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="213">
@@ -634,46 +546,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout_user_settings.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="54" column="21" selection-start-line="54" selection-start-column="21" selection-end-line="54" selection-end-column="21" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="4" selection-start-line="7" selection-start-column="4" selection-end-line="16" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/userSetting/userhome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-57">
-          <caret line="120" column="41" lean-forward="true" selection-start-line="120" selection-start-column="41" selection-end-line="120" selection-end-column="41" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/user/user_setting.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1039">
           <caret line="155" column="18" lean-forward="true" selection-start-line="155" selection-start-column="18" selection-end-line="155" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout_userhome.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1080">
-          <caret line="72" column="106" lean-forward="true" selection-start-line="72" selection-start-column="59" selection-end-line="72" selection-end-column="106" />
         </state>
       </provider>
     </entry>
@@ -689,45 +565,183 @@
         <state relative-caret-position="-208" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/signUpIn/sign_in.html">
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout_cutImage.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
+        <state relative-caret-position="195">
+          <caret line="13" column="26" selection-start-line="13" selection-start-column="26" selection-end-line="13" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout_userhome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="22" lean-forward="true" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout_user_settings.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="23" lean-forward="true" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/layouts/layout_login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1124">
-          <caret line="68" column="5" lean-forward="true" selection-start-line="68" selection-start-column="5" selection-end-line="68" selection-end-column="5" />
+        <state relative-caret-position="252">
+          <caret line="127" column="30" lean-forward="true" selection-start-line="127" selection-start-column="30" selection-end-line="127" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/layouts/layout_signUp.html">
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout_admin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="39" column="295" lean-forward="true" selection-start-line="39" selection-start-column="295" selection-end-line="39" selection-end-column="295" />
+        <state relative-caret-position="-752">
+          <caret line="7" column="25" lean-forward="true" selection-start-line="7" selection-start-column="25" selection-end-line="7" selection-end-column="25" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#nav#0;n#div#1;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="28" lean-forward="true" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/signUpIn/sign_in.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="48" lean-forward="true" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/topics/show_topics.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="17" lean-forward="true" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding>
+            <element signature="n#style#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#1;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#li#0;n#ul#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#2;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/topics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="55" column="40" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/views/signUpIn/sign_up.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="67" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
+        <state relative-caret-position="304">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/user/user_do.js">
+    <entry file="file://$PROJECT_DIR$/views/layouts/layout_signUp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="45" column="37" lean-forward="true" selection-start-line="45" selection-start-column="37" selection-end-line="45" selection-end-column="37" />
+        <state relative-caret-position="198">
+          <caret line="196" column="39" selection-start-line="196" selection-start-column="39" selection-end-line="196" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-301">
+          <caret line="12" column="43" lean-forward="true" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/topic/show_topics.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="33" lean-forward="true" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/topics/show_topic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="94" column="14" lean-forward="true" selection-start-line="94" selection-start-column="14" selection-end-line="94" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#textarea#0;n#div#0;n#form#0;n#div#1;n#div#2;n#div#0;n#section#0;n#main#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#a#0;n#li#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/users.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="31" column="21" selection-start-line="31" selection-start-column="10" selection-end-line="31" selection-end-column="21" />
+        <state relative-caret-position="481">
+          <caret line="135" column="23" selection-start-line="135" selection-start-column="10" selection-end-line="135" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/user/user_do.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="719">
+          <caret line="179" lean-forward="true" selection-start-line="179" selection-end-line="179" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="7" lean-forward="true" selection-start-line="16" selection-start-column="7" selection-end-line="16" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/userSetting/userhome.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="45" column="26" lean-forward="true" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

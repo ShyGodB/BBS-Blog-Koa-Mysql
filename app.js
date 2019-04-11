@@ -4,7 +4,6 @@ const path = require('path');
 const render = require('koa-ejs');
 const bodyParser = require('koa-bodyparser');
 const app = new Koa();
-const fetch = require('node-fetch');
 const indexRouter = require('./routes/index');
 const userDoRouter = require('./routes/user/user_do');
 const userSetRouter = require('./routes/user/user_setting');

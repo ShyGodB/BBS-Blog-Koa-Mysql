@@ -3,7 +3,7 @@
 <head>
 
     <meta charset="UTF-8">
-    <title>Web Practice</title>
+    <title> Simple BBS </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
    	<link crossorigin="anonymous" media="all" integrity="sha512-G5IW3QX9jLeIufJaob0LkBXhXTZSiWUoXGNTvU9KgK4dfhMjKB3hfAy9hjsk5YYoN0GA3b0yekVqlMA5EYlDDA==" rel="stylesheet" href="https://github.githubassets.com/assets/frameworks-c567bfeb1cb9f4ac89533a5e03dbe623.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -46,7 +46,7 @@
 
         <%- body %>
     </div>
-</main>œ
+</main>
 
 <script>
 
@@ -55,9 +55,11 @@
     const signButton = document.getElementById("buttonSign");
     const signArray = [];
     const url = "/signUp";
+    const labelValue1 = labelArray[0].innerHTML.substring(1, labelArray[0].innerHTML.length-1);
+    const labelValue2 = labelArray[1].innerHTML.substring(1, labelArray[1].innerHTML.length-1);
+    const signButtonValue = signButton.innerHTML.substring(1, signButton.innerHTML.length-1);
 
     function listenSignUsername() {
-        const labelValue = labelArray[0].innerHTML.substring(1, labelArray[0].innerHTML.length-1);
         const username = inputArray[0].value;
         fetch(url, {
             method: 'POST',
@@ -68,7 +70,7 @@
             },
             body: JSON.stringify({
                 username: username,
-                labelValue: labelValue,
+                labelValue: labelValue1,
             })
         })
             .then(function(response) {
@@ -93,8 +95,9 @@
     function listenSignEmail() {
         const email = inputArray[1].value;
         const emailLabel = labelArray[1];
-        const labelValue = labelArray[1].innerHTML.substring(1, labelArray[1].innerHTML.length-1);
         if((email.indexOf("@") === -1) || (email.indexOf(".com") === -1)) {
+            inputArray[1].focus();
+            inputArray[1].select();
             emailLabel.innerHTML = "您输入的邮箱不合法";
             emailLabel.setAttribute('class', 'text-danger');
             signButton.disabled = true;
@@ -111,7 +114,7 @@
                 },
                 body: JSON.stringify({
                     email: email,
-                    labelValue: labelValue,
+                    labelValue: labelValue2,
                 })
             })
                 .then(function(response) {
@@ -183,7 +186,6 @@
             const username = inputArray[0].value;
             const email = inputArray[1].value;
             const password = inputArray[2].value;
-            const labelValue = signButton.innerHTML.substring(1, signButton.innerHTML.length-1);
             fetch(url, {
                 method: 'POST',
                 headers: {
@@ -195,7 +197,7 @@
                     username: username,
                     email: email,
                     password: password,
-                    labelValue: labelValue,
+                    labelValue: signButtonValue,
                 })
             })
                 .then(function(response) {

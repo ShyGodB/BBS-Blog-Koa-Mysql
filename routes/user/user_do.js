@@ -41,9 +41,14 @@ router.post('/signUp', async(ctx) => {
 			const username1 = postData.username;
 			const email1 = postData.email;
 			const password1 = postData.password;
-			const data = [username1, email1, password1];
-			const addUserDataPromise = editUser.addUserData(data);
-			await addUserDataPromise;
+
+			const date = new Date();
+			const registerTime = date.toLocaleString();
+			const lastLoginTime = registerTime
+
+			const data = [username1, email1, password1, registerTime, lastLoginTime];
+			const addUserPromise = editUser.addUser(data);
+			await addUserPromise;
 
 			const usersPromise = editUser.getUsernameByEmail(email1);
 			const users = await usersPromise;
@@ -73,13 +78,20 @@ router.post('/signIn', async(ctx) => {
 	const rowsPromise = editUser.userLogin(data);
 	const rows = await rowsPromise;
 
-	const usersPromise = editUser.getUsernameByEmail(email);
-	const users = await usersPromise;
-	const user = users[0];
-
 	if(rows.length === 0) {
 			ctx.body = {msg: "Incorrect username or password."}
 	} else {
+		const date = new Date();
+		const loginTime = date.toLocaleString();
+		const id = rows[0].id;
+		const data1 = [loginTime, id];
+		const updateLoginTimePromise = editUser.updateLoginTime(data1);
+		await updateLoginTimePromise;
+
+		const usersPromise = editUser.getUsernameByEmail(email);
+		const users = await usersPromise;
+		const user = users[0];
+
 		ctx.session.user = user;
 		ctx.body = {msg: "登录成功"}
 	}
@@ -118,6 +130,19 @@ router.get("/postTopic", async (ctx) => {  //路由
 // 发表帖子
 router.post('/postTopic', async (ctx) => {
 	const user = ctx.session.user;
+	const id = user.id;
+
+	const date = new Date();
+	const postTime = date.toLocaleString();
+	const data1 = [postTime, id];
+
+	const updatePostTimePromise = editUser.updatePostTime(data1);
+	await updatePostTimePromise;
+
+	const getUserPromise = editUser.getUserById(id);
+	const updatedUserArray = await getUserPromise;
+	const updatedUser = updatedUserArray[0]
+	ctx.session.user = updatedUser;
 
 	const title = ctx.request.body.title;
 	const board_name = ctx.request.body.select_current_value;
@@ -130,22 +155,37 @@ router.post('/postTopic', async (ctx) => {
 	ctx.redirect('/');
 });
 
-// 添加留言
-router.post('/:id/reply', async (ctx) => {
-	//console.log(ctx.session.user);
+// 用户留言
+router.post('/showTopics/all/:id', async (ctx) => {
+	const postData = ctx.request.body;
+	const id = postData.id;
+	const message = postData.message;
 	const user = ctx.session.user;
-	const message_people = user.username;
-	const message_picpath = user.picpath;
-	// 拿到当前页面显示话题的id
-	const topicId = ctx.params.id;
-	// 拿到当前页面用户输入的留言内容
-	const messageContent = ctx.request.body.message_content;
-	const data = [topicId, messageContent, message_people, message_picpath];
-	const saveMessageToTableMessagePromise = editMessage.addMessage(data);
-	await saveMessageToTableMessagePromise;
-	const targetAdress = `/showTopics/all/${topicId}`;
-	ctx.redirect(targetAdress);
-});
+	const messagePeople = user.username;
+	const messagePicPath = user.picpath;
+	const data = [id, message, messagePeople, messagePicPath];
+
+	const userId = user.id;
+	const date = new Date();
+	const msgTime = date.toLocaleString();
+	const data1 = [msgTime, userId];
+
+	const updateMsgTimePromise = editUser.updateMsgTime(data1);
+	await updateMsgTimePromise;
+
+	const getUserPromise = editUser.getUserById(userId);
+	const updatedUserArray = await getUserPromise;
+	const updatedUser = updatedUserArray[0];
+	ctx.session.user = updatedUser;
+
+	// 将新的留言存入数据库
+	const addMessagePromise = editMessage.addMessage(data);
+	await addMessagePromise;
+
+
+	ctx.body = data;
+})
+
 
 module.exports = router;
 

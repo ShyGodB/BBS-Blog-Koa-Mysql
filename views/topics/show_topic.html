@@ -81,7 +81,7 @@
 	$("#btn").click(function(event){
 		let id = $("#btn").attr("data-id");
 		let userMessage = $("#userMessage").val();
-		const url = '/showTopics/all/' + id
+		const url = '/showTopics/all/' + id;
 		fetch(url, {
 			method: 'POST',
 			headers: {

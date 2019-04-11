@@ -3,7 +3,7 @@ const router = new KoaRouter();
 const editBoard = require('../../lib/boards');
 const editTopic = require('../../lib/topics');
 const editMessage = require('../../lib/message');
-const fetch = require('node-fetch');
+// const fetch = require('node-fetch');
 
 
 //   根据子论坛展示帖子
@@ -43,20 +43,6 @@ router.get('/showTopics/all/:id', async (ctx) => {
 
 	});
 });
-
-router.post('/showTopics/all/:id', async (ctx) => {
-	const postData = ctx.request.body;
-	const id = postData.id;
-	const message = postData.message;
-	const user = ctx.session.user;
-	const messagePeople = user.username;
-	const messagePicPath = user.picpath;
-	const data = [id, message, messagePeople, messagePicPath];
-	// 将新的留言存入数据库
-	const addMessagePromise = editMessage.addMessage(data);
-	await addMessagePromise;
-	ctx.body = data;
-})
 
 
 
