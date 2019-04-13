@@ -7,23 +7,52 @@ const editMessage = require('../../lib/message');
 
 
 //   根据子论坛展示帖子
-router.get("/showTopics/:topicType", async (ctx) => {  //路由
-	const boardName = ctx.params.topicType;
+router.get("/showTopics/:id", async (ctx) => {  //路由
+	const boardId = ctx.params.id;
+
 	const allTopicPromise = editTopic.listAllTopic();
 	const allTopic = await allTopicPromise;
+
 	const listBoardPromise = editBoard.listBoardAll();
 	const listBoard = await listBoardPromise;
+
 	const listStarTopicPromise = editTopic.listStarTopic();
 	const listStarTopic = await listStarTopicPromise;
-	const listTopicByTopicTypePromise = editTopic.listTopic(boardName);
-	const listTopicByTopicType = await listTopicByTopicTypePromise;
+
+	const listStarNotTopTopicPromise = editTopic.listStarNotTopTopic();
+	const listStarNotTopTopic = await listStarNotTopTopicPromise;
+
+	const listStarTopTopicPromise = editTopic.listStarTopTopic();
+	const listStarTopTopic = await listStarTopTopicPromise;
+
+	const listTopTopicPromise = editTopic.listTopTopic();
+	const listTopTopic = await listTopTopicPromise;
+
+	const listSimpleTopicPromise = editTopic.listSimpleTopic();
+	const listSimpleTopic = await listSimpleTopicPromise;
+
+	const listTopicPromise = editTopic.listTopic(boardId);
+	const listTopic = await listTopicPromise;
+
+	const listSimpleTopTopicPromise = editTopic.listSimpleTopTopic(boardId);
+	const listSimpleTopTopic = await listSimpleTopTopicPromise;
+
+	const listSimpleNotTopTopicPromise = editTopic.listSimpleNotTopTopic(boardId);
+	const listSimpleNotTopTopic = await listSimpleNotTopTopicPromise;
+
 	await ctx.render('/topics/show_topics', {
+		boardId: boardId,
 		allTopic: allTopic,
 		listBoard: listBoard,
 		user: ctx.session.user,
-		boardName: boardName,
 		listStarTopic: listStarTopic,
-		listTopicByTopicType: listTopicByTopicType
+		listTopTopic: listTopTopic,
+		listSimpleTopic, listSimpleTopic,
+		listTopic: listTopic,
+		listStarTopTopic, listStarTopTopic,
+		listSimpleTopTopic: listSimpleTopTopic,
+		listStarNotTopTopic: listStarNotTopTopic,
+		listSimpleNotTopTopic: listSimpleNotTopTopic
 	});
 });
 

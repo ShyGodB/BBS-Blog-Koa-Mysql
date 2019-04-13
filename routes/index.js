@@ -10,10 +10,27 @@ router.get("/", async (ctx) => { //路由
 	const allTopic = await allTopicPromise;
 	const listBoardPromise = editBoard.listBoardAll();
 	const listBoard = await listBoardPromise;
+
+	const listStarNotTopTopicPromise = editTopic.listStarNotTopTopic();
+	const listStarNotTopTopic = await listStarNotTopTopicPromise;
+
+	const listStarTopicPromise = editTopic.listStarTopic();
+	const listStarTopic = await listStarTopicPromise;
+
+	const listTopTopicPromise = editTopic.listTopTopic();
+	const listTopTopic = await listTopTopicPromise;
+
+	const listSimpleTopicPromise = editTopic.listSimpleTopic();
+	const listSimpleTopic = await listSimpleTopicPromise;
+
 	await ctx.render('index', {
 		user: user,
 		listBoard: listBoard,
-		allTopic: allTopic
+		allTopic: allTopic,
+		listStarTopic: listStarTopic,
+		listTopTopic: listTopTopic,
+		listSimpleTopic, listSimpleTopic,
+		listStarNotTopTopic: listStarNotTopTopic
 	});
 });
 

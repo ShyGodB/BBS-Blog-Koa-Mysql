@@ -35,6 +35,20 @@
             display: none;
             padding: 3px;
         }
+
+        .gray {
+            background-color: #f6f6f6;
+        }
+
+        .info {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        span {
+            color: orangered;
+        }
+
     </style>
 </head>
 
@@ -70,7 +84,7 @@
             btnArray[i+1].onclick = function() {
                 const url = '/userHome';
                 const inputValue = inputArray[i].value;
-                const spanValue = spanArray[i+1].innerHTML.substring(1, spanArray[i+1].innerHTML.length-1);
+                const spanValue = spanArray[i+8].innerHTML.substring(1, spanArray[i+8].innerHTML.length-1);
                 fetch(url, {
                     method: 'POST',
                     headers: {

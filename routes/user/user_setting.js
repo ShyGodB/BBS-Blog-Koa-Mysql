@@ -149,7 +149,6 @@ router.post('/userHome', async (ctx) => {
 	const id = ctx.session.user.id;
 	const postData = ctx.request.body;
 	const spanValue = postData.spanValue;
-	console.log(spanValue);
 	const inputValue = postData.inputValue;
 	const data = [inputValue, id];
 	switch (spanValue) {

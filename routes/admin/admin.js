@@ -1,6 +1,8 @@
 const KoaRouter = require('koa-router');
 const router = new KoaRouter();
 const editUser = require('../../lib/users');
+const editBoard = require('../../lib/boards');
+const editTopic = require('../../lib/topics');
 
 // 管理员登录
 router.get("/sjdfj2i348u2hafsabjkasjknashqioq2u@ijsdfaf8438478fhjvnvabjnk/admin", async (ctx) => {  //路由
@@ -22,8 +24,7 @@ router.post('/', async (ctx) => {
 
 
 // 管理用户
-
-router.get("/admin/manageuUsers/all", async (ctx) => {
+router.get("/admin/manageUsers/all", async (ctx) => {
 	const listAlluserPromise = editUser.listAlluser();
 	const allUser = await listAlluserPromise;
 	await ctx.render("/admin/users", {
@@ -32,13 +33,40 @@ router.get("/admin/manageuUsers/all", async (ctx) => {
 	});
 });
 
-
+// 删除用户
 router.get("/admin/manageUsers/delete/:id", async (ctx) => {
 	const id = ctx.params.id;
 	const deleteUserPromise = editUser.deleteUser(id);
 	await deleteUserPromise;
-	ctx.session.user = null;
-	ctx.redirect("/admin/manageuUsers/all");
+	ctx.redirect("/admin/manageUsers/all");
+});
+
+
+// 小黑屋 ---- 管理伪删除的内容
+router.get("/admin/blackHouse", async (ctx) => {
+	const listDelBoardPromise = editBoard.listDelBoard();
+	const listDelBoard = await listDelBoardPromise;
+
+	const listDelUserPromise = editUser.listDelUser();
+	const listDelUser = await listDelUserPromise;
+
+	const listDelTopicPromise = editTopic.listDelTopic();
+	const listDelTopic = await listDelTopicPromise;
+
+	await ctx.render("/admin/black_house", {
+		layout: 'layouts/layout_admin',
+		listDelUser, listDelUser,
+		listDelBoard: listDelBoard,
+		listDelTopic: listDelTopic
+	});
+});
+
+// 小黑屋 ---- 恢复子用户
+router.get("/admin/blackHouse/out/user/:id", async (ctx) => {
+	const id = ctx.params.id;
+	const outUserPromise = editUser.outUser(id);
+	await outUserPromise;
+	await ctx.redirect("/admin/manageUsers/all");
 });
 
 

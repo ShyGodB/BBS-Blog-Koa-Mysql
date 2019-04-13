@@ -5,35 +5,55 @@ const editTopic = require('../../lib/topics');
 
 
 //帖子管理--管理员
-router.get("/admin/manageTopics/:topicType", async (ctx) => {  //路由
-	const listBoardPromise = editBoard.listBoard();
+router.get("/admin/manageTopics/:id", async (ctx) => {  //路由
+	const listBoardPromise = editBoard.listBoardAll();
 	const listBoard = await listBoardPromise;
+
 	const allTopicPromise = editTopic.listAllTopic();
 	const allTopic = await allTopicPromise;
+
 	const listStarTopicPromise = editTopic.listStarTopic();
 	const listStarTopic = await listStarTopicPromise;
+
 	const listTopTopicPromise = editTopic.listTopTopic();
 	const listTopTopic = await listTopTopicPromise;
-	const topicType = ctx.params.topicType;
-	const listTopicByTopicTypePromise = editTopic.listTopic(topicType);
-	const listTopicByTopicType = await listTopicByTopicTypePromise;
+
+	const id = ctx.params.id;
+	const listTopicPromise = editTopic.listTopic(id);
+	const listTopic = await listTopicPromise;
 	await ctx.render("/admin/topics", {
 		layout: 'layouts/layout_admin',
-		topicType: topicType,
+		id: id,
 		listBoard: listBoard,
 		allTopic: allTopic,
 		listTopTopic: listTopTopic,
 		listStarTopic: listStarTopic,
-		listTopicByTopicType: listTopicByTopicType,
+		listTopic: listTopic,
 	});
 });
 
-//  删除帖子
+//  伪删除帖子
 router.get("/admin/manageTopics/all/delete/:id", async (ctx) => {
 	const id = ctx.params.id;
 	const deleteTopicPromise = editTopic.deleteTopicById(id);
 	await deleteTopicPromise;
 	ctx.redirect("/admin/manageTopics/all");
+});
+
+//  小黑屋 ---- 恢复帖子
+router.get("/admin/blackHouse/out/topic/:id", async (ctx) => {
+	const id = ctx.params.id;
+	const outTopicPromise = editTopic.outTopic(id);
+	await outTopicPromise;
+	ctx.redirect("/admin/manageTopics/all");
+});
+
+//  小黑屋 ---- 彻底删除帖子
+router.get("/admin/blackHouse/delete/topic/:id", async (ctx) => {
+	const id = ctx.params.id;
+	const deleteCompeteTopicPromise = editTopic.deleteCompeteTopic(id);
+	await deleteCompeteTopicPromise;
+	ctx.redirect("/admin/blackHouse");
 });
 
 //  设置精华帖子

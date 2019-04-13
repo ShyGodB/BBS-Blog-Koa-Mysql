@@ -43,13 +43,21 @@
 			<div class="mb-3">
 				<ul class="list-group" id="messages">
 					<% listMessage.forEach(message => { %>
-
-					<li class="list-group-item">
-						<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
-							<img src="../../<%= message.message_picpath %>" title="<%= message.message_people %>" style="width:28px;height:28px">
-						</a>
-						<%= message.message_content %>
-					</li>
+						<% if(user.last_msg === message.message_content) { %>
+							<li class="list-group-item text-danger font-weight-bold" style="background:greenyellow">
+								<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+									<img src="../../<%= message.message_picpath %>" title="<%= message.message_people %>" style="width:28px;height:28px">
+								</a>
+								<%= message.message_content %>
+							</li>
+						<% } else { %>
+							<li class="list-group-item">
+								<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+									<img src="../../<%= message.message_picpath %>" title="<%= message.message_people %>" style="width:28px;height:28px">
+								</a>
+								<%= message.message_content %>
+							</li>
+						<% } %>
 					<% }) %>
 				</ul>
 			</div>
@@ -61,14 +69,29 @@
 				</div>
 
 				<div>
-					<form action="/<%= topic[0].id %>/reply" method="post">
-						<div class="my-2">
-							<textarea class="form-control overflow-auto" id="userMessage" style="min-height: 20rem" name="message_content" contenteditable="true"></textarea>
-						</div>
-						<div class="my-2">
-							<button class="btn btn-primary" type="button" id="btn" data-id="<%= id %>">Submit</button>
-						</div>
-					</form>
+					<% if(user) { %>
+						<form action="/<%= topic[0].id %>/reply" method="post">
+							<div class="my-2">
+								<textarea class="form-control overflow-auto" id="userMessage" style="min-height: 20rem" name="message_content" contenteditable="true"></textarea>
+							</div>
+							<div class="my-2">
+								<button class="btn btn-primary" type="button" id="btn" data-id="<%= id %>">Submit</button>
+							</div>
+						</form>
+					<% } else {%>
+						<form action="/<%= topic[0].id %>/reply" method="post">
+							<div class="my-2">
+								<textarea class="form-control overflow-auto"style="min-height:20rem;font-size:28px;" disabled>
+
+
+									登录后可留言
+								</textarea>
+							</div>
+							<div class="my-2">
+								<button class="btn btn-primary" type="button" disabled>Submit</button>
+							</div>
+						</form>
+					<% } %>
 				</div>
 			</div>
 		</div>
@@ -98,8 +121,10 @@
 			return response.json();
 		})
 		.then(function(myJson) {
+			document.getElementsByTagName("li")[6].style.background = "";
+			document.getElementsByTagName("li")[6].classList.remove("text-danger", "font-weight-bold");
 			const newMessageLi = `
-				<li class="list-group-item">
+				<li class="list-group-item text-danger font-weight-bold" style="background:greenyellow">
 					<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
 						<img src="../../${myJson[3]}" title="${myJson[2]}" style="width:28px;height:28px">
 					</a>
@@ -112,32 +137,6 @@
 		document.getElementById("num_msg").innerHTML ++;
 		document.getElementById("userMessage").value = '';
 	});
-
-	// fetch('https://httpbin.org/post', { method: 'POST', body: 'a=1' })
-	// 	.then(res => res.json()) // expecting a json response
-	// 	.then(json => console.log(json));
-
-	// $('#btn').click(function(event) {
-	// 	const userMessage = $('#userMessage').val();
-	// 	event.preventDefault();
-	// 	const id = $(this).attr('data-id');
-	// 	$.ajax({
-	// 		url: '/showTopics/all/' + id,
-	// 		method: 'POST',
-	// 		data: {
-	// 			id: id,
-	// 			userMessage: userMessage
-	// 		}
-	// 	}).done(function(res) {
-	// 		console.log(res)
-	// 		// if (res.success) {
-	// 		// 	console.log('id from ajax call is', res);
-	// 		// 	window.location.reload();
-	// 		// } else {
-	// 		// 	console.log('error...ajax');
-	// 		// }
-	// 	});
-	// })
 
 </script>
 

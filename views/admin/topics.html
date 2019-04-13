@@ -12,11 +12,9 @@
 			<a class="nav-link active" href="/admin/manageTopics/star"> 精华 </a>
 		</li>
 		<% listBoard.forEach(board => { %>
-			<% if(board.board_name !== '精华') { %>
-				<li class="nav-item">
-					<a class="nav-link" href="/admin/manageTopics/<%=board.board_name%>"> <%= board.board_name %> </a>
-				</li>
-			<% } %>
+			<li class="nav-item">
+				<a class="nav-link" href="/admin/manageTopics/<%= board.id %>"> <%= board.board_name %> </a>
+			</li>
 		<% }) %>
 	</ul>
 
@@ -25,19 +23,19 @@
 			<tr>
 				<th scope="col"> id </th>
 				<th scope="col"> title </th>
-				<th scope="col"> topic_type </th>
+				<th scope="col"> board_name </th>
 				<th scope="col"> Top? </th>
 				<th scope="col"> Star? </th>
 				<th scope="col"> edit </th>
 			</tr>
 		</thead>
 		<tbody>
-			<% if(topicType === "all") { %>
+			<% if(id === "all") { %>
 				<% allTopic.forEach(topic => { %>
 					<tr>
 						<th scope="row"> <%= topic.id %> </th>
 						<td> <%= topic.title %> </td>
-						<td> <%= topic.topic_type %> </td>
+						<td> <%= topic.board_name %> </td>
 						<td>
 							<% if(topic.top === 1) {%>
 								True
@@ -70,7 +68,7 @@
 						</td>
 					</tr>
 				<% })%>
-			<% } else if(topicType === 'star'){ %>
+			<% } else if(id === 'star'){ %>
 				<% if (listStarTopic.length === 0) { %>
 					<tr>
 						<th scope="row"> -- </th>
@@ -108,7 +106,7 @@
 						</tr>
 					<% })%>
 				<% } %>
-			<% } else if(topicType === 'top'){ %>
+			<% } else if(id === 'top'){ %>
 				<% if (listTopTopic.length === 0) { %>
 					<tr>
 						<th scope="row"> -- </th>
@@ -146,7 +144,7 @@
 					<% })%>
 				<% } %>
 			<% } else { %>
-					<% if(listTopicByTopicType.length === 0) { %>
+					<% if(listTopic.length === 0) { %>
 						<tr>
 							<th scope="row"> -- </th>
 							<td> ---- </td>
@@ -156,7 +154,7 @@
 							<td> ---- </td>
 						</tr>
 					<% } else {%>
-						<% listTopicByTopicType.forEach(topic => { %>
+						<% listTopic.forEach(topic => { %>
 							<tr>
 								<th scope="row"> <%= topic.id %> </th>
 								<td> <%= topic.title %> </td>

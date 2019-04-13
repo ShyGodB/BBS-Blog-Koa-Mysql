@@ -36,22 +36,22 @@
             <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
                     <h2> 显示用户概况---- 足迹，操作等 </h2>
-                    <div>
+                    <div class="my-2 py-2">
                         <ul class="list-group">
-                            <li class="list-group-item"> 注册时间：<%= user.register_time %>  </li>
-                            <li class="list-group-item list-group-item-secondary"> 上次登录时间：<%= user.last_login_time %>  </li>
-                            <li class="list-group-item"> 上次发表：<%= user.last_post_time %> </li>
-                            <li class="list-group-item list-group-item-secondary"> 上次留言：<%= user.last_msg_time %> </li>
+                            <li class="info list-group-item gray"> 账号注册：<span> <%= user.register_time %></span>  </li>
+                            <li class="info list-group-item"> 上次登录：<span> <%= user.last_login_time %> </span>  </li>
+                            <li class="info list-group-item gray"> 本次登录：<span> <%= user.login_time %> </span> </li>
+                            <li class="info list-group-item"> 上次发表：<span> <%= user.last_post_time %> </span> </li>
+                            <li class="info list-group-item gray"> 上次留言：<span> <%= user.last_msg_time %> </span> </li>
                         </ul>
                     </div>
-                    <div class="my-2 p-1 border">
-                        <h4> 最近发表：</h4>
-                        <p> xxxxxxxxxxxxx </p>
+                    <div class="my-2 py-1 px-4 border">
+                        <p class="info"> <span class="text-info"> 最近发表的话题： </span> </p>
+                        <h4> <a class="topic-link text-lg-center" href="/showTopics/all/<%= topicId %>"> <%= user.last_post.slice(0, 20) %> </a> </h4>
                     </div>
-                    <div class="my-2 p-1 border">
-                        <h4> 最近参与：</h4>
-                        <p> xxxxxxxxxxxxx </p>
-
+                    <div class="my-2 py-1 px-4 border">
+                        <p class="info"> <span class="text-info"> 最近的留言内容： </span> </p>
+                        <h4> <a class="topic-link text-lg-center" href="/showTopics/all/<%= msgTopicId %>"> <%= user.last_msg.slice(0, 20) %> </a> </h4>
                     </div>
                 </div>
 

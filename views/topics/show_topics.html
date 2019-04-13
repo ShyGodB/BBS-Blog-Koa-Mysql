@@ -1,60 +1,166 @@
 <div class="mb-5 row">
 	<div class="col-md-9 my-3">
-		<ul class="nav btn-lg bg-light">
-			<li class="nav-item">
+		<ul class="nav nav-pills btn-lg bg-light">
+			<li class="nav-item ml-1 ">
 				<a class="nav-link active" href="/showTopics/all">全部</a>
+			</li>
+			<li class="nav-item ml-1 ">
+				<a class="nav-link" href="/showTopics/star">精华</a>
 			</li>
 			<% listBoard.forEach(board => { %>
 			<li class="nav-item">
-				<a class="nav-link" href="/showTopics/<%= board.board_name %>"> <%= board.board_name %> </a>
+				<a class="nav-link" href="/showTopics/<%= board.id %>"> <%= board.board_name %> </a>
 			</li>
 			<% }) %>
 		</ul>
 
 
 		<div class="box">
-			<% if(boardName === 'all') { %>
-				<ul class="list-group">
-					<% allTopic.forEach(topic => { %>
-					<li class="list-group-item list-group-item-action" style="font-size: 24px">
-						<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
-							<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
-						</a>
-						<span class="text-center bg-primary mr-1"> <%= topic.board_name%> </span>
-						<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
-					</li>
-					<% })%>
-				</ul>
-			<% } else if(boardName === '精华') { %>
-				<ul class="list-group">
-					<% listStarTopic.forEach(topic => { %>
-						<li class="list-group-item list-group-item-action" style="font-size: 24px">
-							<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
-								<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
-							</a>
-							<span class="text-center bg-primary mr-1"> <%= topic.board_name%> </span>
-							<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
-						</li>
-					<% })%>
-				</ul>
-			<% } else { %>
-				<% if(listTopicByTopicType.length === 0) { %>
+			<% if(boardId === 'all') { %>
+				<% if(allTopic.length === 0) { %>
 					<div class="my-3 p-2 bg-warning">
 						<h2 class="text-danger font-weight-bold m-2"> 此论坛还没帖子，请发表或者联系管理员 </h2>
 						<div class="mt-4 mb-2 ml-2">
 							<a href="/postTopic" class="text-primary bg-light btn-lg my-3"> 发帖 </a>
 						</div>
 					</div>
-				<% } else {%>
+				<% } else { %>
+					<% if(listTopTopic.length !== 0) { %>
+						<ul class="list-group flex">
+							<% listTopTopic.forEach(topic => { %>
+							<li class="list-group-item" style="font-size: 24px">
+								<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+									<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+								</a>
+								<span class="put_top">置顶</span>
+								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+							</li>
+							<% })%>
+						</ul>
+						<% if(listStarNotTopTopic.length !== 0) { %>
+							<ul class="list-group flex">
+								<% listStarNotTopTopic.forEach(topic => { %>
+								<li class="list-group-item" style="font-size: 24px">
+									<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+										<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+									</a>
+									<span class="put_top">精华</span>
+									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+								</li>
+								<% }) %>
+							</ul>
+						<% } %>
+						<ul class="list-group flex">
+							<% listSimpleTopic.forEach(topic => { %>
+							<li class="list-group-item" style="font-size: 24px">
+								<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+									<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+								</a>
+								<span class="put_top"><%= topic.board_name %></span>
+								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+							</li>
+							<% })%>
+						</ul>
+					<% } else { %>
+						<% if(listStarTopic.length !== 0) { %>
+							<ul class="list-group flex">
+								<% listStarTopic.forEach(topic => { %>
+								<li class="list-group-item" style="font-size: 24px">
+									<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+										<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+									</a>
+									<span class="put_top">精华</span>
+									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+								</li>
+								<% }) %>
+							</ul>
+							<ul class="list-group flex">
+								<% listSimpleTopic.forEach(topic => { %>
+								<li class="list-group-item" style="font-size: 24px">
+									<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+										<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+									</a>
+									<span class="put_top"><%= topic.board_name %></span>
+									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+								</li>
+								<% })%>
+							</ul>
+						<% } else { %>
+							<ul class="list-group flex">
+								<% listSimpleTopic.forEach(topic => { %>
+								<li class="list-group-item" style="font-size: 24px">
+									<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+										<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+									</a>
+									<span class="put_top"><%= topic.board_name %></span>
+									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+								</li>
+								<% })%>
+							</ul>
+						<% } %>
+					<% } %>
+				<% } %>
+			<% } else if(boardId === 'star') { %>
+				<% if(listStarTopic.length === 0) { %>
+					<div class="my-3 p-2 bg-warning">
+						<h2 class="text-danger font-weight-bold m-2"> 此论坛还没帖子，请发表或者联系管理员 </h2>
+						<div class="mt-4 mb-2 ml-2">
+							<a href="/postTopic" class="text-primary bg-light btn-lg my-3"> 发帖 </a>
+						</div>
+					</div>
+				<% } else { %>
 					<ul class="list-group">
-						<% listTopicByTopicType.forEach(topic => { %>
-						<li class="list-group-item list-group-item-action" style="font-size: 24px">
-							<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
-								<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
-							</a>
-							<span class="text-center bg-primary mr-1"> <%= topic.board_name%> </span>
-							<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
-						</li>
+						<% if(listStarTopTopic.length !== 0) { %>
+							<% listStarTopTopic.forEach(topic => { %>
+								<li class="list-group-item" style="font-size: 24px">
+									<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+										<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+									</a>
+									<span class="put_top">置顶</span>
+									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+								</li>
+							<% })%>
+						<% } %>
+
+						<% listStarNotTopTopic.forEach(topic => { %>
+							<li class="list-group-item" style="font-size: 24px">
+								<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+									<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+								</a>
+								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+							</li>
+						<% })%>
+					</ul>
+				<% } %>
+			<% } else { %>
+				<% if(listTopic.length === 0) { %>
+					<div class="my-3 p-2 bg-warning">
+						<h2 class="text-danger font-weight-bold m-2"> 此论坛还没帖子，请发表或者联系管理员 </h2>
+						<div class="mt-4 mb-2 ml-2">
+							<a href="/postTopic" class="text-primary bg-light btn-lg my-3"> 发帖 </a>
+						</div>
+					</div>
+				<% } else { %>
+					<ul class="list-group">
+						<% if(listSimpleTopTopic.length !== 0) { %>
+							<% listSimpleTopTopic.forEach(topic => { %>
+								<li class="list-group-item" style="font-size: 24px">
+									<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+										<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+									</a>
+									<span class="put_top">置顶</span>
+									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+								</li>
+							<% })%>
+						<% } %>
+
+						<% listSimpleNotTopTopic.forEach(topic => { %>
+							<li class="list-group-item" style="font-size: 24px">
+								<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
+									<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
+								</a>
+								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+							</li>
 						<% })%>
 					</ul>
 				<% } %>
@@ -94,3 +200,17 @@
 	</div>
 </div>
 
+<script>
+
+	// $( '#top_header .nav a' ).on( 'click', function () {
+	//     $( '#top_header .nav' ).find( 'li.active' ).removeClass( 'active' );
+	//     $( this ).addClass( 'active' );
+	// });
+	// alert("123ssdfnj")
+
+	$(document).ready(function(e) {
+		$('li .active').removeClass('active');
+		$('a[href="' + location.pathname + '"]').closest('a').addClass('active');
+	});
+
+</script>

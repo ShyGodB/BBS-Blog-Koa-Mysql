@@ -44,9 +44,9 @@ router.post('/signUp', async(ctx) => {
 
 			const date = new Date();
 			const registerTime = date.toLocaleString();
-			const lastLoginTime = registerTime
+			const loginTime = registerTime
 
-			const data = [username1, email1, password1, registerTime, lastLoginTime];
+			const data = [username1, email1, password1, registerTime, loginTime];
 			const addUserPromise = editUser.addUser(data);
 			await addUserPromise;
 
@@ -77,14 +77,17 @@ router.post('/signIn', async(ctx) => {
 
 	const rowsPromise = editUser.userLogin(data);
 	const rows = await rowsPromise;
-
+	console.log(rows);
 	if(rows.length === 0) {
 			ctx.body = {msg: "Incorrect username or password."}
 	} else {
 		const date = new Date();
 		const loginTime = date.toLocaleString();
 		const id = rows[0].id;
-		const data1 = [loginTime, id];
+
+		const lastLoginTime = rows[0].login_time;
+
+		const data1 = [lastLoginTime, loginTime, id];
 		const updateLoginTimePromise = editUser.updateLoginTime(data1);
 		await updateLoginTimePromise;
 
@@ -108,11 +111,25 @@ router.get("/signOut", async (ctx) => { //路由
 // 请求用户主页
 router.get("/userHome", async (ctx) => {
 	const id = ctx.session.user.id;
+	const lastMsg = ctx.session.user.last_msg;
+
+	const getMsgTopicIdPromise = editMessage.getMsgTopicId(lastMsg);
+	const msgTopicIdArray = await getMsgTopicIdPromise;
+	const msgTopicId = msgTopicIdArray[0].topic_id;
+
+	const username = ctx.session.user.username;
+	const listTopicIdPromise = editTopic.listTopicId(username);
+	const listTopicId = await listTopicIdPromise;
+	const topicId = listTopicId[listTopicId.length-1].id;
+
 	const getUserByIdPromise = editUser.getUserById(id);
 	const userArray = await getUserByIdPromise;
+
 	const user = userArray[0];
 	await ctx.render("/userSetting/userhome", {
 		user: user,
+		topicId: topicId,
+		msgTopicId: msgTopicId,
 		layout: "layouts/layout_userhome"
 	});
 });
@@ -121,6 +138,7 @@ router.get("/userHome", async (ctx) => {
 router.get("/postTopic", async (ctx) => {  //路由
 	const listBoardPromise = editBoard.listBoardAll();
 	const listBoard = await listBoardPromise;
+
 	await ctx.render("/topics/post_topic", {
 		user: ctx.session.user,
 		listBoard: listBoard
@@ -131,25 +149,30 @@ router.get("/postTopic", async (ctx) => {  //路由
 router.post('/postTopic', async (ctx) => {
 	const user = ctx.session.user;
 	const id = user.id;
+	const title = ctx.request.body.title;
+	const boardId = ctx.request.body.select_current_value;
 
+	const getBoardPromise = editBoard.getBoard(boardId);
+	const boardArray = await getBoardPromise;
+	const boardName = boardArray[0].board_name;
+	const article = ctx.request.body.article;
+	// console.log(boardId);
 	const date = new Date();
 	const postTime = date.toLocaleString();
-	const data1 = [postTime, id];
+	const data1 = [postTime, title, id];
 
-	const updatePostTimePromise = editUser.updatePostTime(data1);
-	await updatePostTimePromise;
+	const updatePostInformationPromise = editUser.updatePostInformation(data1);
+	await updatePostInformationPromise;
 
 	const getUserPromise = editUser.getUserById(id);
 	const updatedUserArray = await getUserPromise;
 	const updatedUser = updatedUserArray[0]
 	ctx.session.user = updatedUser;
 
-	const title = ctx.request.body.title;
-	const board_name = ctx.request.body.select_current_value;
-	const article = ctx.request.body.article;
+
 	const topicImagePath = user.picpath;
 	const postMan = user.username;
-	const data = [title, board_name, article, topicImagePath, postMan];
+	const data = [title, boardId, article, topicImagePath, postMan, boardName];
 	const addTopicPromise = editTopic.addTopic(data);
 	await addTopicPromise;
 	ctx.redirect('/');
@@ -165,13 +188,14 @@ router.post('/showTopics/all/:id', async (ctx) => {
 	const messagePicPath = user.picpath;
 	const data = [id, message, messagePeople, messagePicPath];
 
+
 	const userId = user.id;
 	const date = new Date();
 	const msgTime = date.toLocaleString();
-	const data1 = [msgTime, userId];
+	const data1 = [msgTime, message, userId];
 
-	const updateMsgTimePromise = editUser.updateMsgTime(data1);
-	await updateMsgTimePromise;
+	const updateMsgInformationPromise = editUser.updateMsgInformation(data1);
+	await updateMsgInformationPromise;
 
 	const getUserPromise = editUser.getUserById(userId);
 	const updatedUserArray = await getUserPromise;
