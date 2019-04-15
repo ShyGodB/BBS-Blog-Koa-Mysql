@@ -100,7 +100,7 @@
 
 
 <script>
-
+	const length = document.getElementById("messages").getElementsByTagName("li").length;
 	$("#btn").click(function(event){
 		let id = $("#btn").attr("data-id");
 		let userMessage = $("#userMessage").val();
@@ -121,8 +121,11 @@
 			return response.json();
 		})
 		.then(function(myJson) {
-			document.getElementsByTagName("li")[6].style.background = "";
-			document.getElementsByTagName("li")[6].classList.remove("text-danger", "font-weight-bold");
+			if(length !== 0) {
+				document.getElementsByTagName("li")[6].style.background = "";
+				document.getElementsByTagName("li")[6].classList.remove("text-danger", "font-weight-bold");
+			}
+
 			const newMessageLi = `
 				<li class="list-group-item text-danger font-weight-bold" style="background:greenyellow">
 					<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">

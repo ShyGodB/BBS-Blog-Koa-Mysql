@@ -206,6 +206,13 @@ router.post('/showTopics/all/:id', async (ctx) => {
 	const addMessagePromise = editMessage.addMessage(data);
 	await addMessagePromise;
 
+	const getMsgNumPromise = editMessage.getMsgNum(id);
+	const msgNumArray = await getMsgNumPromise;
+	const msgNum = msgNumArray.length;
+
+	const data2 = [msgNum, id];
+	const updateTopicMsgNumPromise = editTopic.updateTopicMsgNum(data2);
+	await updateTopicMsgNumPromise;
 
 	ctx.body = data;
 })

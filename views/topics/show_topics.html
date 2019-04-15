@@ -34,6 +34,7 @@
 								</a>
 								<span class="put_top">置顶</span>
 								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+								<span class="float-right put_right"> <%= topic.msg_num %> </span>
 							</li>
 							<% })%>
 						</ul>
@@ -46,6 +47,7 @@
 									</a>
 									<span class="put_top">精华</span>
 									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+									<span class="float-right put_right"> <%= topic.msg_num %> </span>
 								</li>
 								<% }) %>
 							</ul>
@@ -58,6 +60,7 @@
 								</a>
 								<span class="put_top"><%= topic.board_name %></span>
 								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+								<span class="float-right put_right"> <%= topic.msg_num %> </span>
 							</li>
 							<% })%>
 						</ul>
@@ -71,6 +74,7 @@
 									</a>
 									<span class="put_top">精华</span>
 									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+									<span class="float-right put_right"> <%= topic.msg_num %> </span>
 								</li>
 								<% }) %>
 							</ul>
@@ -94,6 +98,7 @@
 									</a>
 									<span class="put_top"><%= topic.board_name %></span>
 									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+									<span class="float-right put_right"> <%= topic.msg_num %> </span>
 								</li>
 								<% })%>
 							</ul>
@@ -118,6 +123,7 @@
 									</a>
 									<span class="put_top">置顶</span>
 									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+									<span class="float-right put_right"> <%= topic.msg_num %> </span>
 								</li>
 							<% })%>
 						<% } %>
@@ -128,6 +134,7 @@
 									<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
 								</a>
 								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+								<span class="float-right put_right"> <%= topic.msg_num %> </span>
 							</li>
 						<% })%>
 					</ul>
@@ -150,6 +157,7 @@
 									</a>
 									<span class="put_top">置顶</span>
 									<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+									<span class="float-right put_right"> <%= topic.msg_num %> </span>
 								</li>
 							<% })%>
 						<% } %>
@@ -160,6 +168,7 @@
 									<img class="rounded-2" src="../<%= topic.topic_image_path %>" title="<%= topic.post_man %>" style="width:28px;height:28px">
 								</a>
 								<a class="topic-link" href="/showTopics/all/<%= topic.id %>">话题：<%= topic.title %></a>
+								<span class="float-right put_right"> <%= topic.msg_num %> </span>
 							</li>
 						<% })%>
 					</ul>

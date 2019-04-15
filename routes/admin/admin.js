@@ -6,7 +6,18 @@ const editTopic = require('../../lib/topics');
 
 // 管理员登录
 router.get("/sjdfj2i348u2hafsabjkasjknashqioq2u@ijsdfaf8438478fhjvnvabjnk/admin", async (ctx) => {  //路由
+	const listAllTopicPromise = editTopic.listAllTopic();
+	const allTopic = await listAllTopicPromise;
+
+	const listAllBoardPromise = editBoard.listAllBoard();
+	const allBoard = await listAllBoardPromise;
+
+	const listAllUserPromise = editUser.listAllUser();
+	const allUser = await listAllUserPromise;
 	await ctx.render("/admin/admin", {
+		allUser: allUser,
+		allBoard: allBoard,
+		allTopic: allTopic,
 		layout: 'layouts/layout_admin'
 	});
 });

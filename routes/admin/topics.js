@@ -90,6 +90,41 @@ router.get("/admin/manageTopics/all/cancelTop/:id", async (ctx) => {
 	ctx.redirect("/admin/manageTopics/top");
 });
 
+router.post("/admin/manageTopics/all", async (ctx) => {
+	const postBody = ctx.request.body;
+	const buttonValue = postBody.buttonValue;
+	const buttonDataId = postBody.buttonDataId;
+	// console.log(postBody);
+	switch(buttonValue) {
+		case "Delete":
+			const deleteTopicByIdPromise = editTopic.deleteTopicById(buttonDataId);
+			await deleteTopicByIdPromise;
+			ctx.body = {msg: "Delete success"};
+			break;
+		case "Set top":
+			const setTopTopicPromise = editTopic.setTopTopic(buttonDataId);
+			await setTopTopicPromise;
+			ctx.body = {msg: "Set top success"};
+			break;
+		case "Cancel top":
+			const reduceTopTopicPromise = editTopic.reduceTopTopic(buttonDataId);
+			await reduceTopTopicPromise;
+			ctx.body = {msg: "Cancel top success"};
+			break;
+		case "Set star":
+			const setStarTopicPromise = editTopic.setStarTopic(buttonDataId);
+			await setStarTopicPromise;
+			ctx.body = {msg: "Set star success"};
+			break;
+		case "Cancel star":
+			const reduceStarTopicPromise = editTopic.reduceStarTopic(buttonDataId);
+			await reduceStarTopicPromise;
+			ctx.body = {msg: "Cancel star success"};
+			break;
+	}
+
+});
+
 
 
 module.exports = router;
