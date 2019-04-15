@@ -32,22 +32,6 @@ router.get("/admin/manageTopics/:id", async (ctx) => {  //路由
 	});
 });
 
-//  伪删除帖子
-router.get("/admin/manageTopics/all/delete/:id", async (ctx) => {
-	const id = ctx.params.id;
-	const deleteTopicPromise = editTopic.deleteTopicById(id);
-	await deleteTopicPromise;
-	ctx.redirect("/admin/manageTopics/all");
-});
-
-//  小黑屋 ---- 恢复帖子
-router.get("/admin/blackHouse/out/topic/:id", async (ctx) => {
-	const id = ctx.params.id;
-	const outTopicPromise = editTopic.outTopic(id);
-	await outTopicPromise;
-	ctx.redirect("/admin/manageTopics/all");
-});
-
 //  小黑屋 ---- 彻底删除帖子
 router.get("/admin/blackHouse/delete/topic/:id", async (ctx) => {
 	const id = ctx.params.id;
@@ -56,39 +40,6 @@ router.get("/admin/blackHouse/delete/topic/:id", async (ctx) => {
 	ctx.redirect("/admin/blackHouse");
 });
 
-//  设置精华帖子
-router.get("/admin/manageTopics/all/setStar/:id", async (ctx) => {
-	const id = ctx.params.id;
-	const setStarPromise = editTopic.setStarTopic(id);
-	await setStarPromise;
-	ctx.redirect("/admin/manageTopics/star");
-});
-
-//  取消精华帖子
-router.get("/admin/manageTopics/all/cancelStar/:id", async (ctx) => {
-	const id = ctx.params.id;
-	const reduceStarPromise = editTopic.reduceStarTopic(id);
-	await reduceStarPromise;
-	ctx.redirect("/admin/manageTopics/star");
-});
-
-
-
-//  设置置顶帖子
-router.get("/admin/manageTopics/all/setTop/:id", async (ctx) => {
-	const id = ctx.params.id;
-	const setTopTopicPromise = editTopic.setTopTopic(id);
-	await setTopTopicPromise;
-	ctx.redirect("/admin/manageTopics/top");
-});
-
-//  取消置顶帖子
-router.get("/admin/manageTopics/all/cancelTop/:id", async (ctx) => {
-	const id = ctx.params.id;
-	const reduceTopTopicPromise = editTopic.reduceTopTopic(id);
-	await reduceTopTopicPromise;
-	ctx.redirect("/admin/manageTopics/top");
-});
 
 router.post("/admin/manageTopics/all", async (ctx) => {
 	const postBody = ctx.request.body;

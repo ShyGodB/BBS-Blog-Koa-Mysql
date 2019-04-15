@@ -44,14 +44,6 @@ router.get("/admin/manageUsers/all", async (ctx) => {
 	});
 });
 
-// 删除用户
-router.get("/admin/manageUsers/delete/:id", async (ctx) => {
-	const id = ctx.params.id;
-	const deleteUserPromise = editUser.deleteUser(id);
-	await deleteUserPromise;
-	ctx.redirect("/admin/manageUsers/all");
-});
-
 
 // 小黑屋 ---- 管理伪删除的内容
 router.get("/admin/blackHouse", async (ctx) => {
