@@ -36,14 +36,23 @@ router.post('/', async (ctx) => {
 
 // 管理用户
 router.get("/admin/manageUsers/all", async (ctx) => {
+	// 操作数据库，选取所有useful字段为1的用户
 	const listAlluserPromise = editUser.listAlluser();
 	const allUser = await listAlluserPromise;
+	// 渲染页面
 	await ctx.render("/admin/users", {
 		allUser: allUser,
 		layout: 'layouts/layout_admin',
 	});
 });
 
+// 伪删除用户
+router.get("/admin/manageUsers/delete/:id", async (ctx) => {
+	const id = ctx.params.id;
+	const delUserPromise = editUser.deleteUser(id);
+	await delUserPromise;
+	ctx.redirect("/admin/blackHouse");
+});
 
 // 小黑屋 ---- 管理伪删除的内容
 router.get("/admin/blackHouse", async (ctx) => {
@@ -58,7 +67,7 @@ router.get("/admin/blackHouse", async (ctx) => {
 
 	await ctx.render("/admin/black_house", {
 		layout: 'layouts/layout_admin',
-		listDelUser, listDelUser,
+		listDelUser: listDelUser,
 		listDelBoard: listDelBoard,
 		listDelTopic: listDelTopic
 	});

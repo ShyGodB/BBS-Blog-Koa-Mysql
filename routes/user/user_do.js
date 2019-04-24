@@ -77,7 +77,6 @@ router.post('/signIn', async(ctx) => {
 
 	const rowsPromise = editUser.userLogin(data);
 	const rows = await rowsPromise;
-	console.log(rows);
 	if(rows.length === 0) {
 			ctx.body = {msg: "Incorrect username or password."}
 	} else {
@@ -215,7 +214,7 @@ router.post('/showTopics/all/:id', async (ctx) => {
 	await updateTopicMsgNumPromise;
 
 	ctx.body = data;
-})
+});
 
 
 module.exports = router;

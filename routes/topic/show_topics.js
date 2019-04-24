@@ -1,9 +1,9 @@
 const KoaRouter = require('koa-router');
-const router = new KoaRouter();
 const editBoard = require('../../lib/boards');
 const editTopic = require('../../lib/topics');
 const editMessage = require('../../lib/message');
-// const fetch = require('node-fetch');
+
+const router = new KoaRouter();
 
 
 //   根据子论坛展示帖子
@@ -44,11 +44,11 @@ router.get("/showTopics/:id", async (ctx) => {  //路由
 		boardId: boardId,
 		allTopic: allTopic,
 		listBoard: listBoard,
-		user: ctx.session.user,
-		listStarTopic: listStarTopic,
-		listTopTopic: listTopTopic,
-		listSimpleTopic, listSimpleTopic,
 		listTopic: listTopic,
+		user: ctx.session.user,
+		listTopTopic: listTopTopic,
+		listStarTopic: listStarTopic,
+		listSimpleTopic, listSimpleTopic,
 		listStarTopTopic, listStarTopTopic,
 		listSimpleTopTopic: listSimpleTopTopic,
 		listStarNotTopTopic: listStarNotTopTopic,
@@ -61,18 +61,17 @@ router.get('/showTopics/all/:id', async (ctx) => {
 	const id = ctx.params.id;
 	const topicPromise = editTopic.getTopicById(id);
 	const topic = await topicPromise;
+	const user = ctx.session.user;
 	const listMessageByTopicIdPromise = editMessage.listMessage(id);
 	const listMessage = await listMessageByTopicIdPromise;
 	await ctx.render('/topics/show_topic', {
 		id: id,
+		user: user,
 		topic: topic,
 		layout: false,
-		user: ctx.session.user,
 		listMessage: listMessage,
-
 	});
 });
-
 
 
 module.exports = router;

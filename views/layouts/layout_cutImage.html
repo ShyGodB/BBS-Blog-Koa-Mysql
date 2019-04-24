@@ -19,6 +19,7 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
     <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+
     <script type="text/javascript" src="/public/js/cropbox.js"></script>
 </head>
 
@@ -37,11 +38,14 @@
 
 
 <script>
+    // 页面加载完成后执行
+    // 图片的裁剪需要用到一个外部文件，是别人已经写好了的 => /public/js/cropbox.js
     $(window).load(function() {
         var options =
             {
                 thumbBox: '.thumbBox',
                 spinner: '.spinner',
+                // 设置默认的图片
                 imgSrc: '/public/images/wenyiXJJ_1.png'
             }
         var cropper = $('.imageBox').cropbox(options);
@@ -52,26 +56,26 @@
                 cropper = $('.imageBox').cropbox(options);
             }
             reader.readAsDataURL(this.files[0]);
-            //this.files = [];
         })
+        // 缩小图片
         $('#btnZoomIn').on('click', function(){
             cropper.zoomIn();
         })
+        // 放大图片
         $('#btnZoomOut').on('click', function(){
             cropper.zoomOut();
         })
         $('#btnCrop').on('click', function(){
+            // 获取img的地址
             var img = cropper.getDataURL();
             $('.cropped').html('');
             $('.cropped').append('<img id="img1" src="'+img+'" align="absmiddle" style="width:64px;margin-top:4px;border-radius:64px;box-shadow:0px 0px 12px #7E7E7E;" ><p>64px*64px</p>');
             $('.cropped').append('<img id="img2" src="'+img+'" align="absmiddle" style="width:128px;margin-top:4px;border-radius:128px;box-shadow:0px 0px 12px #7E7E7E;"><p>128px*128px</p>');
             $('.cropped').append('<img id="img3" src="'+img+'" align="absmiddle" style="width:180px;margin-top:4px;border-radius:180px;box-shadow:0px 0px 12px #7E7E7E;"><p>180px*180px</p>');
             var img1Src = document.getElementById('img3').src;
-            //var sourceImagePath = document.getElementById('image').value
+            // 获取input， 隐式上传数据到后端
             var upload_base = document.getElementById('upload_base');
-            //var source_image = document.getElementById('source_image');
             upload_base.value = img1Src;
-            //source_image.value = sourceImagePath;
         });
     });
 

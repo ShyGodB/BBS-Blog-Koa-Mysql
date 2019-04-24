@@ -40,12 +40,13 @@ router.post("/allTopic/results", async (ctx) => {
 
 	// 拿到用户在搜索框中输入的字符串
 	const userInputString = ctx.request.body.user_input_string;
+
 	const listAllTopicFromBBSPromise = editTopic.listAllTopic();
 	const allTopic = await listAllTopicFromBBSPromise;
 
 	// 定义一个结果数组，用来存储找到的结果
 	let resultArray = [];
-	// 将符合条件的Tina 驾到results里面
+	// 将符合条件的添加到results里面
 	for(let i = 0; i < allTopic.length; i++) {
 		if(allTopic[i].title.indexOf(userInputString) !== -1) {
 			resultArray.push(allTopic[i]);

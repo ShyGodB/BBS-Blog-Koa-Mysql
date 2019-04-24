@@ -66,11 +66,17 @@ router.get("/settings/profile/changeImage", async (ctx) => {
 });
 
 router.post("/settings/profile/changeImage", upload.single('image'), async (ctx) => {
+	// 获取前端上传过来的base64数据
 	const value = ctx.req.body.upload_base;
+	// 使用正则表达式截取有用的信息
 	const base64Data = value.replace(/^data:image\/\w+;base64,/, "");
+	// 使用Buffer.from()函数处理数据
 	const dataBuffer = Buffer.from(base64Data, 'base64');
+	// 获取用户的id
 	const userId = ctx.session.user.id;
+	// 定义用户新头像的存储路径及名称
 	const newUserPicturePath = `public/uploads/${userId}.png`;
+	// 写文件，保存头像文件
 	fs.writeFile (newUserPicturePath, dataBuffer, function(err) {
 		if (err) {
 			console.log(err);
@@ -83,13 +89,17 @@ router.post("/settings/profile/changeImage", upload.single('image'), async (ctx)
 			}
 		}
 	});
+	// 获取用户id
 	const id = ctx.session.user.id;
 	const data=[newUserPicturePath, id];
+	// 更新用户头像地址
 	const resetPicturePromise = editUser.resetPicture(data);
 	await resetPicturePromise; //新的头像路径保存完成，但是要更新session才能使头像立即生效
+	// 获取用户信息
 	const getUserInformationPromise = editUser.getUserById(id);
 	const userArray = await getUserInformationPromise;
 	const user = userArray[0];
+	// 更新session
 	ctx.session.user = user;
 
 	// 在用户更新头像完成后，我们要将数据库中该用户发表的所有话题的topic_image_path
@@ -108,6 +118,7 @@ router.post("/settings/profile/changeImage", upload.single('image'), async (ctx)
 	ctx.redirect('/userHome');
 });
 
+
 // 用户高级设置-- 暂时就只有重置密码
 router.get("/settings/advanced", async (ctx) => { //路由
 	const path = ctx.params.path;
@@ -119,13 +130,17 @@ router.get("/settings/advanced", async (ctx) => { //路由
 });
 
 router.post("/settings/advanced", async (ctx) => {
+	// 获取用户输入的新、旧密码
 	const oldPassword = ctx.request.body.oldPassword;
 	const newPassword1 = ctx.request.body.newPassword1;
 	const newPassword2 = ctx.request.body.newPassword2;
+	// 获取用户id
 	const id = ctx.session.user.id;
+	// 获取用户信息
 	const getUserPromise = editUser.getUserById(id);
 	const user = await getUserPromise;
-	const userPassword = user[0].password; //得到该用户的初始密码
+	//得到该用户的初始密码
+	const userPassword = user[0].password;
 	const data = [newPassword2, id]
 	if(oldPassword !== userPassword) {
 		console.log('你输入的旧密码不正确，请重新输入');
@@ -135,6 +150,7 @@ router.post("/settings/advanced", async (ctx) => {
 			console.log('你2次输入的新密码不一致，请重新输入')
 			ctx.redirect("/settings/advanced");
 		} else {
+			// 重设密码
 			const resetPasswordPromise = editUser.resetPassword(data);
 			await resetPasswordPromise;
 			console.log('恭喜你，修改密码成功，请牢记你的新密码！');

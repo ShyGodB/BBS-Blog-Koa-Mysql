@@ -68,6 +68,7 @@
 
     <script>
 
+        // 获取元素  PS：这个应该不需要再说的那么具体了吧
         let editPen = document.getElementsByTagName("svg");
         let inputArray = document.getElementsByTagName("input");
         let btnArray = document.getElementsByTagName("button");
@@ -75,15 +76,20 @@
         let sureBtn = document.getElementsByClassName("sure");
         for(let i = 1; i < editPen.length; i++) {
             editPen[i].onclick = function() {
+                // 隐藏 🖋
                 editPen[i].style.display = "none";
+                // 删除input的 disabled 属性
                 inputArray[i].removeAttribute("disabled");
+                // 修改border，可要可不要
                 inputArray[i].style.border = "1px solid black";
                 inputArray[i].style.padding = "2px";
+                // 使确定按钮跟input在同一行
                 sureBtn[i - 1].style.display = "inline-block";
             }
             btnArray[i+1].onclick = function() {
                 const url = '/userHome';
                 const inputValue = inputArray[i].value;
+                // 裁剪span标签的文本，去除前后的空格和后面的":"
                 const spanValue = spanArray[i+8].innerHTML.substring(1, spanArray[i+8].innerHTML.length-1);
                 fetch(url, {
                     method: 'POST',
@@ -101,6 +107,7 @@
                     return response.json();
                 })
                 .then(function(myJson) {
+                    // 设置input的placeholder 为 myJson.inputValue, 这里的myJson.inputValue === inputValue
                     inputArray[i].placeholder = myJson.inputValue;
                     inputArray[i].setAttribute("disabled", "disabled");
                     sureBtn[i-1].style.display = "none";

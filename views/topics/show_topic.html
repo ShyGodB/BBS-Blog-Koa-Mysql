@@ -100,9 +100,13 @@
 
 
 <script>
+
+	// 获取留言的数量，即id="messages"的ul中li的个数
 	const length = document.getElementById("messages").getElementsByTagName("li").length;
 	$("#btn").click(function(event){
+		// 获取id ， 此id === topic的id
 		let id = $("#btn").attr("data-id");
+		// 获取用户输入的留言内容
 		let userMessage = $("#userMessage").val();
 		const url = '/showTopics/all/' + id;
 		fetch(url, {
@@ -121,11 +125,14 @@
 			return response.json();
 		})
 		.then(function(myJson) {
+			// 如果有留言
 			if(length !== 0) {
+				// 设置背景颜色为空
 				document.getElementsByTagName("li")[6].style.background = "";
+				// 移除字体样式
 				document.getElementsByTagName("li")[6].classList.remove("text-danger", "font-weight-bold");
 			}
-
+			// 新定义一个标签li，用来存储新的留言
 			const newMessageLi = `
 				<li class="list-group-item text-danger font-weight-bold" style="background:greenyellow">
 					<a class="user_avatar pull-left" href="/userHome" style="width:28px;height:28px">
@@ -134,10 +141,13 @@
 					${myJson[1]}
 				</li>
 			`;
+			// 将留言加入到页面中
 			$("#messages").prepend(newMessageLi);
 		});
 
+		// 使留言的数量 ++
 		document.getElementById("num_msg").innerHTML ++;
+		// 清空文本域
 		document.getElementById("userMessage").value = '';
 	});
 
