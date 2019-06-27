@@ -74,7 +74,7 @@ router.post("/settings/profile/changeImage", upload.single('image'), async (ctx)
 	const dataBuffer = Buffer.from(base64Data, 'base64');
 	// 获取用户的id
 	console.log(value);
-	
+
 	const userId = ctx.session.user.id;
 	// 定义用户新头像的存储路径及名称
 	const newUserPicturePath = `public/uploads/${userId}.png`;

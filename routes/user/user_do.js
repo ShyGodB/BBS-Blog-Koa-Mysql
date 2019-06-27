@@ -71,7 +71,6 @@ router.get("/signIn", async(ctx) => {  //路由
 //获取用户在form表单中输入的数据，并将其与数据库中储存的信息进行对比以判断是否允许该用户登录
 router.post('/signIn', async(ctx) => {
 	const postData = ctx.request.body;
-	console.log(postData);
 	const email = postData.inputEmail;  //获取用户输入的邮箱地址
 	const password = postData.inputPassword;  //获取用户输入的密码
 	const data = [email, password];
@@ -120,12 +119,17 @@ router.get("/userHome", async (ctx) => {
 	const hasTopic = await checkHasTopicPromise;
 
 	let msgTopicIdArray, msgTopicId, listTopicIdPromise, listTopicId, topicId;
+
 	if(hasTopic) {
 		msgTopicIdArray = await getMsgTopicIdPromise;
-		msgTopicId = msgTopicIdArray[0].topic_id;
+		if(msgTopicIdArray.length !== 0) {
+			msgTopicId = msgTopicIdArray[0].topic_id;
+		}
 
 		listTopicIdPromise = editTopic.listTopicId(username);
 		listTopicId = await listTopicIdPromise;
+		console.log(listTopicId);
+
 		topicId = listTopicId[listTopicId.length-1].id;
 	}
 	const getUserByIdPromise = editUser.getUserById(id);
@@ -222,6 +226,13 @@ router.post('/showTopics/all/:id', async (ctx) => {
 	await updateTopicMsgNumPromise;
 
 	ctx.body = data;
+});
+
+router.get('/pages/:id', async (ctx) => {
+	
+	const id = ctx.params.id;
+	console.log(id);
+	ctx.body = { msg: '成功'};
 });
 
 
