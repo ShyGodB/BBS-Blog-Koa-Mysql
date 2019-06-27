@@ -11,7 +11,7 @@ A bbs written by Koa and Mysql
    
 3. In order to solve the problem of project initialization no data, I provide a SQL script file, you can run the project first, and then connect to the mysql, create and select the BBS database, then running this script, it can be Add 1,9,270 pieces of data to table user, boards, and topic, each sub BBS contains 30 test data:
 There is a command to run the script:
-> Source 'your path' BBS + /BBS-by-Koa-Mysql/public/sql/init.sql
+> Source 'your computer path' + /BBS-by-Koa-Mysql/public/sql/init.sql
 
 ## Run the project
 
