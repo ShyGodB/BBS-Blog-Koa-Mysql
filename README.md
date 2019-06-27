@@ -3,13 +3,15 @@ A bbs written by Koa and Mysql
 
 ## The preparatory work 
 
-1. A database named BBS on **mysql**
+1. A database named BBS in **mysql**, table building will be done automatically when program initialization.
 
-2. Three tables named user, topic, child_BBS
-
-3. Change the following configuration according to your situation:
+2. Change the following configuration according to your situation:
 
    ![avator](https://github.com/ShyGodB/Pictures/blob/master/1.png?raw=true)
+   
+3. In order to solve the problem of project initialization no data, I provide a SQL script file, you can run the project first, and then connect to the mysql, create and select the BBS database, then running this script, it can be Add 1,9,270 pieces of data to table user, boards, and topic, each sub BBS contains 30 test data:
+There is a command to run the script:
+> Source 'your computer path' + /BBS-by-Koa-Mysql/public/sql/init.sql
 
 ## Run the project
 
@@ -25,7 +27,7 @@ Go to your project folder
 
 If everything is OK, you can see a BBS on your browser and the address is :
 
-> http://localhost:30000
+> http://localhost:3001
 
 
 
