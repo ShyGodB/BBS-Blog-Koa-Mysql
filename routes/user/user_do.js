@@ -71,6 +71,7 @@ router.get("/signIn", async(ctx) => {  //路由
 //获取用户在form表单中输入的数据，并将其与数据库中储存的信息进行对比以判断是否允许该用户登录
 router.post('/signIn', async(ctx) => {
 	const postData = ctx.request.body;
+	console.log(postData);
 	const email = postData.inputEmail;  //获取用户输入的邮箱地址
 	const password = postData.inputPassword;  //获取用户输入的密码
 	const data = [email, password];
@@ -95,7 +96,7 @@ router.post('/signIn', async(ctx) => {
 		const user = users[0];
 
 		ctx.session.user = user;
-		ctx.body = {msg: "登录成功"}
+		ctx.body = { msg: '登录成功'};
 	}
 });
 
@@ -111,16 +112,22 @@ router.get("/signOut", async (ctx) => { //路由
 router.get("/userHome", async (ctx) => {
 	const id = ctx.session.user.id;
 	const lastMsg = ctx.session.user.last_msg;
+	const username = ctx.session.user.username;
 
 	const getMsgTopicIdPromise = editMessage.getMsgTopicId(lastMsg);
-	const msgTopicIdArray = await getMsgTopicIdPromise;
-	const msgTopicId = msgTopicIdArray[0].topic_id;
 
-	const username = ctx.session.user.username;
-	const listTopicIdPromise = editTopic.listTopicId(username);
-	const listTopicId = await listTopicIdPromise;
-	const topicId = listTopicId[listTopicId.length-1].id;
+	const checkHasTopicPromise = editTopic.checkHasTopic(username);
+	const hasTopic = await checkHasTopicPromise;
 
+	let msgTopicIdArray, msgTopicId, listTopicIdPromise, listTopicId, topicId;
+	if(hasTopic) {
+		msgTopicIdArray = await getMsgTopicIdPromise;
+		msgTopicId = msgTopicIdArray[0].topic_id;
+
+		listTopicIdPromise = editTopic.listTopicId(username);
+		listTopicId = await listTopicIdPromise;
+		topicId = listTopicId[listTopicId.length-1].id;
+	}
 	const getUserByIdPromise = editUser.getUserById(id);
 	const userArray = await getUserByIdPromise;
 
@@ -155,7 +162,7 @@ router.post('/postTopic', async (ctx) => {
 	const boardArray = await getBoardPromise;
 	const boardName = boardArray[0].board_name;
 	const article = ctx.request.body.article;
-	// console.log(boardId);
+
 	const date = new Date();
 	const postTime = date.toLocaleString();
 	const data1 = [postTime, title, id];
@@ -172,6 +179,7 @@ router.post('/postTopic', async (ctx) => {
 	const topicImagePath = user.picpath;
 	const postMan = user.username;
 	const data = [title, boardId, article, topicImagePath, postMan, boardName];
+	console.log(data)
 	const addTopicPromise = editTopic.addTopic(data);
 	await addTopicPromise;
 	ctx.redirect('/');
@@ -187,7 +195,7 @@ router.post('/showTopics/all/:id', async (ctx) => {
 	const messagePicPath = user.picpath;
 	const data = [id, message, messagePeople, messagePicPath];
 
-
+	console.log(data)
 	const userId = user.id;
 	const date = new Date();
 	const msgTime = date.toLocaleString();
@@ -218,7 +226,3 @@ router.post('/showTopics/all/:id', async (ctx) => {
 
 
 module.exports = router;
-
-
-
-

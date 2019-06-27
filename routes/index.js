@@ -2,12 +2,24 @@ const KoaRouter = require('koa-router');
 const router = new KoaRouter();
 const editBoard = require('../lib/boards');
 const editTopic = require('../lib/topics');
+const init = require('../lib/init');
 
-//  请求主页
+
+// 请求主页
 router.get("/", async (ctx) => { //路由
+	const isTableUser = await init.checkTable();
+	if(!isTableUser) { // 值为true，就建表
+		await init.createTableUser();
+		await init.createTableBoard();
+		await init.createTableMessage();
+		await init.createTableTopic();
+	}
+
 	const user = ctx.session.user;
+
 	const allTopicPromise = editTopic.listAllTopic();
 	const allTopic = await allTopicPromise;
+
 	const listBoardPromise = editBoard.listBoardAll();
 	const listBoard = await listBoardPromise;
 
@@ -61,5 +73,5 @@ router.post("/allTopic/results", async (ctx) => {
 
 });
 
-module.exports = router;
 
+module.exports = router;

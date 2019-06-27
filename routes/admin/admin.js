@@ -24,6 +24,7 @@ router.get("/sjdfj2i348u2hafsabjkasjknashqioq2u@ijsdfaf8438478fhjvnvabjnk/admin"
 
 // 管理员登录
 router.post('/', async (ctx) => {
+	console.log(1111)
 	const username = ctx.request.body.adminName;
 	const password = ctx.request.body.adminPassword;
 	if (username === 'admin' && password === 'admin') {

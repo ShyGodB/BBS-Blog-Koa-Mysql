@@ -57,6 +57,6 @@ app.use(manageTopicRouter.routes()).use(manageTopicRouter.allowedMethods());
 
 
 //监听端口
-app.listen(3000, async() => {
-	console.log("Server is running at http://127.0.0.1:3000")
+app.listen(3001, async() => {
+	console.log("Server is running at http://127.0.0.1:3001")
 })

@@ -29,7 +29,6 @@ router.post('/admin/manageBoards', async (ctx) => {
 	});
 	if(existBoardArray.length === 0) {
 		await editBoard.addBoard(newBoardName);
-		console.log('创建子论坛成功');
 		ctx.redirect('/admin/manageBoards');
 	} else {
 		if(existBoardArray.indexOf(newBoardName) !== -1) {
@@ -75,4 +74,3 @@ router.post("/admin/manageBoards/:id", async (ctx) => {
 
 
 module.exports = router;
-

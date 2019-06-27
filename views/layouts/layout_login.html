@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">  
+<html lang="en">
 <head>
 
     <meta charset="UTF-8">
@@ -88,9 +88,8 @@
                 return response.json();
             })
             .then(function(myJson) {
-                console.log(myJson.msg);
                 if (myJson.msg === "登录成功") {
-                    window.location="http://localhost:3000";
+                    window.location="http://localhost:3001";
                 } else {
                     errorBox.style.display = "block";
                     document.getElementsByTagName("input")[0].value = "";
@@ -143,7 +142,7 @@
     }
 
 </script>
-    
+
 </body>
 
 </html>
