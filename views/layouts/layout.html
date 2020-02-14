@@ -37,6 +37,10 @@
             font-size: 16px;
             text-align: center;
         }
+
+        .pages-item-hidden {
+            display: none;
+        }
     </style>
 </head>
 
@@ -58,6 +62,16 @@
             <% include ../partials/footer_navbar.html %>
         </section>
     </footer>
+
+    <script>
+        const pages = document.getElementsByClassName('page-item');
+        const length = pages.length;
+        for(let i = 0; i < length; i++) {
+            pages[i].onclick = function() {
+                console.log(i)
+            }
+        }
+    </script>
 
 </body>
 

@@ -7,6 +7,7 @@ const init = require('../lib/init');
 
 // 请求主页
 router.get("/", async (ctx) => { //路由
+	// 判断数据库中是否含有 user 表
 	const isTableUser = await init.checkTable();
 	if(!isTableUser) { // 值为true，就建表
 		await init.createTableUser();
@@ -35,7 +36,10 @@ router.get("/", async (ctx) => { //路由
 	const listSimpleTopicPromise = editTopic.listSimpleTopic();
 	const listSimpleTopic = await listSimpleTopicPromise;
 
+	const number = await editTopic.getTopicNum(); // 获取帖子总数
+	const num = Math.floor(number[0]['count(id)'] / 8) + 1;
 	await ctx.render('index', {
+		num: num,
 		user: user,
 		listBoard: listBoard,
 		allTopic: allTopic,
