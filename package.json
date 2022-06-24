@@ -34,7 +34,7 @@
     "multer": "^1.4.1",
     "mysql": "^2.16.0",
     "mysql2": "^1.6.5",
-    "node-fetch": "^2.3.0",
+    "node-fetch": "^2.6.7",
     "popper.js": "^1.14.7",
     "whatwg-fetch": "^3.0.0"
   }
